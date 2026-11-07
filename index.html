@@ -138,6 +138,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .card ol,.card ul{margin:0;padding-left:1.2rem;display:grid;gap:8px}
 .card .note{font-size:.88rem;color:var(--muted)}
 .pay{display:grid;gap:14px}
+.rules{grid-column:1/-1}
+.rgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:760px){.rgrid{grid-template-columns:1fr}}
 .pay div{border-left:3px solid var(--gold);padding-left:14px}
 .pay b{display:block}
 
@@ -246,6 +249,8 @@ footer .credits a{color:inherit}
         <li class="t" data-en="2 bedrooms, living room, kitchen">2 унтлагын өрөө, зочны өрөө, гал тогоо</li>
         <li class="t" data-en="Pick-up & drop-off on request">Тосох, хүргэх үйлчилгээ захиалгаар</li>
         <li class="t" data-en="English-speaking guide available">Англи хэлтэй хөтөч</li>
+        <li class="t" data-en="Alcohol-free and smoke-free home">Архи, тамхигүй орчин</li>
+        <li class="t" data-en="Free cancellation up to 5 days before">5 хоногийн өмнө хүртэл үнэгүй цуцална</li>
       </ul>
       <a class="btn t" href="#book" data-en="Check dates">Өдрөө сонгох</a>
     </aside>
@@ -259,12 +264,12 @@ footer .credits a{color:inherit}
       <h2 class="t" data-en="Calm, safe and close to everything">Тайван, аюулгүй, бүх зүйлд ойрхон</h2>
     </div>
     <div class="whygrid">
-      <div class="item"><div class="ic">🛡</div><h3 class="t" data-en="Safe neighbourhood">Аюулгүй орчин</h3><p class="t" data-en="Right by the Zuunmod police station, in the Khugjil residential complex.">Зуунмодын цагдаагийн газартай ойрхон, Хөгжил хотхонд байрладаг.</p></div>
+      <div class="item"><div class="ic">🛡</div><h3 class="t" data-en="Safe neighbourhood">Аюулгүй орчин</h3><p class="t" data-en="Right by the Zuunmod police station, in the Khugjil complex above Ugooj store.">Зуунмодын цагдаагийн газартай ойрхон, Хөгжил хотхонд, Өгөөж дэлгүүрийн дээр байрладаг.</p></div>
       <div class="item"><div class="ic">🌲</div><h3 class="t" data-en="Fresh mountain air">Цэвэр агаар</h3><p class="t" data-en="Zuunmod sits beneath the pine forests of Bogd Khan, far from city smog.">Зуунмод Богд хан уулын нарсан ойн өвөрт, хотын утаанаас хол оршдог.</p></div>
       <div class="item"><div class="ic">🚗</div><h3 class="t" data-en="Pick-up & drop-off">Тосох, хүргэх</h3><p class="t" data-en="We meet you at Chinggis Khaan Airport or in Ulaanbaatar and drive you back.">Чингис хаан нисэх буудал эсвэл Улаанбаатараас тосож, буцааж хүргэнэ.</p></div>
       <div class="item"><div class="ic">✈️</div><h3 class="t" data-en="Close to the airport">Нисэх буудалд ойр</h3><p class="t" data-en="A short drive from the new international airport, ideal before or after a flight.">Шинэ олон улсын нисэх буудлаас ойрхон тул нислэгийн өмнө, дараа амрахад тохиромжтой.</p></div>
       <div class="item"><div class="ic">🧭</div><h3 class="t" data-en="Local English-speaking guide">Англи хэлтэй хөтөч</h3><p class="t" data-en="Three years of guiding international travellers around Töv Province.">Гадаад жуулчдыг 3 жил хөтөлсөн туршлагатай нутгийн хөтөч.</p></div>
-      <div class="item"><div class="ic">🛒</div><h3 class="t" data-en="Shop downstairs">Доор нь дэлгүүр</h3><p class="t" data-en="We are on the 3rd floor above Ugooj store, so groceries are steps away.">Өгөөж дэлгүүрийн 3 давхарт байрладаг тул хүнсээ шууд авна.</p></div>
+      <div class="item"><div class="ic">🚭</div><h3 class="t" data-en="Alcohol-free, smoke-free">Архи, тамхигүй орчин</h3><p class="t" data-en="A clean, quiet home for families. No alcohol and no smoking anywhere in the apartment.">Гэр бүлд ээлтэй цэвэр, тайван орчин. Байранд архи уух, тамхи татахыг хориглоно.</p></div>
     </div>
   </div>
 </section>
@@ -304,7 +309,7 @@ footer .credits a{color:inherit}
   <div class="wrap">
     <div class="head">
       <div class="eyebrow t" data-en="Good to know">Мэдэх зүйлс</div>
-      <h2 class="t" data-en="Transfers and payment">Тосох үйлчилгээ ба төлбөр</h2>
+      <h2 class="t" data-en="Transfers, payment and house rules">Тосох үйлчилгээ, төлбөр, дүрэм</h2>
     </div>
     <div class="info">
       <div class="card">
@@ -323,6 +328,22 @@ footer .credits a{color:inherit}
           <div><b class="t" data-en="International guests">Гадаад зочид</b><span class="t" data-en="Pay a one-night deposit ($50) online. We email you a secure payment link after confirming. The balance is paid on arrival in cash (USD or MNT).">Нэг шөнийн урьдчилгаа ($50)-г онлайнаар төлнө. Баталгаажуулсны дараа аюулгүй төлбөрийн линк имэйлээр илгээнэ. Үлдэгдлийг ирэхдээ бэлнээр (USD эсвэл ₮) төлнө.</span></div>
         </div>
         <p class="note t" data-en="Your booking is confirmed once the deposit arrives.">Урьдчилгаа орсны дараа захиалга баталгаажна.</p>
+      </div>
+      <div class="card rules">
+        <h3 class="t" data-en="Cancellation & house rules">📋 Цуцлалт ба байрны дүрэм</h3>
+        <div class="rgrid">
+          <ul>
+            <li class="t" data-en="Free cancellation up to 5 days before arrival: the deposit is refunded in full.">Ирэхээс 5 хоногийн өмнө хүртэл үнэгүй цуцална, урьдчилгааг бүрэн буцаана.</li>
+            <li class="t" data-en="Cancelling within 5 days, or not arriving: the one-night deposit ($50) is not refunded.">5 хоногоос бага хугацаанд цуцлах эсвэл ирээгүй тохиолдолд нэг шөнийн урьдчилгаа ($50) буцаагдахгүй.</li>
+            <li class="t" data-en="Leaving early: unused nights after the first are refunded.">Эрт гарвал эхний шөнөөс бусад ашиглаагүй шөнийн төлбөрийг буцаана.</li>
+          </ul>
+          <ul>
+            <li class="t" data-en="No alcohol in the apartment">Байранд архи хэрэглэхийг хориглоно</li>
+            <li class="t" data-en="No smoking, including e-cigarettes">Тамхи, цахим тамхи татахыг хориглоно</li>
+            <li class="t" data-en="Maximum 5 guests">Хамгийн ихдээ 5 хүн</li>
+            <li class="t" data-en="Please keep it quiet for the neighbours at night">Орой хөршүүддээ саад болохгүй байх</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -377,6 +398,7 @@ footer .credits a{color:inherit}
       <div class="f full"><label for="f-note" class="t" data-en="Anything else?">Нэмэлт хүсэлт</label><textarea id="f-note" rows="2"></textarea></div>
       <input type="text" id="f-company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
       <div class="total"><span id="tot-label"></span><b id="tot">$50</b></div>
+      <p class="t" style="grid-column:1/-1;margin:0;font-size:.85rem;color:var(--muted)" data-en="By booking you agree to our alcohol-free, smoke-free house rules and the cancellation policy.">Захиалга өгснөөр архи, тамхигүй байрны дүрэм болон цуцлалтын нөхцөлийг зөвшөөрсөнд тооцно.</p>
       <div class="err" id="err" hidden></div>
       <button class="btn t" type="submit" id="sendBtn" data-en="Send booking request">Захиалга илгээх</button>
       <div class="done" id="done" hidden><strong id="doneHead"></strong><pre id="sumText"></pre><button type="button" class="btn ghost t" id="copyBtn" data-en="Copy" hidden>Хуулах</button></div>
