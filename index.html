@@ -250,9 +250,10 @@ footer{padding-block:28px;border-top:1px solid var(--line);color:var(--muted);fo
       <div class="sec-head" style="margin-bottom:6px">
         <div class="eyebrow"><span data-mn>Захиалга</span><span data-en hidden>Booking</span></div>
         <h2><span data-mn>Захиалгын хүсэлт</span><span data-en hidden>Request your stay</span></h2>
-        <p><span data-mn>Хүсэлтээ бөглөөд гарсан мэдээллийг хуулж утсаар эсвэл мессежээр илгээгээрэй. Бид удахгүй холбогдож баталгаажуулна.</span><span data-en hidden>Fill in the form, copy the summary and send it to us by phone or message. We'll get back to you to confirm.</span></p>
+        <p><span data-mn>Хүсэлтээ бөглөөд илгээгээрэй. Бид утсаар холбогдож захиалгыг тань баталгаажуулна.</span><span data-en hidden>Send us your request and we'll call or message you to confirm.</span></p>
       </div>
       <div class="row"><span class="eyebrow"><span data-mn>Утас</span><span data-en hidden>Phone</span></span><span class="val">+976 9901 2835</span></div>
+      <div class="row"><span class="eyebrow">Email</span><span class="val" style="font-size:1rem">sendenguesthouse@gmail.com</span></div>
       <div class="row"><span class="eyebrow"><span data-mn>Хаяг</span><span data-en hidden>Address</span></span><span style="font-weight:600"><span data-mn>Зуунмод, Хөгжил хотхон, Өгөөж дэлгүүрийн 3 давхар</span><span data-en hidden>Khugjil complex, above Ugooj store (3F), Zuunmod</span></span></div>
     </div>
 
@@ -269,10 +270,12 @@ footer{padding-block:28px;border-top:1px solid var(--line);color:var(--muted);fo
         <div class="field"><label for="f-tour-date"><span data-mn>Аяллын өдөр</span><span data-en hidden>Tour date</span></label><input type="date" id="f-tour-date"></div>
       </div>
       <div class="field full"><label for="f-note"><span data-mn>Нэмэлт хүсэлт</span><span data-en hidden>Notes</span></label><textarea id="f-note" rows="2"></textarea></div>
+      <input type="text" id="f-company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
       <div class="est" id="est"></div>
       <div class="err" id="err" hidden></div>
-      <button class="cta" type="submit"><span data-mn>Хүсэлт бэлдэх</span><span data-en hidden>Prepare request</span></button>
+      <button class="cta" type="submit"><span data-mn>Захиалга илгээх</span><span data-en hidden>Send request</span></button>
       <div class="summary" id="summary" hidden>
+        <strong id="sumHead"></strong>
         <pre id="sumText"></pre>
         <button type="button" class="cta" id="copyBtn" style="padding:9px 16px"><span data-mn>Хуулах</span><span data-en hidden>Copy</span></button>
       </div>
@@ -284,6 +287,8 @@ footer{padding-block:28px;border-top:1px solid var(--line);color:var(--muted);fo
 <footer><div class="wrap">© 2026 Senden Guest House · Zuunmod, Töv, Mongolia · +976 9901 2835</div></footer>
 
 <script>
+// Google Apps Script вэб апп-ын URL. Хоосон бол захиалгыг хуулж илгээх горимоор ажиллана.
+const BOOKING_URL="";
 const ROOMS=[
   {id:"r2",mn:"2 хүний өрөө",en:"Double room",dmn:"2 хүний ортой тусдаа унтлагын өрөө. Гал тогоо, зочны өрөөг дундаа ашиглана.",den:"Private bedroom with a double bed. Shared kitchen and living room.",cap:2,price:80000},
   {id:"r3",mn:"3 хүний өрөө",en:"Triple room",dmn:"3 хүний ортой тусдаа унтлагын өрөө. Гал тогоо, зочны өрөөг дундаа ашиглана.",den:"Private bedroom sleeping three. Shared kitchen and living room.",cap:3,price:100000},
@@ -358,7 +363,16 @@ $("bookForm").addEventListener("submit",e=>{
   ];
   if(tourOn)lines.push(`${T("Хөтөчтэй аялал","Guided tour")}: ${tour[lang]}, ${v("f-tour-date")||"-"}`);
   if(v("f-note"))lines.push(`${T("Тэмдэглэл","Notes")}: ${v("f-note")}`);
-  $("sumText").textContent=lines.join("\n");$("summary").hidden=false;
+  const text=lines.join("\n");
+  $("sumText").textContent=text;
+  const showCopy=()=>{$("sumHead").textContent=T("Доорх мэдээллийг хуулж 9901 2835 руу мессежээр илгээнэ үү.","Copy this and send it to +976 9901 2835.");$("copyBtn").hidden=false;$("summary").hidden=false};
+  if(!BOOKING_URL||v("f-company")){showCopy();return}
+  const btn=e.submitter||$("bookForm").querySelector('button[type=submit]');btn.disabled=true;
+  const data={name:v("f-name"),phone:v("f-phone"),room:r.mn,checkin:v("f-in"),checkout:v("f-out"),nights:n,guests:v("f-guests"),total:n*r.price,tour:tourOn?tour.mn:"",tourDate:tourOn?v("f-tour-date"):"",note:v("f-note"),lang};
+  fetch(BOOKING_URL,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)})
+    .then(()=>{$("sumHead").textContent=T("Захиалга илгээгдлээ. Бид удахгүй холбогдоно.","Request sent. We'll contact you soon.");$("copyBtn").hidden=true;$("summary").hidden=false;$("bookForm").querySelectorAll("#f-name,#f-phone,#f-note").forEach(x=>x.value="")})
+    .catch(showCopy)
+    .finally(()=>{btn.disabled=false});
 });
 $("copyBtn").addEventListener("click",()=>{
   navigator.clipboard.writeText($("sumText").textContent).then(()=>{$("copyBtn").textContent=T("Хуулагдлаа","Copied")})
