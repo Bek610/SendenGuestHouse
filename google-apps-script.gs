@@ -23,7 +23,7 @@ function doPost(e) {
 
     const sheet = getSheet_();
     const row = [
-      new Date(), 'Шинэ', d.name, d.phone, d.room, d.checkin, d.checkout, d.nights,
+      new Date(), 'Шинэ', d.name, "'" + d.phone, d.room, d.checkin, d.checkout, d.nights,
       d.guests, d.total, d.tour, d.tourDate, d.note, d.lang
     ].map(clean_);
     sheet.appendRow(row);
