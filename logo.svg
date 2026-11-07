@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 160" role="img" aria-label="Senden Guest House">
+  <!-- Mark: Bogd Khan ridge whose central peak frames a ger door, sun above -->
+  <g transform="translate(10,10)">
+    <rect x="0" y="0" width="140" height="140" rx="32" fill="#1C3D6E"/>
+    <circle cx="70" cy="40" r="11" fill="#C98A1B"/>
+    <path d="M14 112 L46 66 L58 80 L70 58 L82 80 L94 66 L126 112 Z" fill="#F6F4EF"/>
+    <path d="M58 112 V92 Q70 80 82 92 V112 Z" fill="#C98A1B"/>
+    <path d="M70 86 V112" stroke="#1C3D6E" stroke-width="3"/>
+  </g>
+  <text x="175" y="88" font-family="Prata, Georgia, 'Times New Roman', serif" font-size="58" fill="#1C3D6E" letter-spacing="2">Senden</text>
+  <text x="178" y="122" font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-size="17" font-weight="700" fill="#C98A1B" letter-spacing="5">GUEST HOUSE · ZUUNMOD</text>
+</svg>

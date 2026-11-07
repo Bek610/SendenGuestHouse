@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" role="img" aria-label="Senden Guest House">
+  <rect width="140" height="140" rx="32" fill="#1C3D6E"/>
+  <circle cx="70" cy="40" r="11" fill="#C98A1B"/>
+  <path d="M14 112 L46 66 L58 80 L70 58 L82 80 L94 66 L126 112 Z" fill="#F6F4EF"/>
+  <path d="M58 112 V92 Q70 80 82 92 V112 Z" fill="#C98A1B"/>
+  <path d="M70 86 V112" stroke="#1C3D6E" stroke-width="3"/>
+</svg>
