@@ -143,6 +143,9 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:760px){.rgrid{grid-template-columns:1fr}}
 .pay div{border-left:3px solid var(--gold);padding-left:14px}
 .pay b{display:block}
+.ota{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.ota a{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;border:1.5px solid var(--blue);color:var(--blue);font-weight:800;text-decoration:none;font-size:.9rem}
+.ota a:hover{background:var(--blue-soft)}
 
 /* location */
 .loc{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
@@ -325,16 +328,17 @@ footer .credits a{color:inherit}
         <h3 class="t" data-en="Payment">💳 Төлбөр</h3>
         <div class="pay">
           <div><b class="t" data-en="Guests from Mongolia">Монгол зочид</b><span class="t" data-en="Pay a deposit by bank transfer. We send the account details when we confirm.">Урьдчилгааг дансаар шилжүүлнэ. Дансны мэдээллийг баталгаажуулахдаа илгээнэ.</span></div>
-          <div><b class="t" data-en="International guests">Гадаад зочид</b><span class="t" data-en="Pay a one-night deposit ($50) online. We email you a secure payment link after confirming. The balance is paid on arrival in cash (USD or MNT).">Нэг шөнийн урьдчилгаа ($50)-г онлайнаар төлнө. Баталгаажуулсны дараа аюулгүй төлбөрийн линк имэйлээр илгээнэ. Үлдэгдлийг ирэхдээ бэлнээр (USD эсвэл ₮) төлнө.</span></div>
+          <div><b class="t" data-en="International guests">Гадаад зочид</b><span class="t" data-en="Send your request and we'll confirm by email within 24 hours. Pay on arrival in cash (USD or MNT). Prefer to pay by card? Book through Booking.com or Trip.com.">Захиалгаа илгээвэл бид 24 цагийн дотор имэйлээр баталгаажуулна. Төлбөрийг ирэхдээ бэлнээр (USD эсвэл ₮) төлнө. Картаар төлөх бол Booking.com эсвэл Trip.com-оор захиална уу.</span></div>
+          <div class="ota" id="otaPay" hidden></div>
         </div>
-        <p class="note t" data-en="Your booking is confirmed once the deposit arrives.">Урьдчилгаа орсны дараа захиалга баталгаажна.</p>
+        <p class="note t" data-en="Mongolian guests: the booking is confirmed once the deposit arrives. International guests: we reconfirm with you 2 days before arrival.">Монгол зочид: урьдчилгаа орсны дараа захиалга баталгаажна. Гадаад зочид: ирэхээс 2 хоногийн өмнө дахин баталгаажуулна.</p>
       </div>
       <div class="card rules">
         <h3 class="t" data-en="Cancellation & house rules">📋 Цуцлалт ба байрны дүрэм</h3>
         <div class="rgrid">
           <ul>
-            <li class="t" data-en="Free cancellation up to 5 days before arrival: the deposit is refunded in full.">Ирэхээс 5 хоногийн өмнө хүртэл үнэгүй цуцална, урьдчилгааг бүрэн буцаана.</li>
-            <li class="t" data-en="Cancelling within 5 days, or not arriving: the one-night deposit ($50) is not refunded.">5 хоногоос бага хугацаанд цуцлах эсвэл ирээгүй тохиолдолд нэг шөнийн урьдчилгаа ($50) буцаагдахгүй.</li>
+            <li class="t" data-en="Free cancellation up to 5 days before arrival: any deposit is refunded in full.">Ирэхээс 5 хоногийн өмнө хүртэл үнэгүй цуцална, урьдчилгааг бүрэн буцаана.</li>
+            <li class="t" data-en="Cancelling within 5 days, or not arriving: the one-night deposit ($50) is not refunded. Bookings made on Booking.com or Trip.com follow the same policy there.">5 хоногоос бага хугацаанд цуцлах эсвэл ирээгүй тохиолдолд нэг шөнийн урьдчилгаа ($50) буцаагдахгүй. Booking.com, Trip.com-оор хийсэн захиалгад ч ижил нөхцөл үйлчилнэ.</li>
             <li class="t" data-en="Leaving early: unused nights after the first are refunded.">Эрт гарвал эхний шөнөөс бусад ашиглаагүй шөнийн төлбөрийг буцаана.</li>
           </ul>
           <ul>
@@ -376,6 +380,7 @@ footer .credits a{color:inherit}
       </div>
       <div class="row"><span class="eyebrow t" data-en="Phone">Утас</span><span class="val">+976 9901 2835</span></div>
       <div class="row"><span class="eyebrow">Email</span><span class="val" style="font-size:1.05rem">sendenguesthouse@gmail.com</span></div>
+      <div class="row" id="otaBox" hidden><span class="eyebrow t" data-en="Prefer to pay by card?">Картаар төлөх үү?</span><div class="ota" id="otaBook"></div></div>
     </div>
 
     <form id="bookForm" novalidate>
@@ -427,6 +432,8 @@ footer .credits a{color:inherit}
 // Google Apps Script вэб апп-ын URL. Хоосон бол захиалгыг хуулж илгээх горимоор ажиллана.
 const BOOKING_URL="https://script.google.com/macros/s/AKfycbxHxvSDqSDjPcN2o7Zcdz3CqqFRr75ZC1I3EhUKZdZvzUN2H3Ba3wirce4nAGY-o37r/exec";
 const PRICE_USD=50, PRICE_MNT=180000;
+// Booking.com, Trip.com дээрх хуудасны линк. Хоосон бол товч харагдахгүй.
+const OTA=[{name:"Booking.com",url:""},{name:"Trip.com",url:""}];
 const TOURS=[
   {id:"manz",mn:"Манзушир хийд, нарсан ой",en:"Manzushir Monastery & pine forest",dmn:"Хийдийн туурь, музей үзэж, ойгоор алхана.",den:"Monastery ruins, museum and a forest walk.",dur:["Хагас өдөр","Half day"]},
   {id:"bogd",mn:"Богд хан уулын явган аялал",en:"Bogd Khan mountain hike",dmn:"Ариун уулын үзэсгэлэнт замаар алхана.",den:"A scenic trail on the sacred mountain.",dur:["Бүтэн өдөр","Full day"]},
@@ -502,6 +509,9 @@ $("copyBtn").addEventListener("click",()=>{
   navigator.clipboard.writeText($("sumText").textContent).then(()=>{$("copyBtn").textContent=T("Хуулагдлаа","Copied")})
   .catch(()=>{const r=document.createRange();r.selectNodeContents($("sumText"));const s=getSelection();s.removeAllRanges();s.addRange(r)});
 });
+(function(){const live=OTA.filter(o=>o.url);if(!live.length)return;
+  const html=live.map(o=>`<a href="${o.url}" target="_blank" rel="noopener">${o.name} →</a>`).join("");
+  ["otaPay","otaBook"].forEach(id=>{$(id).innerHTML=html;$(id).hidden=false});$("otaBox").hidden=false;})();
 let saved="mn";try{saved=localStorage.getItem("sgh-lang")||"mn"}catch(e){}
 setLang(saved);
 </script>
