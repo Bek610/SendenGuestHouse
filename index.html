@@ -7,8 +7,9 @@
 <meta name="description" content="Senden Guest House – Зуунмод, Төв аймаг. 5 хүртэлх хүнд бүтэн байр шөнөдөө $50. Тосох, хүргэх үйлчилгээ, англи хэлтэй хөтөчтэй аялал. Whole apartment for up to 5 guests in Zuunmod near Ulaanbaatar, $50/night.">
 <meta property="og:title" content="Senden Guest House · Zuunmod">
 <meta property="og:description" content="Богд хан уулын өвөрт, 5 хүртэлх хүнд бүтэн байр $50/шөнө. Утас: 9901 2835">
-<meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:FilePath/Bogd_Khan_Mountain.jpg?width=1200">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c3d6e'/%3E%3Cpath d='M10 46 L26 24 L34 34 L42 22 L54 46Z' fill='%23e9b44c'/%3E%3C/svg%3E">
+<meta property="og:image" content="https://sendenguesthouse.vercel.app/og-image.jpg">
+<link rel="icon" type="image/png" href="/favicon.png">
+<link rel="apple-touch-icon" href="/logo-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;600;700;800&display=swap">
 <style>
@@ -56,7 +57,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px}
 .brand{font-family:var(--display);font-size:1.25rem;color:var(--fg);text-decoration:none;white-space:nowrap}
+.brand{display:inline-flex;align-items:center;gap:10px}
+.brand img{width:44px;height:44px;border-radius:50%}
 .brand b{color:var(--gold);font-weight:400}
+@media (max-width:420px){.brand b{display:none}}
 .links{display:flex;align-items:center;gap:20px}
 .links a{color:var(--fg);text-decoration:none;font-weight:700;font-size:.9rem}
 .links .btn{padding:9px 18px;font-size:.88rem}
@@ -190,7 +194,7 @@ footer .credits a{color:inherit}
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top">Senden <b>Guest House</b></a>
+    <a class="brand" href="#top"><img src="/logo-180.png" alt="" width="44" height="44">Senden <b>Guest House</b></a>
     <nav class="links">
       <a href="#apartment" class="t" data-en="The home">Байр</a>
       <a href="#discover" class="t" data-en="Discover">Аялах газрууд</a>
@@ -414,6 +418,7 @@ footer .credits a{color:inherit}
 
 <footer>
   <div class="wrap">
+    <img src="/logo-180.png" alt="Senden Guest House" width="90" height="90" loading="lazy">
     <div>© 2026 Senden Guest House · Zuunmod, Töv, Mongolia · +976 9901 2835 · sendenguesthouse@gmail.com</div>
     <div class="credits"><span class="t" data-en="Photos (Wikimedia Commons):">Зургууд (Wikimedia Commons):</span>
       <a href="https://commons.wikimedia.org/wiki/File:Bogd_Khan_Mountain.jpg" target="_blank" rel="noopener">Bogd Khan Mountain</a> – Chongkian, CC BY-SA 4.0 ·
