@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Senden Guest House – Зуунмод, Төв аймаг. Богд хан уулын өвөрт тухтай байр, англи хэлтэй хөтөчтэй аялал. Guest house in Zuunmod near Ulaanbaatar.">
+<meta property="og:title" content="Senden Guest House · Zuunmod">
+<meta property="og:description" content="Богд хан уулын өвөрт тухтай байр, хөтөчтэй аялал. Утас: 9901 2835">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Senden Guest House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;600;700&display=swap">
+<style>
+/* Layout: sunset-painted hero over the Bogd Khan ridge → rooms → home amenities → guided tours → location → booking; content capped at 1080px */
+:root{
+  --bg:#f4f6f2; --surface:#ffffff; --fg:#1b2a23; --muted:#56685f;
+  --pine:#1d5a42; --sky:#2a6ea3; --ochre:#d08a1e; --line:#d8e0da;
+  --sky-top:#3d7fc4; --sky-mid:#f2a65a; --sky-low:#ffd98a; --sun:#fff1c2;
+  --r1:#b05a7a; --r2:#6a4f8f; --r3:#2f6b5a; --r4:#1d4a3a; --tree:#123326;
+  --on-pine:#f4f6f2; --hero-ink:#ffffff;
+  --display:"Unbounded","Arial Black",system-ui,sans-serif;
+  --body:"Manrope","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#101715; --surface:#17211d; --fg:#e6ece8; --muted:#9db0a6;
+  --pine:#7fcaa6; --sky:#7ab6de; --ochre:#f0b04a; --line:#29372f;
+  --sky-top:#1b2f5c; --sky-mid:#a24f6a; --sky-low:#f08a4b; --sun:#ffd28a;
+  --r1:#6a3a5c; --r2:#3e2f5c; --r3:#1f3f37; --r4:#142c24; --tree:#0b1a14;
+  --on-pine:#0f1714; --hero-ink:#ffffff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101715; --surface:#17211d; --fg:#e6ece8; --muted:#9db0a6;
+  --pine:#7fcaa6; --sky:#7ab6de; --ochre:#f0b04a; --line:#29372f;
+  --sky-top:#1b2f5c; --sky-mid:#a24f6a; --sky-low:#f08a4b; --sun:#ffd28a;
+  --r1:#6a3a5c; --r2:#3e2f5c; --r3:#1f3f37; --r4:#142c24; --tree:#0b1a14;
+  --on-pine:#0f1714; --hero-ink:#ffffff; color-scheme:dark}
+
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.15;margin:0}
+h2{font-size:clamp(1.4rem,3.5vw,2rem);font-weight:700}
+h3{font-size:1.05rem;font-weight:500}
+p{margin:0}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700}
+a{color:var(--sky)}
+button,input,select,textarea{font:inherit}
+:focus-visible{outline:2px solid var(--ochre);outline-offset:2px}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
+.brand{font-family:var(--display);font-weight:700;font-size:1rem;color:var(--pine);text-decoration:none;white-space:nowrap}
+.nav-links{display:flex;gap:18px;align-items:center}
+.nav-links a{color:var(--fg);text-decoration:none;font-weight:600;font-size:.9rem}
+.lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{background:none;border:0;padding:4px 10px;cursor:pointer;color:var(--muted);font-weight:700;font-size:.8rem}
+.lang button[aria-pressed="true"]{background:var(--pine);color:var(--on-pine)}
+@media (max-width:700px){.nav-links a{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--sky-top) 0%,var(--sky-mid) 58%,var(--sky-low) 82%);color:var(--hero-ink)}
+.hero .wrap{padding-block:64px 0;position:relative;z-index:2;display:grid;gap:18px}
+.hero .eyebrow{color:var(--hero-ink);opacity:.9}
+.hero h1{font-size:clamp(2rem,6vw,3.6rem);max-width:15ch;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+.hero p.lead{max-width:52ch;font-size:1.1rem;text-shadow:0 1px 10px rgba(0,0,0,.25)}
+.facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.fact{background:rgba(255,255,255,.18);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.4);border-radius:999px;padding:6px 14px;font-size:.88rem;font-weight:600;color:var(--hero-ink)}
+.fact b{font-family:var(--display);font-weight:500;margin-right:4px}
+.cta{display:inline-block;background:var(--pine);color:var(--on-pine);padding:13px 22px;border-radius:10px;font-weight:700;text-decoration:none;border:0;cursor:pointer;justify-self:start}
+.cta:hover{filter:brightness(1.1)}
+.hero .cta{background:#ffffff;color:#1d5a42}
+.ridge{display:block;width:100%;height:auto;margin-top:12px}
+
+section{padding-block:64px}
+.sec-head{display:grid;gap:8px;margin-bottom:28px;max-width:60ch}
+
+/* rooms */
+.rooms{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.room{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.room .pic{aspect-ratio:16/10;max-width:100%;display:grid;place-items:center;color:var(--muted);font-size:.85rem;background:repeating-linear-gradient(45deg,var(--bg) 0 10px,var(--surface) 10px 20px);border-bottom:1px solid var(--line)}
+.room .body{padding:18px;display:grid;gap:8px;flex:1;align-content:start}
+.room .meta{color:var(--muted);font-size:.92rem}
+.price{font-family:var(--display);font-size:1.25rem;color:var(--pine);font-variant-numeric:tabular-nums}
+.price small{font-family:var(--body);font-size:.8rem;color:var(--muted)}
+.tag{justify-self:start;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ochre);border:1px solid var(--ochre);border-radius:6px;padding:2px 8px}
+
+/* amenities */
+.amen{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border-top:1px solid var(--line)}
+.amen div{padding:16px 0;border-bottom:1px solid var(--line);display:grid;gap:2px;padding-right:16px}
+.amen b{font-family:var(--display);font-weight:500;color:var(--pine);font-size:1.4rem;font-variant-numeric:tabular-nums}
+
+/* tours */
+.tours-band{background:var(--surface);border-block:1px solid var(--line)}
+.grid2{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.guide{display:grid;gap:12px}
+.guide .badge{display:flex;flex-wrap:wrap;gap:8px}
+.guide .badge span{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:.9rem;font-weight:600}
+.tourlist{list-style:none;margin:0;padding:0}
+.tourlist li{display:grid;grid-template-columns:6rem 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.tourlist li:last-child{border-bottom:0}
+.dur{font-family:var(--display);color:var(--sky);font-size:.9rem}
+.tourlist strong{display:block}
+.tourlist .d{color:var(--muted);font-size:.92rem}
+
+/* location */
+.loc{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+@media (max-width:760px){.loc{grid-template-columns:1fr}}
+.addr{font-family:var(--display);font-size:1.15rem;font-weight:500;line-height:1.4}
+.near{list-style:none;margin:0;padding:0}
+.near li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.near li span:last-child{color:var(--sky);font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700}
+
+/* booking */
+.bookband{background:var(--surface);border-top:1px solid var(--line)}
+.book{display:grid;grid-template-columns:1fr 1.3fr;gap:40px}
+@media (max-width:760px){.book{grid-template-columns:1fr}}
+form{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px;display:grid;gap:14px;grid-template-columns:1fr 1fr}
+.field{display:grid;gap:4px;min-width:0}
+.field.full{grid-column:1/-1}
+label{font-size:.85rem;font-weight:700}
+input,select,textarea{width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg)}
+.check{grid-column:1/-1;display:flex;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px}
+.check input{width:auto;accent-color:var(--pine)}
+.tourbox{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:480px){form,.tourbox{grid-template-columns:1fr}}
+.err{color:#c0392b;font-size:.85rem;grid-column:1/-1}
+.summary{grid-column:1/-1;background:var(--surface);border:1px dashed var(--pine);border-radius:10px;padding:14px;display:grid;gap:10px}
+.summary pre{margin:0;white-space:pre-wrap;font-family:var(--body);font-size:.92rem}
+.contact{display:grid;gap:14px;align-content:start}
+.contact .row{display:grid;gap:2px}
+.contact .val{font-family:var(--display);font-size:1.15rem;font-weight:500;user-select:all}
+.est{font-variant-numeric:tabular-nums;color:var(--muted);font-size:.9rem;grid-column:1/-1}
+
+footer{padding-block:28px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem}
+.note{background:var(--ochre);color:#1b2a23;font-size:.82rem;font-weight:600;text-align:center;padding-block:6px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (prefers-reduced-motion:no-preference){.cta{transition:filter .15s}.sun{animation:rise 2.4s ease-out both}@keyframes rise{from{transform:translateY(14px)}to{transform:none}}}
+</style>
+</head>
+<body>
+
+
+<div class="note"><span data-mn>Туршилтын хувилбар: үнэ санал болгож буй жишээ, зураг удахгүй нэмэгдэнэ</span><span data-en hidden>Preview version: prices are suggested estimates, photos coming soon</span></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Senden Guest House</a>
+    <nav class="nav-links">
+      <a href="#rooms"><span data-mn>Өрөөнүүд</span><span data-en hidden>Rooms</span></a>
+      <a href="#tours"><span data-mn>Аялал</span><span data-en hidden>Tours</span></a>
+      <a href="#place"><span data-mn>Байршил</span><span data-en hidden>Location</span></a>
+      <a href="#book"><span data-mn>Захиалах</span><span data-en hidden>Book</span></a>
+      <div class="lang" role="group" aria-label="Language">
+        <button id="btn-mn" aria-pressed="true">MN</button>
+        <button id="btn-en" aria-pressed="false">EN</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero" style="padding-block:0">
+  <div class="wrap">
+    <div class="eyebrow"><span data-mn>Төв аймаг · Зуунмод</span><span data-en hidden>Töv Province · Zuunmod</span></div>
+    <h1><span data-mn>Богд хан уулын өвөрт амраарай</span><span data-en hidden>Stay at the foot of Bogd Khan Mountain</span></h1>
+    <p class="lead"><span data-mn>Улаанбаатараас ойрхон, цэвэр агаартай Зуунмодод гэр бүл, найз нөхөдтэйгөө тухтай амраарай. Шинээр засварласан, бүрэн тавилгатай байр, англиар ярьдаг хөтөчтэй аялал.</span><span data-en hidden>Close to Ulaanbaatar, in fresh-air Zuunmod: a newly renovated, fully furnished home for families and friends, with tours led by an English-speaking guide.</span></p>
+    <div class="facts">
+      <div class="fact"><b>~45</b><span data-mn>км Улаанбаатараас</span><span data-en hidden>km from Ulaanbaatar</span></div>
+      <div class="fact"><span data-mn>Цэвэр агаар · нарсан ой</span><span data-en hidden>Fresh air · pine forest</span></div>
+      <div class="fact"><span data-mn>Хөтөчтэй аялал</span><span data-en hidden>Guided tours</span></div>
+    </div>
+    <a class="cta" href="#book"><span data-mn>Өрөө захиалах</span><span data-en hidden>Book a room</span></a>
+  </div>
+  <svg class="ridge" viewBox="0 0 1200 260" preserveAspectRatio="none" aria-hidden="true">
+    <circle class="sun" cx="900" cy="95" r="46" fill="var(--sun)"/>
+    <circle cx="900" cy="95" r="80" fill="var(--sun)" opacity=".25"/>
+    <path fill="var(--r1)" d="M0 150 L110 100 L200 125 L320 62 L420 108 L560 38 L690 104 L800 72 L910 118 L1030 66 L1200 112 L1200 260 L0 260Z"/>
+    <path fill="var(--r2)" d="M0 175 L95 140 L190 162 L300 118 L420 150 L520 122 L640 158 L760 128 L880 162 L990 132 L1100 152 L1200 138 L1200 260 L0 260Z"/>
+    <path fill="var(--r3)" d="M0 205 L120 182 L260 198 L400 176 L560 196 L700 180 L860 200 L1020 184 L1200 196 L1200 260 L0 260Z"/>
+    <path fill="var(--r4)" d="M0 230 L1200 222 L1200 260 L0 260Z"/>
+    <g fill="var(--tree)">
+      <path d="M60 232 l12 -44 l12 44Z M92 232 l9 -32 l9 32Z M118 231 l11 -40 l11 40Z M300 230 l9 -30 l9 30Z M330 230 l12 -42 l12 42Z M760 226 l12 -46 l12 46Z M792 226 l9 -32 l9 32Z M1010 225 l11 -40 l11 40Z M1040 225 l13 -48 l13 48Z M1076 224 l9 -30 l9 30Z"/>
+    </g>
+  </svg>
+</section>
+
+<section id="rooms">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow"><span data-mn>Өрөөнүүд</span><span data-en hidden>Rooms</span></div>
+      <h2><span data-mn>Өрөөгөө эсвэл бүтэн байраа сонгоорой</span><span data-en hidden>Book a room or the whole home</span></h2>
+    </div>
+    <div class="rooms" id="room-list"></div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow"><span data-mn>Байрны тохижилт</span><span data-en hidden>The home</span></div>
+      <h2><span data-mn>Гэр шиг тухтай</span><span data-en hidden>Comfortable as home</span></h2>
+    </div>
+    <div class="amen">
+      <div><b>2</b><span data-mn>Тусдаа унтлагын өрөө</span><span data-en hidden>Separate bedrooms</span></div>
+      <div><b>6</b><span data-mn>Хүний ширээтэй том гал тогоо</span><span data-en hidden>Large kitchen, table for six</span></div>
+      <div><b>1</b><span data-mn>Том зочны өрөө</span><span data-en hidden>Spacious living room</span></div>
+      <div><b>2</b><span data-mn>Ариун цэврийн өрөө, шүршүүр</span><span data-en hidden>Toilets with showers</span></div>
+      <div><b>✓</b><span data-mn>Угаалгын машин</span><span data-en hidden>Washing machine</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="tours" class="tours-band">
+  <div class="wrap grid2">
+    <div class="guide">
+      <div class="eyebrow"><span data-mn>Хөтөчтэй аялал</span><span data-en hidden>Guided tours</span></div>
+      <h2><span data-mn>Зуунмодыг хөтөчтэй танина</span><span data-en hidden>Explore with a local guide</span></h2>
+      <p><span data-mn>Манай хөтөч англиар чөлөөтэй ярьдаг, гурван жил гадаад жуулчдыг хөтөлсөн туршлагатай. Захиалга өгөхдөө аяллаа хамт сонгоорой.</span><span data-en hidden>Our guide speaks fluent English and has three years of experience leading international travellers. Add a tour when you book.</span></p>
+      <div class="badge">
+        <span data-mn>Англи хэл</span><span data-en hidden>English</span>
+        <span data-mn>3 жилийн туршлага</span><span data-en hidden>3 years' experience</span>
+        <span data-mn>Нутгийн хөтөч</span><span data-en hidden>Local guide</span>
+      </div>
+    </div>
+    <ul class="tourlist" id="tour-list"></ul>
+  </div>
+</section>
+
+<section id="place">
+  <div class="wrap loc">
+    <div style="display:grid;gap:14px;align-content:start">
+      <div class="eyebrow"><span data-mn>Байршил</span><span data-en hidden>Location</span></div>
+      <h2><span data-mn>Хаана байрладаг вэ</span><span data-en hidden>Where we are</span></h2>
+      <p class="addr"><span data-mn>Төв аймаг, Зуунмод сум, Хөгжил хотхон, Өгөөж дэлгүүрийн 3 давхар</span><span data-en hidden>3rd floor above Ugooj store, Khugjil complex, Zuunmod, Töv Province, Mongolia</span></p>
+      <p class="addr" style="font-size:.95rem;font-family:var(--body);font-weight:400;color:var(--muted)"><span data-mn>Нэг том давхрыг тусгаарласан, бүхэлдээ таны мэдэлд байх тухтай байр.</span><span data-en hidden>A spacious private floor, all to yourselves.</span></p>
+      <a class="cta" href="https://www.google.com/maps/place/%D3%A8%D0%B3%D3%A9%D3%A9%D0%B6+%D1%85%D2%AF%D0%BD%D1%81%D0%BD%D0%B8%D0%B9+%D0%B4%D1%8D%D0%BB%D0%B3%D2%AF%D2%AF%D1%80/@47.7081703,106.9451021,19.67z/data=!4m15!1m8!3m7!1s0x5d96a34c4e1e89bf:0x60209626f83b5052!2sZuunmod,+T%C3%B6v,+Mongolia!3b1!8m2!3d47.7023117!4d106.9605429!16zL20vMDVnYzdo!3m5!1s0x5d96a30034618cb1:0x8aa7422731dc8ca4!8m2!3d47.7080313!4d106.9461033!16s%2Fg%2F11vr953fq4?entry=ttu" target="_blank" rel="noopener"><span data-mn>Google Maps дээр нээх</span><span data-en hidden>Open in Google Maps</span></a>
+    </div>
+    <ul class="near">
+      <li><span data-mn>Манзушир хийд</span><span data-en hidden>Manzushir Monastery</span><span>~5 km</span></li>
+      <li><span data-mn>Богд хан уулын дархан цаазат газар</span><span data-en hidden>Bogd Khan Protected Area</span><span>~2 km</span></li>
+      <li><span data-mn>Чингис хаан олон улсын нисэх буудал</span><span data-en hidden>Chinggis Khaan Intl. Airport</span><span>~25 km</span></li>
+      <li><span data-mn>Улаанбаатар хот</span><span data-en hidden>Ulaanbaatar city</span><span>~45 km</span></li>
+    </ul>
+  </div>
+</section>
+
+<section id="book" class="bookband">
+  <div class="wrap book">
+    <div class="contact">
+      <div class="sec-head" style="margin-bottom:6px">
+        <div class="eyebrow"><span data-mn>Захиалга</span><span data-en hidden>Booking</span></div>
+        <h2><span data-mn>Захиалгын хүсэлт</span><span data-en hidden>Request your stay</span></h2>
+        <p><span data-mn>Хүсэлтээ бөглөөд гарсан мэдээллийг хуулж утсаар эсвэл мессежээр илгээгээрэй. Бид удахгүй холбогдож баталгаажуулна.</span><span data-en hidden>Fill in the form, copy the summary and send it to us by phone or message. We'll get back to you to confirm.</span></p>
+      </div>
+      <div class="row"><span class="eyebrow"><span data-mn>Утас</span><span data-en hidden>Phone</span></span><span class="val">+976 9901 2835</span></div>
+      <div class="row"><span class="eyebrow"><span data-mn>Хаяг</span><span data-en hidden>Address</span></span><span style="font-weight:600"><span data-mn>Зуунмод, Хөгжил хотхон, Өгөөж дэлгүүрийн 3 давхар</span><span data-en hidden>Khugjil complex, above Ugooj store (3F), Zuunmod</span></span></div>
+    </div>
+
+    <form id="bookForm" novalidate>
+      <div class="field"><label for="f-in"><span data-mn>Ирэх өдөр</span><span data-en hidden>Check-in</span></label><input type="date" id="f-in" required></div>
+      <div class="field"><label for="f-out"><span data-mn>Гарах өдөр</span><span data-en hidden>Check-out</span></label><input type="date" id="f-out" required></div>
+      <div class="field"><label for="f-room"><span data-mn>Өрөө</span><span data-en hidden>Room</span></label><select id="f-room"></select></div>
+      <div class="field"><label for="f-guests"><span data-mn>Хүний тоо</span><span data-en hidden>Guests</span></label><input type="number" id="f-guests" min="1" max="6" value="2"></div>
+      <div class="field"><label for="f-name"><span data-mn>Нэр</span><span data-en hidden>Name</span></label><input id="f-name" required autocomplete="name"></div>
+      <div class="field"><label for="f-phone"><span data-mn>Утас</span><span data-en hidden>Phone</span></label><input id="f-phone" type="tel" required autocomplete="tel"></div>
+      <label class="check" for="f-tour-on"><input type="checkbox" id="f-tour-on"><span data-mn>Хөтөчтэй аялал нэмэх (англи хэлтэй)</span><span data-en hidden>Add a guided tour (English-speaking guide)</span></label>
+      <div class="tourbox" id="tourbox" hidden>
+        <div class="field"><label for="f-tour"><span data-mn>Аялал</span><span data-en hidden>Tour</span></label><select id="f-tour"></select></div>
+        <div class="field"><label for="f-tour-date"><span data-mn>Аяллын өдөр</span><span data-en hidden>Tour date</span></label><input type="date" id="f-tour-date"></div>
+      </div>
+      <div class="field full"><label for="f-note"><span data-mn>Нэмэлт хүсэлт</span><span data-en hidden>Notes</span></label><textarea id="f-note" rows="2"></textarea></div>
+      <div class="est" id="est"></div>
+      <div class="err" id="err" hidden></div>
+      <button class="cta" type="submit"><span data-mn>Хүсэлт бэлдэх</span><span data-en hidden>Prepare request</span></button>
+      <div class="summary" id="summary" hidden>
+        <pre id="sumText"></pre>
+        <button type="button" class="cta" id="copyBtn" style="padding:9px 16px"><span data-mn>Хуулах</span><span data-en hidden>Copy</span></button>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© 2026 Senden Guest House · Zuunmod, Töv, Mongolia · +976 9901 2835</div></footer>
+
+<script>
+const ROOMS=[
+  {id:"r2",mn:"2 хүний өрөө",en:"Double room",dmn:"2 хүний ортой тусдаа унтлагын өрөө. Гал тогоо, зочны өрөөг дундаа ашиглана.",den:"Private bedroom with a double bed. Shared kitchen and living room.",cap:2,price:80000},
+  {id:"r3",mn:"3 хүний өрөө",en:"Triple room",dmn:"3 хүний ортой тусдаа унтлагын өрөө. Гал тогоо, зочны өрөөг дундаа ашиглана.",den:"Private bedroom sleeping three. Shared kitchen and living room.",cap:3,price:100000},
+  {id:"all",mn:"Бүтэн байр",en:"Whole home",dmn:"2 унтлагын өрөө, том зочны өрөө, 6 хүний ширээтэй гал тогоо, 2 шүршүүртэй. Гэр бүл, найзуудад.",den:"Both bedrooms, living room, kitchen with a table for six, two showers. For families and groups.",cap:5,price:180000}
+];
+const TOURS=[
+  {id:"manz",mn:"Манзушир хийд, нарсан ой",en:"Manzushir Monastery & pine forest",dmn:"Хийдийн туурь, музей үзэж, ойгоор алхана.",den:"Monastery ruins, museum and a forest walk.",dur:"½ "},
+  {id:"bogd",mn:"Богд хан уулын явган аялал",en:"Bogd Khan mountain hike",dmn:"Уулын оргил руу, байгалийн үзэсгэлэнт замаар.",den:"A scenic trail up the sacred mountain.",dur:"1 "},
+  {id:"local",mn:"Зуунмод хотын аялал",en:"Zuunmod town walk",dmn:"Аймгийн музей, нутгийн зах, монгол хоол.",den:"Provincial museum, local market and Mongolian food.",dur:"½ "}
+];
+let lang="mn";
+const fmt=n=>n.toLocaleString("en-US")+"₮";
+const T=(mn,en)=>lang==="mn"?mn:en;
+function render(){
+  document.getElementById("room-list").innerHTML=ROOMS.map(r=>`
+    <article class="room">
+      <div class="pic">${T("Зураг удахгүй","Photo coming soon")}</div>
+      <div class="body">
+        <h3>${r[lang]}</h3>
+        <p class="meta">${T(r.dmn,r.den)}</p>
+        <p class="meta">${T("Багтаамж","Sleeps")}: ${r.cap}</p>
+        <div class="price">${fmt(r.price)} <small>/ ${T("шөнө","night")}</small></div>
+        <span class="tag">${T("Санал болгож буй үнэ","Suggested price")}</span>
+      </div>
+    </article>`).join("");
+  document.getElementById("tour-list").innerHTML=TOURS.map(t=>`
+    <li><span class="dur">${t.dur}${T("өдөр","day")}</span><div><strong>${t[lang]}</strong><span class="d">${T(t.dmn,t.den)}</span></div></li>`).join("")+
+    `<li><span class="dur">₮</span><div><strong>${T("Үнэ","Price")}</strong><span class="d">${T("Хүний тоо, аяллаас хамаарч утсаар тохиролцоно.","Agreed by phone depending on group size and tour.")}</span></div></li>`;
+  const fill=(id,arr)=>{const s=document.getElementById(id),c=s.value;s.innerHTML=arr.map(x=>`<option value="${x.id}">${x[lang]}</option>`).join("");if(c)s.value=c};
+  fill("f-room",ROOMS);fill("f-tour",TOURS);
+}
+function setLang(l){
+  lang=l;document.documentElement.lang=l;
+  document.querySelectorAll("[data-mn]").forEach(e=>e.hidden=l!=="mn");
+  document.querySelectorAll("[data-en]").forEach(e=>e.hidden=l!=="en");
+  document.getElementById("btn-mn").setAttribute("aria-pressed",l==="mn");
+  document.getElementById("btn-en").setAttribute("aria-pressed",l==="en");
+  try{localStorage.setItem("sgh-lang",l)}catch(e){}
+  render();estimate();
+}
+const $=id=>document.getElementById(id);
+function nights(){const a=new Date($("f-in").value),b=new Date($("f-out").value);return isNaN(a)||isNaN(b)?0:Math.round((b-a)/864e5)}
+function estimate(){
+  const n=nights(),r=ROOMS.find(x=>x.id===$("f-room").value);
+  $("est").textContent=n>0&&r?T(`${n} шөнө × ${fmt(r.price)} = ${fmt(n*r.price)} (жишээ тооцоо)`,`${n} night(s) × ${fmt(r.price)} = ${fmt(n*r.price)} (estimate)`):"";
+}
+["f-in","f-out","f-room"].forEach(id=>$(id).addEventListener("change",estimate));
+$("f-tour-on").addEventListener("change",e=>{$("tourbox").hidden=!e.target.checked;if(e.target.checked&&!$("f-tour-date").value)$("f-tour-date").value=$("f-in").value});
+$("btn-mn").onclick=()=>setLang("mn");$("btn-en").onclick=()=>setLang("en");
+
+(function(){const d=new Date();d.setDate(d.getDate()+((6-d.getDay()+7)%7||7));const o=new Date(d);o.setDate(o.getDate()+1);
+  const iso=x=>x.toISOString().slice(0,10);$("f-in").value=iso(d);$("f-out").value=iso(o);})();
+
+$("bookForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const v=id=>$(id).value.trim(),n=nights(),r=ROOMS.find(x=>x.id===v("f-room"));
+  let msg="";
+  if(!v("f-name")||!v("f-phone"))msg=T("Нэр, утасны дугаараа бичнэ үү.","Please enter your name and phone number.");
+  else if(n<1)msg=T("Гарах өдөр нь ирэх өдрөөс хойш байх ёстой.","Check-out must be after check-in.");
+  else if(+v("f-guests")>r.cap)msg=T(`${r.mn} ${r.cap} хүн багтана. Бүтэн байр сонгоно уу.`,`The ${r.en.toLowerCase()} sleeps ${r.cap}. Choose the whole home instead.`);
+  $("err").hidden=!msg;$("err").textContent=msg;
+  if(msg){$("summary").hidden=true;return}
+  const tourOn=$("f-tour-on").checked,tour=TOURS.find(x=>x.id===v("f-tour"));
+  const lines=[
+    T("Senden Guest House — захиалгын хүсэлт","Senden Guest House — booking request"),
+    `${T("Нэр","Name")}: ${v("f-name")}`,
+    `${T("Утас","Phone")}: ${v("f-phone")}`,
+    `${T("Өрөө","Room")}: ${r[lang]}`,
+    `${T("Ирэх","Check-in")}: ${v("f-in")} · ${T("Гарах","Check-out")}: ${v("f-out")} (${n} ${T("шөнө","nights")})`,
+    `${T("Хүний тоо","Guests")}: ${v("f-guests")}`,
+    `${T("Нийт (жишээ)","Total (estimate)")}: ${fmt(n*r.price)}`
+  ];
+  if(tourOn)lines.push(`${T("Хөтөчтэй аялал","Guided tour")}: ${tour[lang]}, ${v("f-tour-date")||"-"}`);
+  if(v("f-note"))lines.push(`${T("Тэмдэглэл","Notes")}: ${v("f-note")}`);
+  $("sumText").textContent=lines.join("\n");$("summary").hidden=false;
+});
+$("copyBtn").addEventListener("click",()=>{
+  navigator.clipboard.writeText($("sumText").textContent).then(()=>{$("copyBtn").textContent=T("Хуулагдлаа","Copied")})
+  .catch(()=>{const rg=document.createRange();rg.selectNodeContents($("sumText"));const s=getSelection();s.removeAllRanges();s.addRange(rg)});
+});
+let saved="mn";try{saved=localStorage.getItem("sgh-lang")||"mn"}catch(e){}
+setLang(saved);
+</script>
+
+</body>
+</html>
