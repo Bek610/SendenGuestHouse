@@ -59,12 +59,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .brand{font-family:var(--display);font-size:1.25rem;color:var(--fg);text-decoration:none;white-space:nowrap}
 .brand{display:inline-flex;align-items:center;gap:10px}
 .brand img{width:44px;height:44px;border-radius:50%}
-.brand b{color:var(--gold);font-weight:400}
 .brand{min-width:0;flex-shrink:1;overflow:hidden}
 .brand img{flex-shrink:0}
 .links{flex-shrink:0}
-@media (max-width:640px){.brand b{display:none}.brand{font-size:1.1rem;gap:8px}.brand img{width:38px;height:38px}.links{gap:10px}.links .btn{padding:8px 14px}}
-@media (max-width:360px){.brand span{display:none}}
+.bt{display:flex;flex-direction:column;line-height:1}
+.bt span{font-family:var(--display);font-size:1.35rem}
+.bt small{font-family:var(--body);font-size:.6rem;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-top:5px}
+@media (max-width:640px){.brand{gap:8px}.brand img{width:38px;height:38px}.bt span{font-size:1.15rem}.bt small{font-size:.52rem;letter-spacing:.26em}.links{gap:10px}.links .btn{padding:8px 14px}}
+@media (max-width:340px){.bt{display:none}}
 .links{display:flex;align-items:center;gap:20px}
 .links a{color:var(--fg);text-decoration:none;font-weight:700;font-size:.9rem}
 .links .btn{padding:9px 18px;font-size:.88rem}
@@ -198,7 +200,7 @@ footer .credits a{color:inherit}
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="/logo-180.png" alt="" width="44" height="44"><span>Senden</span> <b>Guest House</b></a>
+    <a class="brand" href="#top"><img src="/logo-180.png" alt="" width="44" height="44"><span class="bt"><span>Senden</span><small>Guest House</small></span></a>
     <nav class="links">
       <a href="#apartment" class="t" data-en="The home">Байр</a>
       <a href="#discover" class="t" data-en="Discover">Аялах газрууд</a>
