@@ -141,6 +141,32 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .tlist strong{display:block;font-size:1.05rem}
 .tlist .d{color:var(--muted);font-size:.93rem}
 
+/* feature blocks */
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.feature.rev .fimg{order:2}
+@media (max-width:860px){.feature{grid-template-columns:1fr}.feature.rev .fimg{order:0}}
+.fimg{border-radius:18px;overflow:hidden;aspect-ratio:4/3;max-width:100%;background:var(--blue-soft)}
+.fimg img{width:100%;height:100%;object-fit:cover}
+.ftext{display:grid;gap:14px;min-width:0}
+.steps{list-style:none;margin:6px 0 0;padding:0;counter-reset:s;display:grid;gap:12px}
+.steps li{counter-increment:s;display:grid;grid-template-columns:2.4rem 1fr;gap:4px 12px}
+.steps li::before{content:counter(s);grid-row:span 2;width:2.2rem;height:2.2rem;border-radius:50%;background:var(--gold);color:#1b1305;font-weight:800;display:grid;place-items:center}
+.steps span{color:var(--muted);font-size:.93rem}
+.facts2{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.facts2 li{display:grid;grid-template-columns:4rem 1fr;gap:12px;align-items:baseline}
+.facts2 b{font-family:var(--display);font-weight:400;font-size:1.5rem;color:var(--blue)}
+.note2{color:var(--muted);font-size:.9rem}
+.dishes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:860px){.dishes{grid-template-columns:1fr 1fr}}
+.dish{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.dish img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.dish div{padding:12px 14px;display:grid;gap:4px}
+.dish b{font-family:var(--display);font-weight:400;font-size:1.15rem}
+.dish span{color:var(--muted);font-size:.86rem;line-height:1.45}
+.foodpick{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px}
+.foodpick label{display:flex;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:700;font-size:.85rem;cursor:pointer}
+.foodpick input{width:auto;accent-color:var(--blue)}
+
 /* info cards */
 .info{display:grid;grid-template-columns:1fr 1fr;gap:20px}
 @media (max-width:760px){.info{grid-template-columns:1fr}}
@@ -205,6 +231,7 @@ footer .credits a{color:inherit}
       <a href="#apartment" class="t" data-en="The home">Байр</a>
       <a href="#discover" class="t" data-en="Discover">Аялах газрууд</a>
       <a href="#tours" class="t" data-en="Tours">Аялал</a>
+      <a href="#food" class="t" data-en="Food">Хоол</a>
       <a href="#info" class="t" data-en="Transfers & payment">Тосох, төлбөр</a>
       <div class="lang" role="group" aria-label="Language"><button id="b-mn" aria-pressed="true">MN</button><button id="b-en" aria-pressed="false">EN</button></div>
       <a href="#book" class="btn t" data-en="Book">Захиалах</a>
@@ -318,6 +345,52 @@ footer .credits a{color:inherit}
   </div>
 </section>
 
+<section id="hike">
+  <div class="wrap feature">
+    <div class="fimg"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mountain_forest_in_Mongolia_20220826_145345.jpg?width=1200" alt="Larch forest on Bogd Khan Mountain"></div>
+    <div class="ftext">
+      <div class="eyebrow t" data-en="Hiking">Явган аялал</div>
+      <h2 class="t" data-en="Hike Bogd Khan Mountain from our door">Богд хан ууланд гэрийн үүднээс гарч алх</h2>
+      <p class="lead t" data-en="The easiest trail to Tsetsee Gün, the highest point of the sacred mountain, starts at Manzushir Monastery, a short drive from Zuunmod.">Ариун уулын хамгийн өндөр цэг Цэцээ гүн оргилд гарах хамгийн хялбар зам Зуунмодоос ойрхон Манзушир хийдээс эхэлдэг.</p>
+      <ol class="steps">
+        <li><b class="t" data-en="Drive to Manzushir Monastery">Манзушир хийд хүрэх</b><span class="t" data-en="About 5 km from Zuunmod. We can drop you off.">Зуунмодоос ~5 км. Бид хүргэж өгнө.</span></li>
+        <li><b class="t" data-en="Climb through larch forest">Шинэсэн ойгоор өгсөх</b><span class="t" data-en="About 3 hours up to Tsetsee Gün peak, 2,256 m.">Цэцээ гүн оргил (2,256 м) хүртэл 3 цаг орчим.</span></li>
+        <li><b class="t" data-en="Enjoy the view and return">Үзэмж харж буцах</b><span class="t" data-en="5–6 hours round trip. Ulaanbaatar is visible from the top.">Нийт 5–6 цаг. Оргилоос Улаанбаатар харагдана.</span></li>
+      </ol>
+      <div class="badges"><span class="t" data-en="Best June–September">6–9 сард хамгийн тохиромжтой</span><span class="t" data-en="Hiking boots, water, warm layer">Гутал, ус, дулаан хувцас</span><span class="t" data-en="Guide recommended">Хөтөчтэй явахыг зөвлөнө</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="chinggis" class="tours">
+  <div class="wrap feature rev">
+    <div class="fimg"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Genghis_Khan_Equestrian_Statue.jpg?width=1200" alt="The Chinggis Khaan Equestrian Statue at Tsonjin Boldog"></div>
+    <div class="ftext">
+      <div class="eyebrow t" data-en="Day trip">Нэг өдрийн аялал</div>
+      <h2 class="t" data-en="Chinggis Khaan Statue & 13th Century Park">Чингис хааны морьт хөшөө ба 13-р зуун цогцолбор</h2>
+      <p class="lead t" data-en="At Tsonjin Boldog, where legend says Chinggis Khaan found a golden whip, stands the world's largest equestrian statue. Nearby, the 13th Century Park recreates life in the Mongol Empire.">Чингис хаан алтан ташуур олсон гэх домогтой Цонжин Болдогт дэлхийн хамгийн том морьт хөшөө сүндэрлэдэг. Ойролцоох 13-р зуун цогцолбор Их Монгол улсын үеийн амьдралыг сэргээн харуулдаг.</p>
+      <ul class="facts2">
+        <li><b>40 м</b><span class="t" data-en="stainless steel statue, opened in 2008">зэвэрдэггүй гангаар хийсэн хөшөө, 2008 онд нээгдсэн</span></li>
+        <li><b>🐎</b><span class="t" data-en="Walk up inside to a viewing deck on the horse's head">Дотуур нь өгсөж морины толгой дээрх тагтаас харна</span></li>
+        <li><b>13</b><span class="t" data-en="13th Century Park: herder, craftsmen, shaman camps and the khan's palace">13-р зуун: малчин, дархан, бөөгийн өртөө, хааны ордон</span></li>
+      </ul>
+      <p class="note2 t" data-en="We arrange the car and guide. Ask when you book.">Машин, хөтчийг бид зохион байгуулна. Захиалахдаа асуугаарай.</p>
+    </div>
+  </div>
+</section>
+
+<section id="food">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow t" data-en="Mongolian food">Монгол хоол</div>
+      <h2 class="t" data-en="Order home-cooked Mongolian food">Гэрийн монгол хоол захиалаарай</h2>
+      <p class="lead t" data-en="Tell us one day ahead and we'll cook traditional dishes for your group. Add them in the booking form.">Нэг өдрийн өмнө хэлбэл танай бүлэгт уламжлалт хоол хийж өгнө. Захиалгын хэсэгт сонгоорой.</p>
+    </div>
+    <div class="dishes" id="dish-list"></div>
+    <p class="note2 t" data-en="Prices depend on group size. We confirm the price with your booking." style="margin-top:18px">Үнэ хүний тооноос хамаарна. Захиалга баталгаажуулахдаа хэлнэ.</p>
+  </div>
+</section>
+
 <section id="info">
   <div class="wrap">
     <div class="head">
@@ -375,6 +448,7 @@ footer .credits a{color:inherit}
       <li><span class="t" data-en="Bogd Khan Protected Area">Богд хан уулын дархан цаазат газар</span><span>~2 km</span></li>
       <li><span class="t" data-en="Manzushir Monastery">Манзушир хийд</span><span>~5 km</span></li>
       <li><span class="t" data-en="Chinggis Khaan International Airport">Чингис хаан олон улсын нисэх буудал</span><span>~25 km</span></li>
+      <li><span class="t" data-en="Chinggis Khaan Statue (Tsonjin Boldog)">Чингис хааны хөшөө (Цонжин Болдог)</span><span class="t" data-en="~2 h by car">~2 цаг</span></li>
       <li><span class="t" data-en="Ulaanbaatar city centre">Улаанбаатар хот</span><span>~45 km</span></li>
     </ul>
   </div>
@@ -410,6 +484,8 @@ footer .credits a{color:inherit}
         <div class="f"><label for="f-tour" class="t" data-en="Tour">Аялал</label><select id="f-tour"></select></div>
         <div class="f"><label for="f-tour-date" class="t" data-en="Tour date">Аяллын өдөр</label><input type="date" id="f-tour-date"></div>
       </div>
+      <label class="check" for="f-food-on"><input type="checkbox" id="f-food-on"><span class="t" data-en="Order Mongolian food (1 day ahead)">Монгол хоол захиалах (1 өдрийн өмнө)</span></label>
+      <div class="foodpick" id="foodbox" hidden></div>
       <div class="f full"><label for="f-note" class="t" data-en="Anything else?">Нэмэлт хүсэлт</label><textarea id="f-note" rows="2"></textarea></div>
       <input type="text" id="f-company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
       <div class="total"><span id="tot-label"></span><b id="tot">$50</b></div>
@@ -434,7 +510,12 @@ footer .credits a{color:inherit}
       <a href="https://commons.wikimedia.org/wiki/File:Mongolian_Ger.jpg" target="_blank" rel="noopener">Mongolian Ger</a> – Mark Fischer, CC BY-SA 2.0 ·
       <a href="https://commons.wikimedia.org/wiki/File:Mongolian_horses_in_Erdene,_T%C3%B6v,_Mongolia.jpg" target="_blank" rel="noopener">Horses in Erdene</a> – Quintin Soloviev, CC BY 4.0 ·
       <a href="https://commons.wikimedia.org/wiki/File:Je%C5%BAd%C5%BAcy_na_stepie_przed_rozpocz%C4%99ciem_lokalnego_festiwalu_Naadam_(01).jpg" target="_blank" rel="noopener">Naadam riders</a> – Marcin Konsek, CC BY-SA 4.0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:Gorkhi_Terelj_Park.jpg" target="_blank" rel="noopener">Gorkhi Terelj</a> – Vidor, public domain
+      <a href="https://commons.wikimedia.org/wiki/File:Gorkhi_Terelj_Park.jpg" target="_blank" rel="noopener">Gorkhi Terelj</a> – Vidor, public domain ·
+      <a href="https://commons.wikimedia.org/wiki/File:Genghis_Khan_Equestrian_Statue.jpg" target="_blank" rel="noopener">Chinggis Khaan Statue</a> – Martin Vorel, CC0 ·
+      <a href="https://commons.wikimedia.org/wiki/File:Mongolian_buuz.jpg" target="_blank" rel="noopener">Buuz</a> – Mizu basyo, CC BY-SA 3.0 ·
+      <a href="https://commons.wikimedia.org/wiki/File:MongoliaLastDay_153.JPG" target="_blank" rel="noopener">Khuushuur</a> – Sivserver, CC BY-SA 3.0 ·
+      <a href="https://commons.wikimedia.org/wiki/File:Tsuivan.jpg" target="_blank" rel="noopener">Tsuivan</a> – Mizu_Basyo, CC BY-SA 3.0 ·
+      <a href="https://commons.wikimedia.org/wiki/File:Khorkhog_1.JPG" target="_blank" rel="noopener">Khorkhog</a> – Brücke-Osteuropa, public domain
     </div>
   </div>
 </footer>
@@ -447,9 +528,16 @@ const PRICE_USD=50, PRICE_MNT=180000;
 const OTA=[{name:"Booking.com",url:""},{name:"Trip.com",url:""}];
 const TOURS=[
   {id:"manz",mn:"Манзушир хийд, нарсан ой",en:"Manzushir Monastery & pine forest",dmn:"Хийдийн туурь, музей үзэж, ойгоор алхана.",den:"Monastery ruins, museum and a forest walk.",dur:["Хагас өдөр","Half day"]},
-  {id:"bogd",mn:"Богд хан уулын явган аялал",en:"Bogd Khan mountain hike",dmn:"Ариун уулын үзэсгэлэнт замаар алхана.",den:"A scenic trail on the sacred mountain.",dur:["Бүтэн өдөр","Full day"]},
+  {id:"bogd",mn:"Богд хан уулын явган аялал",en:"Bogd Khan mountain hike",dmn:"Манзушир хийдээс Цэцээ гүн оргил (2,256 м) хүртэл, 5–6 цаг.",den:"From Manzushir Monastery to Tsetsee Gün peak (2,256 m), 5–6 hours.",dur:["Бүтэн өдөр","Full day"]},
+  {id:"chinggis",mn:"Чингис хааны хөшөө ба 13-р зуун",en:"Chinggis Khaan Statue & 13th Century Park",dmn:"Цонжин Болдог дахь 40 м хөшөө, 13-р зууны цогцолбор.",den:"The 40 m statue at Tsonjin Boldog and the 13th Century Park.",dur:["Бүтэн өдөр","Full day"]},
   {id:"terelj",mn:"Горхи-Тэрэлж",en:"Gorkhi-Terelj National Park",dmn:"Мэлхий хад, боржин хадат хөндий, тал нутаг.",den:"Turtle Rock, granite valleys and open steppe.",dur:["Бүтэн өдөр","Full day"]},
   {id:"town",mn:"Зуунмод хотын аялал",en:"Zuunmod town walk",dmn:"Аймгийн музей, нутгийн зах, монгол хоол.",den:"Provincial museum, local market and Mongolian food.",dur:["Хагас өдөр","Half day"]}
+];
+const DISHES=[
+  {id:"buuz",mn:"Бууз",en:"Buuz",dmn:"Махтай уурын банш, монголчуудын хамгийн дуртай хоол.",den:"Steamed meat dumplings, Mongolia's favourite dish.",img:"Mongolian_buuz.jpg"},
+  {id:"khuushuur",mn:"Хуушуур",en:"Khuushuur",dmn:"Тосонд шарсан махтай хавтгай боов.",den:"Crispy fried pastries filled with meat.",img:"MongoliaLastDay_153.JPG"},
+  {id:"tsuivan",mn:"Цуйван",en:"Tsuivan",dmn:"Гар гоймонтой мах, ногоотой шөлгүй хоол.",den:"Hand-made noodles stir-fried with meat and vegetables.",img:"Tsuivan.jpg"},
+  {id:"khorkhog",mn:"Хорхог",en:"Khorkhog",dmn:"Халуун чулуугаар болгосон хонины мах. Бүлэгт.",den:"Mutton cooked with hot stones. For groups.",img:"Khorkhog_1.JPG"}
 ];
 const PICK=[{id:"air",mn:"Нисэх буудал",en:"Airport"},{id:"ub",mn:"Улаанбаатар",en:"Ulaanbaatar"},{id:"both",mn:"Тосох ба хүргэх (хоёулаа)",en:"Pick-up and drop-off"}];
 let lang="mn";
@@ -461,6 +549,9 @@ function fill(id,arr){const s=$(id),c=s.value;s.innerHTML=arr.map(x=>`<option va
 function render(){
   $("tour-list").innerHTML=TOURS.map(t=>`<li><span class="dur">${T(t.dur[0],t.dur[1])}</span><div><strong>${t[lang]}</strong><span class="d">${T(t.dmn,t.den)}</span></div></li>`).join("");
   fill("f-tour",TOURS);fill("f-pickfrom",PICK);
+  $("dish-list").innerHTML=DISHES.map(d=>`<article class="dish"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/${d.img}?width=600" alt="${d.en}"><div><b>${d[lang]}</b><span>${T(d.dmn,d.den)}</span></div></article>`).join("");
+  const chk=[...document.querySelectorAll('#foodbox input:checked')].map(i=>i.value);
+  $("foodbox").innerHTML=DISHES.map(d=>`<label><input type="checkbox" value="${d.id}" ${chk.includes(d.id)?"checked":""}>${d[lang]}</label>`).join("");
 }
 function setLang(l){
   lang=l;document.documentElement.lang=l;
@@ -478,6 +569,7 @@ function total(){
 ["f-in","f-out"].forEach(id=>$(id).addEventListener("change",total));
 $("f-pick").addEventListener("change",e=>$("pickbox").hidden=!e.target.checked);
 $("f-tour-on").addEventListener("change",e=>{$("tourbox").hidden=!e.target.checked;if(e.target.checked&&!$("f-tour-date").value)$("f-tour-date").value=$("f-in").value});
+$("f-food-on").addEventListener("change",e=>$("foodbox").hidden=!e.target.checked);
 $("b-mn").onclick=()=>setLang("mn");$("b-en").onclick=()=>setLang("en");
 
 (function(){const d=new Date();d.setDate(d.getDate()+((6-d.getDay()+7)%7||7));const o=new Date(d);o.setDate(o.getDate()+1);
@@ -493,7 +585,8 @@ $("bookForm").addEventListener("submit",e=>{
   if(msg){$("done").hidden=true;return}
   const pick=$("f-pick").checked?PICK.find(x=>x.id===v("f-pickfrom")):null;
   const tourOn=$("f-tour-on").checked,tour=TOURS.find(x=>x.id===v("f-tour"));
-  const extra=[v("f-email")&&("Email: "+v("f-email")),pick&&("Тосох: "+pick.mn+(v("f-flight")?" ("+v("f-flight")+")":"")),v("f-note")].filter(Boolean).join(" | ");
+  const food=$("f-food-on").checked?[...document.querySelectorAll('#foodbox input:checked')].map(i=>DISHES.find(d=>d.id===i.value)):[];
+  const extra=[v("f-email")&&("Email: "+v("f-email")),pick&&("Тосох: "+pick.mn+(v("f-flight")?" ("+v("f-flight")+")":"")),food.length&&("Хоол: "+food.map(d=>d.mn).join(", ")),v("f-note")].filter(Boolean).join(" | ");
   const lines=[
     T("Senden Guest House — захиалгын хүсэлт","Senden Guest House — booking request"),
     `${T("Нэр","Name")}: ${v("f-name")}`,`${T("Утас","Phone")}: ${v("f-phone")}`,
@@ -503,6 +596,7 @@ $("bookForm").addEventListener("submit",e=>{
     `${T("Нийт","Total")}: $${n*PRICE_USD}`,
     pick&&`${T("Тосох","Transfer")}: ${pick[lang]} ${v("f-flight")}`,
     tourOn&&`${T("Аялал","Tour")}: ${tour[lang]}, ${v("f-tour-date")}`,
+    food.length&&`${T("Хоол","Food")}: ${food.map(d=>d[lang]).join(", ")}`,
     v("f-note")&&`${T("Тэмдэглэл","Notes")}: ${v("f-note")}`
   ].filter(Boolean);
   $("sumText").textContent=lines.join("\n");
