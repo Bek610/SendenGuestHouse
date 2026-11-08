@@ -12,6 +12,7 @@
 <link rel="apple-touch-icon" href="/logo-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prata&family=Manrope:wght@400;600;700;800&display=swap">
+<script>document.documentElement.classList.add("js")</script>
 <style>
 /* Layout: full-bleed photo hero with price strip → the apartment → why stay → discover Töv gallery → tours → transfers & payment → booking → credits */
 :root{
@@ -76,7 +77,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media (max-width:820px){.links a:not(.btn){display:none}}
 
 /* hero */
-.hero{position:relative;color:#fff;background:#1c3d6e url("https://commons.wikimedia.org/wiki/Special:FilePath/Bogd_Khan_Mountain.jpg?width=1920") center/cover no-repeat}
+.hero{position:relative;color:#fff}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,20,40,.25) 0%,rgba(10,20,40,.35) 45%,rgba(10,20,40,.82) 100%)}
 .hero .wrap{position:relative;z-index:1;padding-block:clamp(90px,16vw,170px) 40px;display:grid;gap:20px}
 .hero .eyebrow{color:#ffd88a}
@@ -93,6 +94,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* apartment */
 .apt{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:start}
 @media (max-width:860px){.apt{grid-template-columns:1fr}}
+.apt>*,.tgrid>*,.feature>*,.loc>*,.bgrid>*{min-width:0}
+html,body{overflow-x:clip}
 .rooms{display:grid;gap:0;border-top:1px solid var(--line);margin-top:26px}
 .rooms div{display:grid;grid-template-columns:3rem 1fr;gap:14px;padding:15px 0;border-bottom:1px solid var(--line);align-items:baseline}
 .rooms b{font-family:var(--display);font-weight:400;font-size:1.6rem;color:var(--blue);font-variant-numeric:tabular-nums}
@@ -223,7 +226,53 @@ footer{padding-block:40px;border-top:1px solid var(--line);color:var(--muted);fo
 footer .wrap{display:grid;gap:14px}
 footer .credits{font-size:.76rem;line-height:1.5}
 footer .credits a{color:inherit}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.gal img{transition:none}}
+/* ---------- motion ---------- */
+.hero{overflow:hidden;background:#1c3d6e}
+.hero .bg{position:absolute;inset:-6% 0 0;background:url("https://commons.wikimedia.org/wiki/Special:FilePath/Bogd_Khan_Mountain.jpg?width=1920") center/cover no-repeat;transform-origin:50% 60%;will-change:transform}
+.hero::after{z-index:0}
+.js .hero .bg{animation:kb 2.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes kb{from{transform:scale(1.18);filter:brightness(.6)}to{transform:scale(1.04);filter:none}}
+.hero .wrap{will-change:transform,opacity}
+.js .hero h1 .w{display:inline-block;opacity:0;transform:translateY(.6em);animation:wup .9s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(.35s + var(--i)*.07s)}
+.js .hero .eyebrow,.js .hero p,.js .hero .cta,.js .hero .strip{opacity:0;transform:translateY(18px);animation:wup .9s cubic-bezier(.2,.8,.2,1) forwards}
+.js .hero .eyebrow{animation-delay:.2s}.js .hero p{animation-delay:.85s}.js .hero .cta{animation-delay:1s}.js .hero .strip{animation-delay:1.15s}
+@keyframes wup{to{opacity:1;transform:none}}
+
+/* scroll statement (Apple-style word reveal) */
+.statement{padding-block:0;height:180vh;position:relative;background:var(--bg)}
+.statement .sticky{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center}
+.statement p{font-family:var(--display);font-size:clamp(2rem,6.2vw,4.6rem);line-height:1.12;max-width:17ch;text-align:center;text-wrap:balance;letter-spacing:-.01em}
+.statement .w{transition:opacity .25s linear,color .25s linear;opacity:.14}
+.statement .w.on{opacity:1}
+.statement .w.gold{color:var(--gold)}
+.statement .hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* reveal on scroll */
+.js [data-r]{opacity:0;transform:translateY(34px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0)*90ms)}
+.js [data-r="l"]{transform:translateX(-40px)}.js [data-r="r"]{transform:translateX(40px)}
+.js [data-r="s"]{transform:scale(.94)}
+.js [data-r].in{opacity:1;transform:none}
+
+/* scroll-linked image zoom */
+.zoom{overflow:hidden}
+.zoom img{transform:scale(var(--z,1.12));will-change:transform}
+.gal figure img{transform:scale(var(--z,1.08)) translateY(var(--py,0px))}
+.gal figure:hover img{transform:scale(calc(var(--z,1.08) + .04)) translateY(var(--py,0px))}
+
+/* nav state */
+.nav{transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.nav.scrolled{box-shadow:0 6px 24px -14px rgba(10,20,40,.35)}
+.nav.away{transform:translateY(-110%)}
+.btn{transition:transform .25s,filter .2s}.btn:hover{transform:translateY(-2px)}
+.price{transition:transform .5s}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .hero .bg,.js .hero h1 .w,.js .hero .eyebrow,.js .hero p,.js .hero .cta,.js .hero .strip{animation:none;opacity:1;transform:none}
+  .js [data-r]{opacity:1;transform:none;transition:none}
+  .statement{height:auto}.statement .sticky{position:static;height:auto;padding-block:90px}.statement .w{opacity:1}
+  .zoom img,.gal figure img{transform:none!important}.nav.away{transform:none}
+}
 </style>
 </head>
 <body>
@@ -245,6 +294,7 @@ footer .credits a{color:inherit}
 
 <main id="top">
 <section class="hero" style="padding-block:0">
+  <div class="bg" aria-hidden="true"></div>
   <div class="wrap">
     <div class="eyebrow t" data-en="Zuunmod · Töv Province · Mongolia">Зуунмод · Төв аймаг · Монгол</div>
     <h1 class="t" data-en="Your home at the foot of Bogd Khan Mountain">Богд хан уулын өвөрт таны гэр</h1>
@@ -260,6 +310,10 @@ footer .credits a{color:inherit}
       <div><b>🛡</b><span class="t" data-en="Safe, near the police station">Цагдаагийн газартай ойр, аюулгүй</span></div>
     </div>
   </div>
+</section>
+
+<section class="statement" aria-label="Senden">
+  <div class="sticky"><p id="stmt"></p><span class="hint t" data-en="Scroll">Доош гүйлгэнэ үү</span></div>
 </section>
 
 <section id="apartment">
@@ -351,7 +405,7 @@ footer .credits a{color:inherit}
 
 <section id="hike">
   <div class="wrap feature">
-    <div class="fimg"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mountain_forest_in_Mongolia_20220826_145345.jpg?width=1200" alt="Larch forest on Bogd Khan Mountain"></div>
+    <div class="fimg zoom"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mountain_forest_in_Mongolia_20220826_145345.jpg?width=1200" alt="Larch forest on Bogd Khan Mountain"></div>
     <div class="ftext">
       <div class="eyebrow t" data-en="Hiking">Явган аялал</div>
       <h2 class="t" data-en="Hike Bogd Khan Mountain from our door">Богд хан ууланд гэрийн үүднээс гарч алх</h2>
@@ -368,7 +422,7 @@ footer .credits a{color:inherit}
 
 <section id="chinggis" class="tours">
   <div class="wrap feature rev">
-    <div class="fimg"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Genghis_Khan_Equestrian_Statue.jpg?width=1200" alt="The Chinggis Khaan Equestrian Statue at Tsonjin Boldog"></div>
+    <div class="fimg zoom"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Genghis_Khan_Equestrian_Statue.jpg?width=1200" alt="The Chinggis Khaan Equestrian Statue at Tsonjin Boldog"></div>
     <div class="ftext">
       <div class="eyebrow t" data-en="Day trip">Нэг өдрийн аялал</div>
       <h2 class="t" data-en="Chinggis Khaan Statue & 13th Century Park">Чингис хааны морьт хөшөө ба 13-р зуун цогцолбор</h2>
@@ -558,12 +612,56 @@ function render(){
   const chk=[...document.querySelectorAll('#foodbox input:checked')].map(i=>i.value);
   $("foodbox").innerHTML=DISHES.map(d=>`<label><input type="checkbox" value="${d.id}" ${chk.includes(d.id)?"checked":""}>${d[lang]}</label>`).join("");
 }
+const STMT={mn:"Уулын цэвэр агаар. Тайван, аюулгүй орчин. Бүтэн байр *зөвхөн* *танд.*",en:"Fresh mountain air. A calm, safe street. A whole home, *just* *for* *you.*"};
+function splitWords(el,text){el.innerHTML=text.split(" ").map((w,i)=>{const g=w.startsWith("*");w=w.replace(/\*/g,"");return `<span class="w${g?" gold":""}" style="--i:${i}">${w}</span>`}).join(" ")}
 function setLang(l){
   lang=l;document.documentElement.lang=l;
   document.querySelectorAll(".t").forEach(el=>{el.textContent=l==="en"?el.dataset.en:el.dataset.mn});
   $("b-mn").setAttribute("aria-pressed",l==="mn");$("b-en").setAttribute("aria-pressed",l==="en");
   try{localStorage.setItem("sgh-lang",l)}catch(e){}
   render();total();showAvail();
+  splitWords(document.querySelector(".hero h1"),document.querySelector(".hero h1").textContent);
+  splitWords($("stmt"),STMT[l]);stmtWords=[...document.querySelectorAll("#stmt .w")];
+  if(window.__motionReady)tagReveal();
+}
+let stmtWords=[];
+function tagReveal(){
+  const groups=[[".head",""],[".rooms > div",""],[".why .item",""],[".gal figure","s"],[".tlist li",""],[".feature .ftext > *",""],[".dish",""],[".card",""],[".loc > *",""],[".contact > *",""],["#bookForm","s"],[".shots > div","s"],[".badges",""]];
+  groups.forEach(([sel,kind])=>document.querySelectorAll(sel).forEach((el,i)=>{if(el.dataset.r!==undefined)return;el.dataset.r=kind;el.style.setProperty("--d",i%6);io&&io.observe(el)}));
+  document.querySelectorAll(".feature .fimg").forEach(el=>{if(el.dataset.r===undefined){el.dataset.r=el.closest(".rev")?"r":"l";io&&io.observe(el)}});
+  const pr=document.querySelector(".price");if(pr&&pr.dataset.r===undefined){pr.dataset.r="r";io&&io.observe(pr)}
+}
+let io=null;
+function motion(){
+  const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  window.__motionReady=true;
+  if(reduce||!("IntersectionObserver" in window)){document.querySelectorAll("[data-r]").forEach(e=>e.classList.add("in"));stmtWords.forEach(w=>w.classList.add("on"));return}
+  io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -8% 0px",threshold:.12});
+  tagReveal();
+  const nav=document.querySelector(".nav"),hero=document.querySelector(".hero"),bg=hero.querySelector(".bg"),hw=hero.querySelector(".wrap"),st=document.querySelector(".statement");
+  const zooms=[...document.querySelectorAll(".zoom img, .gal figure img")];
+  let lastY=scrollY,tick=false;
+  function frame(){
+    tick=false;const y=scrollY,vh=innerHeight;
+    // hero parallax + fade
+    const hh=hero.offsetHeight,hp=Math.min(Math.max(y/hh,0),1);
+    if(hp<1){bg.style.transform=`translateY(${y*.35}px) scale(${1.04+hp*.08})`;hw.style.transform=`translateY(${y*.18}px)`;hw.style.opacity=String(1-hp*1.1)}
+    // statement word reveal
+    const r=st.getBoundingClientRect(),prog=Math.min(Math.max(-r.top/(r.height-vh),0),1),n=Math.round(prog*1.15*stmtWords.length);
+    stmtWords.forEach((w,i)=>w.classList.toggle("on",i<n));
+    // image zoom-out as it scrolls through view
+    for(const im of zooms){const b=im.parentElement.getBoundingClientRect();if(b.bottom<0||b.top>vh)continue;
+      const t=Math.min(Math.max(1-(b.top+b.height/2)/(vh+b.height/2),0),1);
+      im.style.setProperty("--z",(1.16-t*.16).toFixed(3));if(im.closest(".gal"))im.style.setProperty("--py",((t-.5)*-18).toFixed(1)+"px")}
+    // nav hide on scroll down, show on up
+    nav.classList.toggle("scrolled",y>8);
+    if(Math.abs(y-lastY)>6){nav.classList.toggle("away",y>lastY&&y>hh*.9);lastY=y}
+  }
+  addEventListener("scroll",()=>{if(!tick){tick=true;requestAnimationFrame(frame)}},{passive:true});
+  addEventListener("resize",frame);frame();
+  // count-up numbers in hero strip
+  document.querySelectorAll(".strip b").forEach(b=>{const m=b.textContent.match(/^(\$?)(\d+)$/);if(!m)return;const end=+m[2];let t0=null;
+    const step=ts=>{t0??=ts;const k=Math.min((ts-t0-1100)/900,1);if(k>0)b.textContent=m[1]+Math.round(end*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)};b.textContent=m[1]+"0";requestAnimationFrame(step)});
 }
 function nights(){const a=new Date($("f-in").value),b=new Date($("f-out").value);return isNaN(a)||isNaN(b)?0:Math.round((b-a)/864e5)}
 let BOOKED=null;
@@ -643,6 +741,7 @@ $("copyBtn").addEventListener("click",()=>{
 let saved="mn";try{saved=localStorage.getItem("sgh-lang")||"mn"}catch(e){}
 setLang(saved);
 loadBooked();
+motion();
 </script>
 </body>
 </html>
