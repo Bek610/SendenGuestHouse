@@ -15,7 +15,7 @@
 <style>
 /* Layout: full-bleed photo hero with price strip → the apartment → why stay → discover Töv gallery → tours → transfers & payment → booking → credits */
 :root{
-  --bg:#f6f4ef; --surface:#ffffff; --fg:#17202c; --muted:#5a6575; --line:#e2ddd2;
+  --brandc:#1C3D6E; --bg:#f6f4ef; --surface:#ffffff; --fg:#17202c; --muted:#5a6575; --line:#e2ddd2;
   --blue:#1c3d6e; --blue-soft:#e6ecf5; --gold:#c98a1b; --gold-soft:#fbf1dc; --green:#2e6b4f;
   --on-blue:#ffffff;
   --display:"Prata",Georgia,"Times New Roman",serif;
@@ -23,11 +23,11 @@
   color-scheme:light;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0f141b; --surface:#161d27; --fg:#e8ecf2; --muted:#9aa6b6; --line:#263040;
+  --brandc:#F3E9D2; --bg:#0f141b; --surface:#161d27; --fg:#e8ecf2; --muted:#9aa6b6; --line:#263040;
   --blue:#8fb3ea; --blue-soft:#1b2738; --gold:#efb54a; --gold-soft:#2a2214; --green:#7cc7a2;
   --on-blue:#0f141b; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#0f141b; --surface:#161d27; --fg:#e8ecf2; --muted:#9aa6b6; --line:#263040;
+  --brandc:#F3E9D2; --bg:#0f141b; --surface:#161d27; --fg:#e8ecf2; --muted:#9aa6b6; --line:#263040;
   --blue:#8fb3ea; --blue-soft:#1b2738; --gold:#efb54a; --gold-soft:#2a2214; --green:#7cc7a2;
   --on-blue:#0f141b; color-scheme:dark}
 
@@ -58,12 +58,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px}
 .brand{font-family:var(--display);font-size:1.25rem;color:var(--fg);text-decoration:none;white-space:nowrap}
 .brand{display:inline-flex;align-items:center;gap:10px}
-.brand img{width:44px;height:44px;border-radius:50%}
+.brand img{width:44px;height:44px;border-radius:10px}
 .brand{min-width:0;flex-shrink:1;overflow:hidden}
 .brand img{flex-shrink:0}
 .links{flex-shrink:0}
 .bt{display:flex;flex-direction:column;line-height:1}
-.bt span{font-family:var(--display);font-size:1.35rem}
+.bt span{font-family:var(--display);font-size:1.3rem;text-transform:uppercase;letter-spacing:.08em;color:var(--brandc)}
 .bt small{font-family:var(--body);font-size:.6rem;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-top:5px}
 @media (max-width:640px){.brand{gap:8px}.brand img{width:38px;height:38px}.bt span{font-size:1.15rem}.bt small{font-size:.52rem;letter-spacing:.26em}.links{gap:10px}.links .btn{padding:8px 14px}}
 @media (max-width:340px){.bt{display:none}}
@@ -226,7 +226,7 @@ footer .credits a{color:inherit}
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="/logo-180.png" alt="" width="44" height="44"><span class="bt"><span>Senden</span><small>Guest House</small></span></a>
+    <a class="brand" href="#top"><img src="/brand/senden-mark-sm.png" alt="" width="44" height="44"><span class="bt"><span>Senden</span><small>Guest House</small></span></a>
     <nav class="links">
       <a href="#apartment" class="t" data-en="The home">Байр</a>
       <a href="#discover" class="t" data-en="Discover">Аялах газрууд</a>
