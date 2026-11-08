@@ -156,7 +156,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .facts2 li{display:grid;grid-template-columns:4rem 1fr;gap:12px;align-items:baseline}
 .facts2 b{font-family:var(--display);font-weight:400;font-size:1.5rem;color:var(--blue)}
 .note2{color:var(--muted);font-size:.9rem}
-.dishes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.dishes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 @media (max-width:860px){.dishes{grid-template-columns:1fr 1fr}}
 .dish{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
 .dish img{width:100%;aspect-ratio:4/3;object-fit:cover}
@@ -387,7 +387,7 @@ footer .credits a{color:inherit}
       <p class="lead t" data-en="Tell us one day ahead and we'll cook traditional dishes for your group. Add them in the booking form.">Нэг өдрийн өмнө хэлбэл танай бүлэгт уламжлалт хоол хийж өгнө. Захиалгын хэсэгт сонгоорой.</p>
     </div>
     <div class="dishes" id="dish-list"></div>
-    <p class="note2 t" data-en="Prices depend on group size. We confirm the price with your booking." style="margin-top:18px">Үнэ хүний тооноос хамаарна. Захиалга баталгаажуулахдаа хэлнэ.</p>
+    <p class="note2 t" data-en="Food prices depend on the number of guests and are agreed with you when you arrive." style="margin-top:18px">Хоолны үнийг хүний тооноос хамааран ирэхэд тань тохиролцоно.</p>
   </div>
 </section>
 
@@ -514,7 +514,8 @@ footer .credits a{color:inherit}
       <a href="https://commons.wikimedia.org/wiki/File:Genghis_Khan_Equestrian_Statue.jpg" target="_blank" rel="noopener">Chinggis Khaan Statue</a> – Martin Vorel, CC0 ·
       <a href="https://commons.wikimedia.org/wiki/File:Mongolian_buuz.jpg" target="_blank" rel="noopener">Buuz</a> – Mizu basyo, CC BY-SA 3.0 ·
       <a href="https://commons.wikimedia.org/wiki/File:MongoliaLastDay_153.JPG" target="_blank" rel="noopener">Khuushuur</a> – Sivserver, CC BY-SA 3.0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:Tsuivan.jpg" target="_blank" rel="noopener">Tsuivan</a> – Mizu_Basyo, CC BY-SA 3.0
+      <a href="https://commons.wikimedia.org/wiki/File:Tsuivan.jpg" target="_blank" rel="noopener">Tsuivan</a> – Mizu_Basyo, CC BY-SA 3.0 ·
+      <a href="https://commons.wikimedia.org/wiki/File:Suutei_tsai.jpg" target="_blank" rel="noopener">Suutei tsai</a> – Mizu_Basyo, CC BY-SA 3.0
     </div>
   </div>
 </footer>
@@ -535,7 +536,8 @@ const TOURS=[
 const DISHES=[
   {id:"buuz",mn:"Бууз",en:"Buuz",dmn:"Махтай уурын банш, монголчуудын хамгийн дуртай хоол.",den:"Steamed meat dumplings, Mongolia's favourite dish.",img:"Mongolian_buuz.jpg"},
   {id:"khuushuur",mn:"Хуушуур",en:"Khuushuur",dmn:"Тосонд шарсан махтай хавтгай боов.",den:"Crispy fried pastries filled with meat.",img:"MongoliaLastDay_153.JPG"},
-  {id:"tsuivan",mn:"Цуйван",en:"Tsuivan",dmn:"Гар гоймонтой мах, ногоотой шөлгүй хоол.",den:"Hand-made noodles stir-fried with meat and vegetables.",img:"Tsuivan.jpg"}
+  {id:"tsuivan",mn:"Цуйван",en:"Tsuivan",dmn:"Гар гоймонтой мах, ногоотой шөлгүй хоол.",den:"Hand-made noodles stir-fried with meat and vegetables.",img:"Tsuivan.jpg"},
+  {id:"tsai",mn:"Сүүтэй цай",en:"Mongolian milk tea",dmn:"Давстай, халуун сүүтэй цай. Монгол айлын зочломтгой байдлын бэлгэ тэмдэг.",den:"Hot, lightly salted milk tea, the symbol of Mongolian hospitality.",img:"Suutei_tsai.jpg"}
 ];
 const PICK=[{id:"air",mn:"Нисэх буудал",en:"Airport"},{id:"ub",mn:"Улаанбаатар",en:"Ulaanbaatar"},{id:"both",mn:"Тосох ба хүргэх (хоёулаа)",en:"Pick-up and drop-off"}];
 let lang="mn";
