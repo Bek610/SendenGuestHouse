@@ -20,6 +20,11 @@ const HEADERS = ['Огноо', 'Төлөв', 'Нэр', 'Утас', 'Өрөө', '
                  'Хүн', 'Нийт', 'Аялал', 'Аяллын өдөр', 'Тэмдэглэл', 'Хэл'];
 const COL_STATUS = 1, COL_IN = 5, COL_OUT = 6;   // 0-ээс эхэлсэн баганын дугаар
 
+// Google Calendar-ын зөвшөөрөл өгөх: дээрээс 'authorizeCalendar'-ийг сонгоод Run дарна (нэг удаа).
+function authorizeCalendar() {
+  Logger.log('Хуанли: ' + CalendarApp.getDefaultCalendar().getName() + ' — зөвшөөрөл OK');
+}
+
 // Сайт захиалгатай өдрүүдийг эндээс уншина: GET ...exec?action=booked
 function doGet(e) {
   try {
@@ -50,13 +55,14 @@ function doPost(e) {
     SpreadsheetApp.flush();
     lock.releaseLock();
 
+    let calNote = '';
     if (ADD_TO_CALENDAR) {
       try {
         CalendarApp.getDefaultCalendar().createAllDayEvent(
           'Senden: ' + clean_(d.name) + ' (' + clean_(d.guests) + ' хүн)',
           parseDate_(d.checkin), parseDate_(d.checkout),
           { description: 'Утас: ' + d.phone + '\nНийт: ' + d.total + (d.note ? '\n' + d.note : '') });
-      } catch (calErr) { /* Хуанли алдаа гаргавал захиалга хэвээрээ хадгалагдана */ }
+      } catch (calErr) { calNote = String(calErr); /* Хуанли алдаа гаргавал захиалга хэвээрээ хадгалагдана */ }
     }
 
     MailApp.sendEmail({
@@ -74,7 +80,7 @@ function doPost(e) {
         '\nБүх захиалга: ' + SpreadsheetApp.getActiveSpreadsheet().getUrl()
     });
 
-    return reply_({ ok: true });
+    return reply_({ ok: true, calendar: calNote || 'ok' });
   } catch (err) {
     return reply_({ ok: false, error: String(err) });
   } finally {
