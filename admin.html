@@ -76,13 +76,13 @@ function card(it){
   const cls=it.status==="Төлбөр шалгах"?"check":it.status==="Баталгаажсан"?"ok":"new";
   const site=!it.source||it.source==="Сайт";
   const acts=!it.code?`<span class="meta">Код байхгүй (хуучин эсвэл гараар нэмсэн мөр). Sheet дээрээс засна уу.</span>`
-    :`<div class="acts">${it.status!=="Баталгаажсан"?`<button class="btn ok" data-op="confirm" data-code="${esc(it.code)}">${it.lang==="en"?"Баталгаажуулах":"Төлбөр орсон"}</button>`:""}
+    :`<div class="acts">${it.status!=="Баталгаажсан"?`<button class="btn ok" data-op="confirm" data-code="${esc(it.code)}">${it.lang&&it.lang!=="mn"?"Баталгаажуулах":"Төлбөр орсон"}</button>`:""}
       <button class="btn no" data-op="cancel" data-code="${esc(it.code)}">Цуцлах</button></div>`;
   return `<article class="item">
     <div class="top"><span class="code">${esc(it.code||"—")} · ${esc(it.name)}</span><span class="st ${cls}">${esc(it.status)}</span></div>
     <div class="meta"><span><b>${esc(it.checkin)}</b> → <b>${esc(it.checkout)}</b> (${esc(it.nights)} шөнө)</span><span>${esc(it.guests)} хүн</span><span>Нийт <b>${esc(it.total)}</b></span>
       ${it.phone?`<span>☎ ${esc(it.phone)}</span>`:""}${it.email?`<span>${esc(it.email)}</span>`:""}
-      <span>${site?(it.lang==="en"?"Гадаад зочин · ирэхдээ бэлнээр":"Монгол зочин · урьдчилгаа дансаар"):esc(it.source)}</span>${it.paid?`<span>Төлбөр: ${esc(it.paid)}</span>`:""}</div>
+      <span>${site?(it.lang&&it.lang!=="mn"?"Гадаад зочин ("+esc(it.lang)+") · ирэхдээ бэлнээр":"Монгол зочин · урьдчилгаа дансаар"):esc(it.source)}</span>${it.paid?`<span>Төлбөр: ${esc(it.paid)}</span>`:""}</div>
     ${it.transfer?`<div class="meta">🚗 ${esc(it.transfer)}</div>`:""}${it.tour?`<div class="meta">Аялал: ${esc(it.tour)}</div>`:""}${it.note?`<div class="meta">${esc(it.note)}</div>`:""}
     ${site?acts:`<div class="meta">${esc(it.source)}-оос автоматаар орсон. Тэндээ удирдана.</div>`}
   </article>`;

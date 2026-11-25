@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Senden Guest House · Zuunmod</title>
-<meta name="description" content="Senden Guest House – Зуунмод, Төв аймаг. 5 хүртэлх хүнд бүтэн байр шөнөдөө $50. Тосох, үдэх үйлчилгээ ($30), англи хэлтэй хөтөчтэй аялал. Whole apartment for up to 5 guests in Zuunmod near Ulaanbaatar, $50/night.">
+<meta name="description" content="Senden Guest House – Зуунмод, Төв аймаг. 5 хүртэлх хүнд бүтэн байр шөнөдөө $50. Тосох, үдэх үйлчилгээ (хоёр талдаа $30), англи хэлтэй хөтөчтэй аялал. Whole apartment for up to 5 guests in Zuunmod near Ulaanbaatar, $50/night.">
 <meta property="og:title" content="Senden Guest House · Zuunmod">
 <meta property="og:description" content="Богд хан уулын өвөрт, 5 хүртэлх хүнд бүтэн байр $50/шөнө. Утас: 9901 2835">
 <meta property="og:image" content="https://sendenguesthouse.com/og-image.jpg">
@@ -74,7 +74,13 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .links a{color:var(--fg);text-decoration:none;font-weight:700;font-size:.9rem}
 .links .btn{padding:9px 18px;font-size:.88rem}
 .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden}
-.lang button{background:none;border:0;padding:5px 11px;cursor:pointer;color:var(--muted);font:inherit;font-weight:800;font-size:.78rem}
+.lang button{background:none;border:0;padding:5px 9px;cursor:pointer;color:var(--muted);font:inherit;font-weight:800;font-size:.78rem;white-space:nowrap}
+@media (max-width:420px){.lang button{padding:5px 6px;font-size:.72rem}}
+@media (max-width:600px){.bt{display:none}}
+.brand{flex:none}.brand img{flex:none}
+@media (max-width:400px){.links .btn{padding:8px 11px;font-size:.85rem}}
+:lang(ko){word-break:keep-all}
+:lang(zh) .statement p,:lang(zh) h1,:lang(zh) h2{line-break:strict}
 .lang button[aria-pressed="true"]{background:var(--blue);color:var(--on-blue)}
 @media (max-width:820px){.links a:not(.btn){display:none}}
 
@@ -284,7 +290,7 @@ footer .credits a{color:inherit}
       <a href="#discover" class="t" data-en="Discover">Аялах газрууд</a>
       <a href="#tours" class="t" data-en="Tours">Аялал</a>
       <a href="#info" class="t" data-en="Transfers & payment">Тосох, төлбөр</a>
-      <div class="lang" role="group" aria-label="Language"><button id="b-mn" aria-pressed="true">MN</button><button id="b-en" aria-pressed="false">EN</button></div>
+      <div class="lang" role="group" aria-label="Language"><button data-l="mn" lang="mn" aria-pressed="true" title="Монгол">MN</button><button data-l="en" lang="en" aria-pressed="false" title="English">EN</button><button data-l="ru" lang="ru" aria-pressed="false" title="Русский">RU</button><button data-l="zh" lang="zh" aria-pressed="false" title="中文">中文</button><button data-l="ko" lang="ko" aria-pressed="false" title="한국어">한국어</button></div>
       <a href="#book" class="btn t" data-en="Book">Захиалах</a>
     </nav>
   </div>
@@ -304,7 +310,7 @@ footer .credits a{color:inherit}
     <div class="strip">
       <div><b>5</b><span class="t" data-en="guests max, whole home">хүн хүртэл, бүтэн байр</span></div>
       <div><b>$50</b><span class="t" data-en="per night, any group size">шөнөдөө, хүний тооноос үл хамаарна</span></div>
-      <div><b>$30</b><span class="t" data-en="Pick-up or drop-off, each way">Тосох эсвэл үдэх, нэг удаа</span></div>
+      <div><b>$30</b><span class="t" data-en="Airport pick-up & drop-off, round trip">Нисэх буудлаас тосох, үдэх, хоёр талдаа</span></div>
       <div><b>🛡</b><span class="t" data-en="Safe, near the police station">Цагдаагийн газартай ойр, аюулгүй</span></div>
     </div>
   </div>
@@ -343,7 +349,7 @@ footer .credits a{color:inherit}
       <ul>
         <li class="t" data-en="Up to 5 guests">5 хүн хүртэл</li>
         <li class="t" data-en="2 bedrooms, living room, kitchen">2 унтлагын өрөө, зочны өрөө, гал тогоо</li>
-        <li class="t" data-en="Pick-up & drop-off: $30 each way">Тосох, үдэх үйлчилгээ: нэг удаа $30</li>
+        <li class="t" data-en="Pick-up & drop-off: $30 round trip">Тосох, үдэх үйлчилгээ: хоёр талдаа $30</li>
         <li class="t" data-en="English-speaking guide available">Англи хэлтэй хөтөч</li>
         <li class="t" data-en="Alcohol-free and smoke-free home">Архи, тамхигүй орчин</li>
         <li class="t" data-en="Free cancellation up to 5 days before">Ирэхээс 5 хоногийн өмнө хүртэл үнэгүй цуцлах боломжтой</li>
@@ -362,7 +368,7 @@ footer .credits a{color:inherit}
     <div class="whygrid">
       <div class="item"><div class="ic">🛡</div><h3 class="t" data-en="Safe neighbourhood">Аюулгүй орчин</h3><p class="t" data-en="Right by the Zuunmod police station, in the Khugjil complex above Ugooj store.">Хөгжил хотхонд, Өгөөж дэлгүүрийн дээд давхарт, Зуунмодын цагдаагийн газрын ойролцоо байрладаг.</p></div>
       <div class="item"><div class="ic">🌲</div><h3 class="t" data-en="Fresh mountain air">Цэвэр агаар</h3><p class="t" data-en="Zuunmod sits beneath the coniferous forests of Bogd Khan, far from city smog.">Зуунмод нь Богд хан уулын шилмүүст ойн өвөрт, хотын утаанаас хол оршдог.</p></div>
-      <div class="item"><div class="ic">🚗</div><h3 class="t" data-en="Pick-up & drop-off">Тосох, үдэх</h3><p class="t" data-en="We meet you at Chinggis Khaan Airport or in Ulaanbaatar and drive you back. $30 each way.">Чингис хаан олон улсын нисэх онгоцны буудал эсвэл Улаанбаатараас тосож, буцахад тань үдэж өгнө. Нэг удаа $30.</p></div>
+      <div class="item"><div class="ic">🚗</div><h3 class="t" data-en="Pick-up & drop-off">Тосох, үдэх</h3><p class="t" data-en="We meet you at Chinggis Khaan Airport or in Ulaanbaatar and drive you back. $30 for the round trip.">Чингис хаан олон улсын нисэх онгоцны буудал эсвэл Улаанбаатараас тосож, буцахад тань үдэж өгнө. Хоёр талдаа $30.</p></div>
       <div class="item"><div class="ic">✈️</div><h3 class="t" data-en="Close to the airport">Нисэх онгоцны буудалд ойр</h3><p class="t" data-en="A short drive from the new international airport, ideal before or after a flight.">Шинэ олон улсын нисэх онгоцны буудлаас ойрхон тул нислэгийн өмнө болон дараа амрахад тохиромжтой.</p></div>
       <div class="item"><div class="ic">🧭</div><h3 class="t" data-en="Local English-speaking guide">Англи хэлтэй хөтөч</h3><p class="t" data-en="Three years of guiding international travellers around Töv Province.">Гадаад жуулчдыг 3 жил хөтөлсөн туршлагатай нутгийн хөтөч.</p></div>
       <div class="item"><div class="ic">🚭</div><h3 class="t" data-en="Alcohol-free, smoke-free">Архи, тамхигүй орчин</h3><p class="t" data-en="A clean, quiet home for families. No alcohol and no smoking anywhere in the apartment.">Гэр бүлд ээлтэй цэвэр, тайван орчин. Байранд архи уух, тамхи татахыг хориглоно.</p></div>
@@ -452,8 +458,8 @@ footer .credits a{color:inherit}
     </div>
     <div class="info">
       <div class="card">
-        <h3 class="t" data-en="Pick-up & drop-off: $30 each way">🚗 Тосох, үдэх: нэг удаа $30</h3>
-        <p class="t" data-en="Tick the transfer option in the booking form and tell us your flight or meeting point. Pick-up or drop-off is $30; both ways is $60, added to your total.">Захиалгын маягт дээр тосох эсвэл үдэх үйлчилгээг сонгоод нислэгийн дугаар эсвэл уулзах газраа бичээрэй. Тосох эсвэл үдэх нэг удаа $30, хоёулаа $60 бөгөөд нийт дүнд нэмэгдэнэ.</p>
+        <h3 class="t" data-en="Pick-up & drop-off: $30 round trip">🚗 Тосох, үдэх: хоёр талдаа $30</h3>
+        <p class="t" data-en="Tick the transfer option in the booking form and tell us your flight or meeting point. Pick-up, drop-off or both: $30 in total, added to your bill.">Захиалгын маягт дээр тосох, үдэх үйлчилгээг сонгоод нислэгийн дугаар эсвэл уулзах газраа бичээрэй. Тосох, үдэх эсвэл хоёулаа нийт $30 бөгөөд нийт дүнд нэмэгдэнэ.</p>
         <ul>
           <li class="t" data-en="Chinggis Khaan International Airport">Чингис хаан олон улсын нисэх онгоцны буудал</li>
           <li class="t" data-en="Anywhere in Ulaanbaatar">Улаанбаатар хотын аль ч цэг</li>
@@ -528,7 +534,7 @@ footer .credits a{color:inherit}
       <div class="f"><label for="f-name" class="t" data-en="Full name">Нэр</label><input id="f-name" required autocomplete="name"></div>
       <div class="f"><label for="f-phone" class="t" data-en="Phone / WhatsApp">Утас</label><input id="f-phone" type="tel" required autocomplete="tel"></div>
       <div class="f"><label for="f-email" class="t" data-en="Email">Имэйл</label><input id="f-email" type="email" autocomplete="email"></div>
-      <label class="check" for="f-pick"><input type="checkbox" id="f-pick"><span class="t" data-en="I need pick-up / drop-off ($30 each way)">Тосох / үдэх үйлчилгээ хэрэгтэй (нэг удаа $30)</span></label>
+      <label class="check" for="f-pick"><input type="checkbox" id="f-pick"><span class="t" data-en="I need pick-up / drop-off ($30 round trip)">Тосох / үдэх үйлчилгээ хэрэгтэй (хоёр талдаа $30)</span></label>
       <div class="sub" id="pickbox" hidden>
         <div class="f"><label for="f-pickfrom" class="t" data-en="Service">Үйлчилгээ</label><select id="f-pickfrom"></select></div>
         <div class="f"><label for="f-flight" class="t" data-en="Flight no. / time / address">Нислэгийн дугаар, цаг эсвэл хаяг</label><input id="f-flight"></div>
@@ -578,6 +584,7 @@ footer .credits a{color:inherit}
   </div>
 </footer>
 
+<script src="/i18n.js"></script>
 <script>
 // Google Apps Script вэб апп-ын URL. Хоосон бол захиалгыг хуулж илгээх горимоор ажиллана.
 const BOOKING_URL="https://script.google.com/macros/s/AKfycbxHxvSDqSDjPcN2o7Zcdz3CqqFRr75ZC1I3EhUKZdZvzUN2H3Ba3wirce4nAGY-o37r/exec";
@@ -592,28 +599,31 @@ const TOURS=[
   {id:"town",mn:"Зуунмод хотын аялал",en:"Zuunmod town walk",dmn:"Аймгийн музей, орон нутгийн захаар зочилно.",den:"Provincial museum and the local market.",dur:["Хагас өдөр","Half day"]}
 ];
 const TRANSFER_USD=30;
-const PICK=[{id:"pick",mn:"Тосох ($30)",en:"Pick-up ($30)",n:1},{id:"drop",mn:"Үдэх ($30)",en:"Drop-off ($30)",n:1},{id:"both",mn:"Тосох ба үдэх ($60)",en:"Pick-up and drop-off ($60)",n:2}];
-const trips=()=>$("f-pick").checked?(PICK.find(x=>x.id===$("f-pickfrom").value)||{n:0}).n:0;
+const PICK=[{id:"both",mn:"Тосох ба үдэх",en:"Pick-up and drop-off"},{id:"pick",mn:"Зөвхөн тосох",en:"Pick-up only"},{id:"drop",mn:"Зөвхөн үдэх",en:"Drop-off only"}];
+const trips=()=>$("f-pick").checked?1:0;   // тосох, үдэх эсвэл хоёулаа: нийт $30
 let lang="mn";
 const $=id=>document.getElementById(id);
-const T=(mn,en)=>lang==="mn"?mn:en;
+const LANGS=["mn","en","ru","zh","ko"];
+// mn: Монгол текст, en: англи текст (бусад хэлний орчуулгын түлхүүр). {n} мэт орлуулга.
+const T=(mn,en,v)=>{let s=lang==="mn"?mn:lang==="en"?en:((window.I18N&&I18N[lang]&&I18N[lang][en])??en);if(v)for(const k in v)s=s.split("{"+k+"}").join(v[k]);return s};
+const N=x=>T(x.mn,x.en);
 document.querySelectorAll(".t").forEach(el=>el.dataset.mn=el.textContent);
 
-function fill(id,arr){const s=$(id),c=s.value;s.innerHTML=arr.map(x=>`<option value="${x.id}">${x[lang]}</option>`).join("");if(c)s.value=c}
+function fill(id,arr){const s=$(id),c=s.value;s.innerHTML=arr.map(x=>`<option value="${x.id}">${N(x)}</option>`).join("");if(c)s.value=c}
 function render(){
-  $("tour-list").innerHTML=TOURS.map(t=>`<li><span class="dur">${T(t.dur[0],t.dur[1])}</span><div><strong>${t[lang]}</strong><span class="d">${T(t.dmn,t.den)}</span></div></li>`).join("");
+  $("tour-list").innerHTML=TOURS.map(t=>`<li><span class="dur">${T(t.dur[0],t.dur[1])}</span><div><strong>${N(t)}</strong><span class="d">${T(t.dmn,t.den)}</span></div></li>`).join("");
   fill("f-tour",TOURS);fill("f-pickfrom",PICK);
 }
-const STMT={mn:"Уулын цэвэр агаар. Тайван, аюулгүй орчин. Бүтэн байр *зөвхөн* *танд.*",en:"Fresh mountain air. A calm, safe street. A whole home, *just* *for* *you.*"};
+const STMT={mn:"Уулын цэвэр агаар. Тайван, аюулгүй орчин. Бүтэн байр *зөвхөн* *танд.*",en:"Fresh mountain air. A calm, safe street. A whole home, *just* *for* *you.*",ru:"Свежий горный воздух. Тихая, безопасная улица. Целый дом *только* *для* *вас.*",zh:"清新的山间空气。 安静、安全的街道。 整套房子， *只* *属于* *您。*",ko:"맑은 산 공기. 조용하고 안전한 거리. 집 전체가 *오직* *당신만을* *위해.*"};
 function splitWords(el,text){el.innerHTML=text.split(" ").map((w,i)=>{const g=w.startsWith("*");w=w.replace(/\*/g,"");return `<span class="w${g?" gold":""}" style="--i:${i}">${w}</span>`}).join(" ")}
 function setLang(l){
   lang=l;document.documentElement.lang=l;
-  document.querySelectorAll(".t").forEach(el=>{el.textContent=l==="en"?el.dataset.en:el.dataset.mn});
-  $("b-mn").setAttribute("aria-pressed",l==="mn");$("b-en").setAttribute("aria-pressed",l==="en");
+  document.querySelectorAll(".t").forEach(el=>{el.textContent=T(el.dataset.mn,el.dataset.en)});
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===l));
   try{localStorage.setItem("sgh-lang",l)}catch(e){}
   render();total();showAvail();
   splitWords(document.querySelector(".hero h1"),document.querySelector(".hero h1").textContent);
-  splitWords($("stmt"),STMT[l]);stmtWords=[...document.querySelectorAll("#stmt .w")];
+  splitWords($("stmt"),STMT[l]||STMT.en);stmtWords=[...document.querySelectorAll("#stmt .w")];
   if(window.__motionReady)tagReveal();
 }
 let stmtWords=[];
@@ -657,7 +667,8 @@ function motion(){
 }
 function nights(){const a=new Date($("f-in").value),b=new Date($("f-out").value);return isNaN(a)||isNaN(b)?0:Math.round((b-a)/864e5)}
 let BOOKED=null;
-const fmtD=s=>{const[y,m,d]=s.split("-");return lang==="mn"?`${+m}/${+d}`:new Date(+y,m-1,+d).toLocaleDateString("en-US",{month:"short",day:"numeric"})};
+const LOC={en:"en-US",ru:"ru-RU",zh:"zh-CN",ko:"ko-KR"};
+const fmtD=s=>{const[y,m,d]=s.split("-");return lang==="mn"?`${+m}/${+d}`:new Date(+y,m-1,+d).toLocaleDateString(LOC[lang]||"en-US",{month:"short",day:"numeric"})};
 const prevDay=s=>{const d=new Date(s+"T12:00");d.setDate(d.getDate()-1);return d.toISOString().slice(0,10)};
 function clash(){const a=$("f-in").value,b=$("f-out").value;if(!BOOKED||!a||!b||a>=b)return null;return BOOKED.find(r=>a<r.to&&r.from<b)||null}
 function showAvail(){
@@ -672,15 +683,15 @@ function showAvail(){
 }
 function loadBooked(){if(!BOOKING_URL)return;fetch(BOOKING_URL+"?action=booked").then(r=>r.json()).then(j=>{if(j.ok&&Array.isArray(j.booked)){BOOKED=j.booked;showAvail()}}).catch(()=>{})}
 function total(){
-  const n=Math.max(nights(),0),t=trips(),tr=t?T(` + тосох/үдэх $${t*TRANSFER_USD}`,` + transfer $${t*TRANSFER_USD}`):"";
+  const n=Math.max(nights(),0),t=trips(),tr=t?T(" + тосох/үдэх {p}"," + transfer {p}",{p:"$"+t*TRANSFER_USD}):"";
   $("tot").textContent="$"+(n*PRICE_USD+t*TRANSFER_USD);
-  $("tot-label").textContent=n>0?T(`${n} шөнө × $${PRICE_USD} (≈ ${(n*PRICE_MNT).toLocaleString("en-US")}₮)`,`${n} night(s) × $${PRICE_USD}`)+tr:T("Өдрөө сонгоно уу","Choose your dates");
+  $("tot-label").textContent=n>0?T("{n} шөнө × {p} (≈ {m}₮)","{n} night(s) × {p}",{n,p:"$"+PRICE_USD,m:(n*PRICE_MNT).toLocaleString("en-US")})+tr:T("Өдрөө сонгоно уу","Choose your dates");
 }
 ["f-in","f-out"].forEach(id=>$(id).addEventListener("change",()=>{total();showAvail()}));
 $("f-pick").addEventListener("change",e=>{$("pickbox").hidden=!e.target.checked;total()});
 $("f-pickfrom").addEventListener("change",total);
 $("f-tour-on").addEventListener("change",e=>{$("tourbox").hidden=!e.target.checked;if(e.target.checked&&!$("f-tour-date").value)$("f-tour-date").value=$("f-in").value});
-$("b-mn").onclick=()=>setLang("mn");$("b-en").onclick=()=>setLang("en");
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
 
 (function(){const d=new Date();d.setDate(d.getDate()+((6-d.getDay()+7)%7||7));const o=new Date(d);o.setDate(o.getDate()+1);
   const iso=x=>x.toISOString().slice(0,10);$("f-in").value=iso(d);$("f-out").value=iso(o);})();
@@ -705,8 +716,8 @@ $("bookForm").addEventListener("submit",e=>{
     `${T("Ирэх","Check-in")}: ${v("f-in")} · ${T("Гарах","Check-out")}: ${v("f-out")} (${n} ${T("шөнө","nights")})`,
     `${T("Хүний тоо","Guests")}: ${v("f-guests")}`,
     `${T("Нийт","Total")}: $${n*PRICE_USD+trips()*TRANSFER_USD}`,
-    pick&&`${T("Тосох/үдэх","Transfer")}: ${pick[lang]} ${v("f-flight")}`,
-    tourOn&&`${T("Аялал","Tour")}: ${tour[lang]}, ${v("f-tour-date")}`,
+    pick&&`${T("Тосох/үдэх","Transfer")}: ${N(pick)} ${v("f-flight")}`,
+    tourOn&&`${T("Аялал","Tour")}: ${N(tour)}, ${v("f-tour-date")}`,
     v("f-note")&&`${T("Тэмдэглэл","Notes")}: ${v("f-note")}`
   ].filter(Boolean);
   $("sumText").textContent=lines.join("\n");
@@ -735,7 +746,7 @@ function showPay(j,phone){
       .filter(r=>r[1]).map(r=>`<div><dt>${r[0]}</dt><dd>${esc(r[1])}</dd></div>`).join("");
     $("payCode").textContent=j.code;$("claimBtn").disabled=false;$("claimBtn").textContent="Шилжүүлсэн";$("payErr").hidden=true;$("paybox").hidden=false;
   }else{
-    $("payNote").textContent=T(`Таны захиалгын код: ${j.code}. Бид утсаар холбогдож баталгаажуулна.`,`Your booking code is ${j.code}. We'll confirm by email or WhatsApp within 24 hours. You pay in cash when you arrive.`);
+    $("payNote").textContent=T("Таны захиалгын код: {code}. Бид утсаар холбогдож баталгаажуулна.","Your booking code is {code}. We'll confirm by email or WhatsApp within 24 hours. You pay in cash when you arrive.",{code:j.code});
     $("payNote").hidden=false;
   }
 }
@@ -753,7 +764,9 @@ $("copyBtn").addEventListener("click",()=>{
 (function(){const live=OTA.filter(o=>o.url);if(!live.length)return;
   const html=live.map(o=>`<a href="${o.url}" target="_blank" rel="noopener">${o.name} →</a>`).join("");
   ["otaPay","otaBook"].forEach(id=>{$(id).innerHTML=html;$(id).hidden=false});$("otaBox").hidden=false;})();
-let saved="mn";try{saved=localStorage.getItem("sgh-lang")||"mn"}catch(e){}
+// Хадгалсан хэл, эс бөгөөс хөтчийн хэлээр (ru, zh, ko, mn), бусад нь англи
+let saved=null;try{saved=localStorage.getItem("sgh-lang")}catch(e){}
+if(!LANGS.includes(saved)){const nl=(navigator.languages||[navigator.language||""]).map(x=>String(x).slice(0,2).toLowerCase());saved=nl.find(x=>LANGS.includes(x))||"en"}
 setLang(saved);
 loadBooked();
 motion();

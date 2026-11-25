@@ -34,7 +34,7 @@ const ADD_TO_CALENDAR = true;          // Захиалга бүрийг Google C
 
 const PRICE_USD = 50;                  // Нэг шөнө, бүтэн байр
 const PRICE_MNT = 180000;
-const TRANSFER_USD = 30;               // Тосох эсвэл үдэх, нэг удаа
+const TRANSFER_USD = 30;               // Тосох, үдэх эсвэл хоёулаа — нийт $30 (хоёр талдаа)
 const DEPOSIT_MNT = 180000;            // Монгол зочдын урьдчилгаа (1 шөнө)
 
 // Монгол зочид урьдчилгаагаа шилжүүлэх данс. Хоосон бол сайт дансны мэдээлэл харуулахгүй.
@@ -55,7 +55,7 @@ const C = { date: 0, status: 1, name: 2, phone: 3, room: 4, in: 5, out: 6, night
             transfer: 16, paid: 17, source: 18, uid: 19 };
 const ST = { NEW: 'Шинэ', CHECK: 'Төлбөр шалгах', OK: 'Баталгаажсан', CANCEL: 'Цуцалсан' };
 const SITE_SOURCE = 'Сайт';
-const TRANSFERS = { pick: ['Тосох', 1], drop: ['Үдэх', 1], both: ['Тосох ба үдэх', 2] };
+const TRANSFERS = { pick: ['Тосох', 1], drop: ['Үдэх', 1], both: ['Тосох ба үдэх', 1] };
 
 /* ---------------- нэг удаагийн тохиргоо ---------------- */
 
@@ -112,7 +112,7 @@ function book_(d) {
   const nights = Math.round((parseDate_(d.checkout) - parseDate_(d.checkin)) / 864e5);
   const tr = TRANSFERS[d.transfer] || null;
   const totalUsd = nights * PRICE_USD + (tr ? tr[1] * TRANSFER_USD : 0);
-  const mn = d.lang !== 'en';
+  const mn = !d.lang || d.lang === 'mn';   // ru/zh/ko/en зочид — гадаад, ирэхдээ төлнө
 
   const lock = LockService.getScriptLock();
   lock.waitLock(20000);   // Зэрэг ирсэн хоёр захиалгыг дарааллаар нь шалгана
@@ -225,7 +225,7 @@ function adminSet_(d) {
     sh.getRange(f.index, C.paid + 1).setValue(new Date());
     const email = String(f.row[C.email] || '');
     if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-      const en = f.row[C.lang] === 'en';
+      const en = !!f.row[C.lang] && f.row[C.lang] !== 'mn';
       MailApp.sendEmail({
         to: email, replyTo: NOTIFY_EMAIL, name: 'Senden Guest House',
         subject: en ? 'Your stay at Senden Guest House is confirmed (' + f.row[C.code] + ')'
