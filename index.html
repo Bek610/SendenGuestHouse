@@ -4,10 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Senden Guest House · Zuunmod</title>
-<meta name="description" content="Senden Guest House – Зуунмод, Төв аймаг. 5 хүртэлх хүнд бүтэн байр шөнөдөө $50. Тосох, хүргэх үйлчилгээ, англи хэлтэй хөтөчтэй аялал. Whole apartment for up to 5 guests in Zuunmod near Ulaanbaatar, $50/night.">
+<meta name="description" content="Senden Guest House – Зуунмод, Төв аймаг. 5 хүртэлх хүнд бүтэн байр шөнөдөө $50. Тосох, хүргэх үйлчилгээтэй, англи хэлтэй хөтөчтэй аялал. Whole apartment for up to 5 guests in Zuunmod near Ulaanbaatar, $50/night.">
 <meta property="og:title" content="Senden Guest House · Zuunmod">
 <meta property="og:description" content="Богд хан уулын өвөрт, 5 хүртэлх хүнд бүтэн байр $50/шөнө. Утас: 9901 2835">
-<meta property="og:image" content="https://sendenguesthouse.vercel.app/og-image.jpg">
+<meta property="og:image" content="https://sendenguesthouse.com/og-image.jpg">
+<meta property="og:url" content="https://sendenguesthouse.com/">
+<link rel="canonical" href="https://sendenguesthouse.com/">
 <link rel="icon" type="image/png" href="/favicon.png">
 <link rel="apple-touch-icon" href="/logo-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,15 +61,16 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:12px}
 .brand{font-family:var(--display);font-size:1.25rem;color:var(--fg);text-decoration:none;white-space:nowrap}
 .brand{display:inline-flex;align-items:center;gap:10px}
-.brand img{width:44px;height:44px;border-radius:10px}
+.brand img{height:58px;width:auto;border-radius:8px}
 .brand{min-width:0;flex-shrink:1;overflow:hidden}
 .brand img{flex-shrink:0}
 .links{flex-shrink:0}
-.bt{display:flex;flex-direction:column;line-height:1}
-.bt span{font-family:var(--display);font-size:1.3rem;text-transform:uppercase;letter-spacing:.08em;color:var(--brandc)}
-.bt small{font-family:var(--body);font-size:.6rem;font-weight:800;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);margin-top:5px}
-@media (max-width:640px){.brand{gap:8px}.brand img{width:38px;height:38px}.bt span{font-size:1.15rem}.bt small{font-size:.52rem;letter-spacing:.26em}.links{gap:10px}.links .btn{padding:8px 14px}}
-@media (max-width:340px){.bt{display:none}}
+@media (max-width:640px){.brand img{height:46px}.links{gap:10px}.links .btn{padding:8px 14px}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .brand img{background:#fdf7eb;padding:3px 6px}}
+:root[data-theme="dark"] .brand img{background:#fdf7eb;padding:3px 6px}
+footer .logo{width:220px;height:auto;border-radius:12px}
+:root[data-theme="dark"] footer .logo{background:#fdf7eb;padding:8px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) footer .logo{background:#fdf7eb;padding:8px}}
 .links{display:flex;align-items:center;gap:20px}
 .links a{color:var(--fg);text-decoration:none;font-weight:700;font-size:.9rem}
 .links .btn{padding:9px 18px;font-size:.88rem}
@@ -159,16 +162,6 @@ html,body{overflow-x:clip}
 .facts2 li{display:grid;grid-template-columns:4rem 1fr;gap:12px;align-items:baseline}
 .facts2 b{font-family:var(--display);font-weight:400;font-size:1.5rem;color:var(--blue)}
 .note2{color:var(--muted);font-size:.9rem}
-.dishes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-@media (max-width:860px){.dishes{grid-template-columns:1fr 1fr}}
-.dish{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
-.dish img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.dish div{padding:12px 14px;display:grid;gap:4px}
-.dish b{font-family:var(--display);font-weight:400;font-size:1.15rem}
-.dish span{color:var(--muted);font-size:.86rem;line-height:1.45}
-.foodpick{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px}
-.foodpick label{display:flex;gap:6px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:700;font-size:.85rem;cursor:pointer}
-.foodpick input{width:auto;accent-color:var(--blue)}
 
 /* info cards */
 .info{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -279,12 +272,11 @@ footer .credits a{color:inherit}
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><img src="/brand/senden-mark-sm.png" alt="" width="44" height="44"><span class="bt"><span>Senden</span><small>Guest House</small></span></a>
+    <a class="brand" href="#top" aria-label="Senden Guest House"><img src="/brand/senden-logo-nav.png" alt="Senden Guest House" width="117" height="58"></a>
     <nav class="links">
       <a href="#apartment" class="t" data-en="The home">Байр</a>
       <a href="#discover" class="t" data-en="Discover">Аялах газрууд</a>
       <a href="#tours" class="t" data-en="Tours">Аялал</a>
-      <a href="#food" class="t" data-en="Food">Хоол</a>
       <a href="#info" class="t" data-en="Transfers & payment">Тосох, төлбөр</a>
       <div class="lang" role="group" aria-label="Language"><button id="b-mn" aria-pressed="true">MN</button><button id="b-en" aria-pressed="false">EN</button></div>
       <a href="#book" class="btn t" data-en="Book">Захиалах</a>
@@ -298,7 +290,7 @@ footer .credits a{color:inherit}
   <div class="wrap">
     <div class="eyebrow t" data-en="Zuunmod · Töv Province · Mongolia">Зуунмод · Төв аймаг · Монгол</div>
     <h1 class="t" data-en="Your home at the foot of Bogd Khan Mountain">Богд хан уулын өвөрт таны гэр</h1>
-    <p class="t" data-en="A private, newly renovated apartment for up to 5 guests. Fresh mountain air, a safe neighbourhood next to the police station, and pick-up from the airport or Ulaanbaatar.">5 хүртэлх хүнд зориулсан шинэ засвартай, бүхэлдээ таны мэдэлд байх байр. Уулын цэвэр агаар, цагдаагийн газрын ойролцоох аюулгүй орчин, нисэх буудал болон Улаанбаатараас тосох үйлчилгээтэй.</p>
+    <p class="t" data-en="A private, newly renovated apartment for up to 5 guests. Fresh mountain air, a safe neighbourhood next to the police station, and pick-up from the airport or Ulaanbaatar.">5 хүртэлх хүнд зориулсан, шинээр засварласан бүтэн байр. Уулын цэвэр агаартай, цагдаагийн газрын ойролцоох аюулгүй орчинд байрлах бөгөөд нисэх онгоцны буудал болон Улаанбаатараас тосох үйлчилгээтэй.</p>
     <div class="cta">
       <a class="btn t" href="#book" data-en="Book your stay">Захиалга өгөх</a>
       <a class="btn ghost t" href="#apartment" data-en="See the home">Байртай танилцах</a>
@@ -322,20 +314,20 @@ footer .credits a{color:inherit}
       <div class="head">
         <div class="eyebrow t" data-en="The home">Байр</div>
         <h2 class="t" data-en="A whole private floor, just for you">Нэг давхар бүхэлдээ таных</h2>
-        <p class="lead t" data-en="We don't rent beds or single rooms. You get the entire apartment, so families and friends can relax like at home.">Бид ор, өрөө тусад нь түрээслэдэггүй. Бүтэн байр зөвхөн танай хамт олных тул гэр бүл, найз нөхөдтэйгөө гэртээ байгаа мэт амарна.</p>
+        <p class="lead t" data-en="We don't rent beds or single rooms. You get the entire apartment, so families and friends can relax like at home.">Бид ор, өрөөг тусад нь түрээслэдэггүй. Бүтэн байрыг зөвхөн танайхан ашиглах тул гэр бүл, найз нөхөдтэйгөө гэртээ байгаа мэт амарна.</p>
       </div>
       <div class="rooms">
         <div><b>1</b><p><span class="t" data-en="Bedroom with a double bed">2 хүний ортой унтлагын өрөө</span><small class="t" data-en="Sleeps 2">2 хүн</small></p></div>
-        <div><b>1</b><p><span class="t" data-en="Bedroom sleeping three">3 хүний ортой унтлагын өрөө</span><small class="t" data-en="Sleeps 3">3 хүн</small></p></div>
-        <div><b>1</b><p><span class="t" data-en="Spacious living room">Том зочны өрөө</span><small class="t" data-en="Room to relax together">Хамтдаа тухлах зай</small></p></div>
-        <div><b>6</b><p><span class="t" data-en="Large kitchen with a table for six">6 хүний ширээтэй том гал тогоо</span><small class="t" data-en="Cook your own meals">Хоолоо өөрсдөө хийх боломжтой</small></p></div>
-        <div><b>1</b><p><span class="t" data-en="Bathroom with shower and toilet">Шүршүүр, ариун цэврийн өрөө</span><small class="t" data-en="One shared bathroom">Нэг угаалгын өрөө</small></p></div>
-        <div><b>✓</b><p><span class="t" data-en="Washing machine">Угаалгын машин</span><small class="t" data-en="Handy for longer trips">Урт аялалд тохиромжтой</small></p></div>
+        <div><b>1</b><p><span class="t" data-en="Bedroom sleeping three">3 хүн унтах ортой унтлагын өрөө</span><small class="t" data-en="Sleeps 3">3 хүн</small></p></div>
+        <div><b>1</b><p><span class="t" data-en="Spacious living room">Өргөн зочны өрөө</span><small class="t" data-en="Room to relax together">Хамтдаа тухлах зай</small></p></div>
+        <div><b>6</b><p><span class="t" data-en="Large kitchen with a table for six">6 хүний ширээтэй том гал тогоо</span><small class="t" data-en="Room to gather around one table">Бүгдээрээ нэг ширээ тойрон суух зай</small></p></div>
+        <div><b>1</b><p><span class="t" data-en="Bathroom with shower and toilet">Шүршүүртэй ариун цэврийн өрөө</span><small class="t" data-en="One shared bathroom">Нэг ариун цэврийн өрөө</small></p></div>
+        <div><b>✓</b><p><span class="t" data-en="Washing machine">Угаалгын машин</span><small class="t" data-en="Handy for longer trips">Удаан хугацаагаар байрлахад тохиромжтой</small></p></div>
       </div>
       <div class="shots">
-        <div class="t" data-en="Bedroom photo coming soon">Унтлагын өрөөний зураг удахгүй</div>
-        <div class="t" data-en="Kitchen photo coming soon">Гал тогооны зураг удахгүй</div>
-        <div class="t" data-en="Living room photo coming soon">Зочны өрөөний зураг удахгүй</div>
+        <div class="t" data-en="Bedroom photo coming soon">Унтлагын өрөөний зураг удахгүй нэмэгдэнэ</div>
+        <div class="t" data-en="Kitchen photo coming soon">Гал тогооны зураг удахгүй нэмэгдэнэ</div>
+        <div class="t" data-en="Living room photo coming soon">Зочны өрөөний зураг удахгүй нэмэгдэнэ</div>
       </div>
     </div>
     <aside class="price">
@@ -348,7 +340,7 @@ footer .credits a{color:inherit}
         <li class="t" data-en="Pick-up & drop-off on request">Тосох, хүргэх үйлчилгээ захиалгаар</li>
         <li class="t" data-en="English-speaking guide available">Англи хэлтэй хөтөч</li>
         <li class="t" data-en="Alcohol-free and smoke-free home">Архи, тамхигүй орчин</li>
-        <li class="t" data-en="Free cancellation up to 5 days before">5 хоногийн өмнө хүртэл үнэгүй цуцална</li>
+        <li class="t" data-en="Free cancellation up to 5 days before">Ирэхээс 5 хоногийн өмнө хүртэл үнэгүй цуцлах боломжтой</li>
       </ul>
       <a class="btn t" href="#book" data-en="Check dates">Өдрөө сонгох</a>
     </aside>
@@ -358,14 +350,14 @@ footer .credits a{color:inherit}
 <section class="why">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow t" data-en="Why Senden">Яагаад Senden гэж</div>
+      <div class="eyebrow t" data-en="Why Senden">Яагаад Senden-ийг сонгох вэ</div>
       <h2 class="t" data-en="Calm, safe and close to everything">Тайван, аюулгүй, бүх зүйлд ойрхон</h2>
     </div>
     <div class="whygrid">
-      <div class="item"><div class="ic">🛡</div><h3 class="t" data-en="Safe neighbourhood">Аюулгүй орчин</h3><p class="t" data-en="Right by the Zuunmod police station, in the Khugjil complex above Ugooj store.">Зуунмодын цагдаагийн газартай ойрхон, Хөгжил хотхонд, Өгөөж дэлгүүрийн дээр байрладаг.</p></div>
-      <div class="item"><div class="ic">🌲</div><h3 class="t" data-en="Fresh mountain air">Цэвэр агаар</h3><p class="t" data-en="Zuunmod sits beneath the pine forests of Bogd Khan, far from city smog.">Зуунмод Богд хан уулын нарсан ойн өвөрт, хотын утаанаас хол оршдог.</p></div>
-      <div class="item"><div class="ic">🚗</div><h3 class="t" data-en="Pick-up & drop-off">Тосох, хүргэх</h3><p class="t" data-en="We meet you at Chinggis Khaan Airport or in Ulaanbaatar and drive you back.">Чингис хаан нисэх буудал эсвэл Улаанбаатараас тосож, буцааж хүргэнэ.</p></div>
-      <div class="item"><div class="ic">✈️</div><h3 class="t" data-en="Close to the airport">Нисэх буудалд ойр</h3><p class="t" data-en="A short drive from the new international airport, ideal before or after a flight.">Шинэ олон улсын нисэх буудлаас ойрхон тул нислэгийн өмнө, дараа амрахад тохиромжтой.</p></div>
+      <div class="item"><div class="ic">🛡</div><h3 class="t" data-en="Safe neighbourhood">Аюулгүй орчин</h3><p class="t" data-en="Right by the Zuunmod police station, in the Khugjil complex above Ugooj store.">Хөгжил хотхонд, Өгөөж дэлгүүрийн дээд давхарт, Зуунмодын цагдаагийн газрын ойролцоо байрладаг.</p></div>
+      <div class="item"><div class="ic">🌲</div><h3 class="t" data-en="Fresh mountain air">Цэвэр агаар</h3><p class="t" data-en="Zuunmod sits beneath the coniferous forests of Bogd Khan, far from city smog.">Зуунмод нь Богд хан уулын шилмүүст ойн өвөрт, хотын утаанаас хол оршдог.</p></div>
+      <div class="item"><div class="ic">🚗</div><h3 class="t" data-en="Pick-up & drop-off">Тосох, хүргэх</h3><p class="t" data-en="We meet you at Chinggis Khaan Airport or in Ulaanbaatar and drive you back.">Чингис хаан олон улсын нисэх онгоцны буудал эсвэл Улаанбаатараас тосож, буцахад тань хүргэж өгнө.</p></div>
+      <div class="item"><div class="ic">✈️</div><h3 class="t" data-en="Close to the airport">Нисэх онгоцны буудалд ойр</h3><p class="t" data-en="A short drive from the new international airport, ideal before or after a flight.">Шинэ олон улсын нисэх онгоцны буудлаас ойрхон тул нислэгийн өмнө болон дараа амрахад тохиромжтой.</p></div>
       <div class="item"><div class="ic">🧭</div><h3 class="t" data-en="Local English-speaking guide">Англи хэлтэй хөтөч</h3><p class="t" data-en="Three years of guiding international travellers around Töv Province.">Гадаад жуулчдыг 3 жил хөтөлсөн туршлагатай нутгийн хөтөч.</p></div>
       <div class="item"><div class="ic">🚭</div><h3 class="t" data-en="Alcohol-free, smoke-free">Архи, тамхигүй орчин</h3><p class="t" data-en="A clean, quiet home for families. No alcohol and no smoking anywhere in the apartment.">Гэр бүлд ээлтэй цэвэр, тайван орчин. Байранд архи уух, тамхи татахыг хориглоно.</p></div>
     </div>
@@ -376,16 +368,16 @@ footer .credits a{color:inherit}
   <div class="wrap">
     <div class="head">
       <div class="eyebrow t" data-en="Discover Töv Province">Төв аймгаар аялах</div>
-      <h2 class="t" data-en="Monasteries, forests and nomadic life on your doorstep">Хийд, ой, нүүдэлчдийн ахуй гэрийн тань дэргэд</h2>
-      <p class="lead t" data-en="Zuunmod is the gateway to Bogd Khan, one of the world's oldest protected areas, and the steppe of Töv Province.">Зуунмод бол дэлхийн хамгийн эртний дархан цаазат газруудын нэг болох Богд хан уул, Төв аймгийн тал нутгийн үүд юм.</p>
+      <h2 class="t" data-en="Monasteries, forests and nomadic life on your doorstep">Хийд, ой, нүүдэлчдийн ахуй яг таны дэргэд</h2>
+      <p class="lead t" data-en="Zuunmod is the gateway to Bogd Khan, one of the world's oldest protected areas, and the steppe of Töv Province.">Зуунмод бол дэлхийн хамгийн эртний дархан цаазат газруудын нэг болох Богд хан уул болон Төв аймгийн тал нутаг руу орох үүд хаалга юм.</p>
     </div>
     <div class="gal">
       <figure class="big"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mandschir_Chiid2.JPG?width=1200" alt="Manzushir Monastery beneath forested hills"><figcaption><span class="t" data-en="Manzushir Monastery">Манзушир хийд</span><small class="t" data-en="Founded in 1733, a short drive from Zuunmod">1733 онд байгуулагдсан, Зуунмодоос ойрхон</small></figcaption></figure>
-      <figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mountain_forest_in_Mongolia_20220826_145345.jpg?width=800" alt="Larch and pine forest"><figcaption><span class="t" data-en="Bogd Khan forests">Богд хан уулын ой</span></figcaption></figure>
+      <figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mountain_forest_in_Mongolia_20220826_145345.jpg?width=800" alt="Coniferous forest on Bogd Khan Mountain"><figcaption><span class="t" data-en="Bogd Khan forests">Богд хан уулын ой</span></figcaption></figure>
       <figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mongolian_Ger.jpg?width=800" alt="A traditional Mongolian ger on the steppe"><figcaption><span class="t" data-en="The Mongolian ger">Монгол гэр</span></figcaption></figure>
       <figure class="wide"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mongolian_horses_in_Erdene,_Töv,_Mongolia.jpg?width=1200" alt="Mongolian horses in Töv Province"><figcaption><span class="t" data-en="Horses of Töv Province">Төв аймгийн адуу</span><small class="t" data-en="Erdene, Töv">Эрдэнэ сум, Төв</small></figcaption></figure>
-      <figure class="wide"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Jeźdźcy_na_stepie_przed_rozpoczęciem_lokalnego_festiwalu_Naadam_(01).jpg?width=1200" alt="Riders on the steppe before a local Naadam festival"><figcaption><span class="t" data-en="Naadam on the steppe">Талын наадам</span><small class="t" data-en="Every July: wrestling, horse racing, archery">7-р сард: бөх, морин уралдаан, сур харваа</small></figcaption></figure>
-      <figure class="wide"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gorkhi_Terelj_Park.jpg?width=1200" alt="Green valleys of Gorkhi-Terelj National Park"><figcaption><span class="t" data-en="Gorkhi-Terelj National Park">Горхи-Тэрэлж байгалийн цогцолбор</span><small class="t" data-en="Töv Province's most famous park">Төв аймгийн хамгийн алдартай аялалын бүс</small></figcaption></figure>
+      <figure class="wide"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Jeźdźcy_na_stepie_przed_rozpoczęciem_lokalnego_festiwalu_Naadam_(01).jpg?width=1200" alt="Riders on the steppe before a local Naadam festival"><figcaption><span class="t" data-en="Naadam on the steppe">Талын наадам</span><small class="t" data-en="Every July: wrestling, horse racing, archery">Жил бүрийн 7-р сард: бөх, морин уралдаан, сур харваа</small></figcaption></figure>
+      <figure class="wide"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Gorkhi_Terelj_Park.jpg?width=1200" alt="Green valleys of Gorkhi-Terelj National Park"><figcaption><span class="t" data-en="Gorkhi-Terelj National Park">Горхи-Тэрэлжийн байгалийн цогцолборт газар</span><small class="t" data-en="Töv Province's most famous park">Төв аймгийн хамгийн алдартай аялал жуулчлалын бүс</small></figcaption></figure>
       <figure class="wide"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Manzushir_Monastery.jpg?width=1200" alt="Temple at Manzushir Monastery"><figcaption><span class="t" data-en="Temple ruins & museum">Хийдийн туурь, музей</span></figcaption></figure>
     </div>
   </div>
@@ -395,8 +387,8 @@ footer .credits a{color:inherit}
   <div class="wrap tgrid">
     <div>
       <div class="eyebrow t" data-en="Guided tours">Хөтөчтэй аялал</div>
-      <h2 class="t" data-en="See Zuunmod with a local guide" style="margin-top:10px">Зуунмодыг нутгийн хөтөчтэй танина</h2>
-      <p class="lead t" data-en="Our guide speaks fluent English and has three years of experience with international travellers. Add a tour when you book." style="margin-top:14px">Манай хөтөч англиар чөлөөтэй ярьдаг, гадаад жуулчдыг 3 жил хөтөлсөн туршлагатай. Захиалга өгөхдөө аяллаа хамт сонгоорой.</p>
+      <h2 class="t" data-en="See Zuunmod with a local guide" style="margin-top:10px">Зуунмодыг нутгийн хөтөчтэй хамт танин мэдээрэй</h2>
+      <p class="lead t" data-en="Our guide speaks fluent English and has three years of experience with international travellers. Add a tour when you book." style="margin-top:14px">Манай хөтөч англи хэлээр чөлөөтэй ярьдаг бөгөөд гадаад жуулчдыг 3 жил хөтөлсөн туршлагатай. Захиалга өгөхдөө аяллаа давхар сонгох боломжтой.</p>
       <div class="badges"><span class="t" data-en="Fluent English">Англи хэл</span><span class="t" data-en="3 years' experience">3 жилийн туршлага</span><span class="t" data-en="Price on request">Үнэ тохиролцоно</span></div>
     </div>
     <ul class="tlist" id="tour-list"></ul>
@@ -408,14 +400,14 @@ footer .credits a{color:inherit}
     <div class="fimg zoom"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Mountain_forest_in_Mongolia_20220826_145345.jpg?width=1200" alt="Larch forest on Bogd Khan Mountain"></div>
     <div class="ftext">
       <div class="eyebrow t" data-en="Hiking">Явган аялал</div>
-      <h2 class="t" data-en="Hike Bogd Khan Mountain from our door">Богд хан ууланд гэрийн үүднээс гарч алх</h2>
-      <p class="lead t" data-en="The easiest trail to Tsetsee Gün, the highest point of the sacred mountain, starts at Manzushir Monastery, a short drive from Zuunmod.">Ариун уулын хамгийн өндөр цэг Цэцээ гүн оргилд гарах хамгийн хялбар зам Зуунмодоос ойрхон Манзушир хийдээс эхэлдэг.</p>
+      <h2 class="t" data-en="Hike Bogd Khan Mountain from our door">Богд хан ууланд явганаар аялаарай</h2>
+      <p class="lead t" data-en="The easiest trail to Tsetsee Gün, the highest point of the sacred mountain, starts at Manzushir Monastery, a short drive from Zuunmod.">Ариун уулын хамгийн өндөр цэг Цэцээ гүн оргилд гарах хамгийн хялбар зам Зуунмодын ойролцоох Манзушир хийдээс эхэлдэг.</p>
       <ol class="steps">
-        <li><b class="t" data-en="Drive to Manzushir Monastery">Манзушир хийд хүрэх</b><span class="t" data-en="About 5 km from Zuunmod. We can drop you off.">Зуунмодоос ~5 км. Бид хүргэж өгнө.</span></li>
+        <li><b class="t" data-en="Drive to Manzushir Monastery">Манзушир хийд хүртэл машинаар очих</b><span class="t" data-en="About 5 km from Zuunmod. We can drop you off.">Зуунмодоос ~5 км. Бид хүргэж өгнө.</span></li>
         <li><b class="t" data-en="Climb through larch forest">Шинэсэн ойгоор өгсөх</b><span class="t" data-en="About 3 hours up to Tsetsee Gün peak, 2,256 m.">Цэцээ гүн оргил (2,256 м) хүртэл 3 цаг орчим.</span></li>
-        <li><b class="t" data-en="Enjoy the view and return">Үзэмж харж буцах</b><span class="t" data-en="5–6 hours round trip. Ulaanbaatar is visible from the top.">Нийт 5–6 цаг. Оргилоос Улаанбаатар харагдана.</span></li>
+        <li><b class="t" data-en="Enjoy the view and return">Байгалийн үзэсгэлэнг харж буцах</b><span class="t" data-en="5–6 hours round trip. Ulaanbaatar is visible from the top.">Нийт 5–6 цаг. Оргилоос Улаанбаатар харагдана.</span></li>
       </ol>
-      <div class="badges"><span class="t" data-en="Best June–September">6–9 сард хамгийн тохиромжтой</span><span class="t" data-en="Hiking boots, water, warm layer">Гутал, ус, дулаан хувцас</span><span class="t" data-en="Guide recommended">Хөтөчтэй явахыг зөвлөнө</span></div>
+      <div class="badges"><span class="t" data-en="Best June–September">6–9 сард хамгийн тохиромжтой</span><span class="t" data-en="Hiking boots, water, warm layer">Явган аяллын гутал, ус, дулаан хувцас</span><span class="t" data-en="Guide recommended">Хөтөчтэй явахыг зөвлөнө</span></div>
     </div>
   </div>
 </section>
@@ -425,27 +417,15 @@ footer .credits a{color:inherit}
     <div class="fimg zoom"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Genghis_Khan_Equestrian_Statue.jpg?width=1200" alt="The Chinggis Khaan Equestrian Statue at Tsonjin Boldog"></div>
     <div class="ftext">
       <div class="eyebrow t" data-en="Day trip">Нэг өдрийн аялал</div>
-      <h2 class="t" data-en="Chinggis Khaan Statue & 13th Century Park">Чингис хааны морьт хөшөө ба 13-р зуун цогцолбор</h2>
+      <h2 class="t" data-en="Chinggis Khaan Statue & 13th Century Park">Чингис хааны морьт хөшөө, 13-р зуун цогцолбор</h2>
       <p class="lead t" data-en="At Tsonjin Boldog, where legend says Chinggis Khaan found a golden whip, stands the world's largest equestrian statue. Nearby, the 13th Century Park recreates life in the Mongol Empire.">Чингис хаан алтан ташуур олсон гэх домогтой Цонжин Болдогт дэлхийн хамгийн том морьт хөшөө сүндэрлэдэг. Ойролцоох 13-р зуун цогцолбор Их Монгол улсын үеийн амьдралыг сэргээн харуулдаг.</p>
       <ul class="facts2">
         <li><b>40 м</b><span class="t" data-en="stainless steel statue, opened in 2008">зэвэрдэггүй гангаар хийсэн хөшөө, 2008 онд нээгдсэн</span></li>
-        <li><b>🐎</b><span class="t" data-en="Walk up inside to a viewing deck on the horse's head">Дотуур нь өгсөж морины толгой дээрх тагтаас харна</span></li>
-        <li><b>13</b><span class="t" data-en="13th Century Park: herder, craftsmen, shaman camps and the khan's palace">13-р зуун: малчин, дархан, бөөгийн өртөө, хааны ордон</span></li>
+        <li><b>🐎</b><span class="t" data-en="Walk up inside to a viewing deck on the horse's head">Хөшөөний дотуур өгсөж, морины толгой дээрх тагтаас үзэмж харна</span></li>
+        <li><b>13</b><span class="t" data-en="13th Century Park: herder, craftsmen, shaman camps and the khan's palace">13-р зуун цогцолбор: малчин, дархан, бөөгийн бааз, хааны өргөө</span></li>
       </ul>
-      <p class="note2 t" data-en="We arrange the car and guide. Ask when you book.">Машин, хөтчийг бид зохион байгуулна. Захиалахдаа асуугаарай.</p>
+      <p class="note2 t" data-en="We arrange the car and guide. Ask when you book.">Машин, хөтчийг бид бэлдэнэ. Захиалга өгөхдөө асуугаарай.</p>
     </div>
-  </div>
-</section>
-
-<section id="food">
-  <div class="wrap">
-    <div class="head">
-      <div class="eyebrow t" data-en="Mongolian food">Монгол хоол</div>
-      <h2 class="t" data-en="Order home-cooked Mongolian food">Гэрийн монгол хоол захиалаарай</h2>
-      <p class="lead t" data-en="Tell us one day ahead and we'll cook traditional dishes for your group. Add them in the booking form.">Нэг өдрийн өмнө хэлбэл танай бүлэгт уламжлалт хоол хийж өгнө. Захиалгын хэсэгт сонгоорой.</p>
-    </div>
-    <div class="dishes" id="dish-list"></div>
-    <p class="note2 t" data-en="Food prices depend on the number of guests and are agreed with you when you arrive." style="margin-top:18px">Хоолны үнийг хүний тооноос хамааран ирэхэд тань тохиролцоно.</p>
   </div>
 </section>
 
@@ -458,17 +438,17 @@ footer .credits a{color:inherit}
     <div class="info">
       <div class="card">
         <h3 class="t" data-en="Pick-up & drop-off">🚗 Тосох, хүргэх</h3>
-        <p class="t" data-en="Tick the transfer option in the booking form and tell us your flight or meeting point. We'll confirm the price when we reply.">Захиалгын хүснэгтэд тосох үйлчилгээг сонгоод нислэг эсвэл уулзах газраа бичээрэй. Үнийг баталгаажуулахдаа хэлнэ.</p>
+        <p class="t" data-en="Tick the transfer option in the booking form and tell us your flight or meeting point. We'll confirm the price when we reply.">Захиалгын маягт дээр тосох үйлчилгээг сонгоод нислэгийн дугаар эсвэл уулзах газраа бичээрэй. Үнийг захиалгыг баталгаажуулахдаа мэдэгдэнэ.</p>
         <ul>
-          <li class="t" data-en="Chinggis Khaan International Airport">Чингис хаан олон улсын нисэх буудал</li>
-          <li class="t" data-en="Anywhere in Ulaanbaatar">Улаанбаатарын аль ч цэг</li>
+          <li class="t" data-en="Chinggis Khaan International Airport">Чингис хаан олон улсын нисэх онгоцны буудал</li>
+          <li class="t" data-en="Anywhere in Ulaanbaatar">Улаанбаатар хотын аль ч цэг</li>
           <li class="t" data-en="Drop-off on your way out">Буцахад хүргэж өгөх</li>
         </ul>
       </div>
       <div class="card">
         <h3 class="t" data-en="Payment">💳 Төлбөр</h3>
         <div class="pay">
-          <div><b class="t" data-en="Guests from Mongolia">Монгол зочид</b><span class="t" data-en="Pay a deposit by bank transfer. We send the account details when we confirm.">Урьдчилгааг дансаар шилжүүлнэ. Дансны мэдээллийг баталгаажуулахдаа илгээнэ.</span></div>
+          <div><b class="t" data-en="Guests from Mongolia">Монгол зочид</b><span class="t" data-en="Pay a deposit by bank transfer. We send the account details when we confirm.">Урьдчилгаа төлбөрийг дансаар шилжүүлнэ. Дансны мэдээллийг захиалга баталгаажуулахдаа илгээнэ.</span></div>
           <div><b class="t" data-en="International guests">Гадаад зочид</b><span class="t" data-en="Send your request and we'll confirm by email within 24 hours. Pay on arrival in cash (USD or MNT). Prefer to pay by card? Book through Booking.com or Trip.com.">Захиалгаа илгээвэл бид 24 цагийн дотор имэйлээр баталгаажуулна. Төлбөрийг ирэхдээ бэлнээр (USD эсвэл ₮) төлнө. Картаар төлөх бол Booking.com эсвэл Trip.com-оор захиална уу.</span></div>
           <div class="ota" id="otaPay" hidden></div>
         </div>
@@ -478,15 +458,15 @@ footer .credits a{color:inherit}
         <h3 class="t" data-en="Cancellation & house rules">📋 Цуцлалт ба байрны дүрэм</h3>
         <div class="rgrid">
           <ul>
-            <li class="t" data-en="Free cancellation up to 5 days before arrival: any deposit is refunded in full.">Ирэхээс 5 хоногийн өмнө хүртэл үнэгүй цуцална, урьдчилгааг бүрэн буцаана.</li>
-            <li class="t" data-en="Cancelling within 5 days, or not arriving: the one-night deposit ($50) is not refunded. Bookings made on Booking.com or Trip.com follow the same policy there.">5 хоногоос бага хугацаанд цуцлах эсвэл ирээгүй тохиолдолд нэг шөнийн урьдчилгаа ($50) буцаагдахгүй. Booking.com, Trip.com-оор хийсэн захиалгад ч ижил нөхцөл үйлчилнэ.</li>
+            <li class="t" data-en="Free cancellation up to 5 days before arrival: any deposit is refunded in full.">Ирэхээс 5 хоногийн өмнө хүртэл үнэгүй цуцлах боломжтой бөгөөд урьдчилгааг бүрэн буцаан олгоно.</li>
+            <li class="t" data-en="Cancelling within 5 days, or not arriving: the one-night deposit ($50) is not refunded. Bookings made on Booking.com or Trip.com follow the same policy there.">Ирэхээс 5 хоног хүрэхгүй хугацааны өмнө цуцалсан эсвэл ирээгүй тохиолдолд нэг шөнийн урьдчилгаа ($50) буцаагдахгүй. Booking.com, Trip.com-оор хийсэн захиалгад ч ижил нөхцөл үйлчилнэ.</li>
             <li class="t" data-en="Leaving early: unused nights after the first are refunded.">Эрт гарвал эхний шөнөөс бусад ашиглаагүй шөнийн төлбөрийг буцаана.</li>
           </ul>
           <ul>
             <li class="t" data-en="No alcohol in the apartment">Байранд архи хэрэглэхийг хориглоно</li>
             <li class="t" data-en="No smoking, including e-cigarettes">Тамхи, цахилгаан тамхи татахыг хориглоно</li>
             <li class="t" data-en="Maximum 5 guests">Хамгийн ихдээ 5 хүн</li>
-            <li class="t" data-en="Please keep it quiet for the neighbours at night">Орой хөршүүддээ саад болохгүй байх</li>
+            <li class="t" data-en="Please keep it quiet for the neighbours at night">Шөнийн цагаар хөршүүддээ саад болохгүй байхыг хүсье</li>
           </ul>
         </div>
       </div>
@@ -498,14 +478,14 @@ footer .credits a{color:inherit}
   <div class="wrap loc">
     <div style="display:grid;gap:14px">
       <div class="eyebrow t" data-en="Location">Байршил</div>
-      <p class="addr t" data-en="3rd floor above Ugooj store, Khugjil complex, Zuunmod, Töv Province">Төв аймаг, Зуунмод сум, Хөгжил хотхон, Өгөөж дэлгүүрийн 3 давхар</p>
+      <p class="addr t" data-en="3rd floor above Ugooj store, Khugjil complex, Zuunmod, Töv Province">Төв аймаг, Зуунмод сум, Хөгжил хотхон, Өгөөж дэлгүүрийн 3 давхарт</p>
       <a class="btn ghost t" style="justify-self:start" target="_blank" rel="noopener" href="https://www.google.com/maps/place/%D3%A8%D0%B3%D3%A9%D3%A9%D0%B6+%D1%85%D2%AF%D0%BD%D1%81%D0%BD%D0%B8%D0%B9+%D0%B4%D1%8D%D0%BB%D0%B3%D2%AF%D2%AF%D1%80/@47.7081703,106.9451021,19.67z/data=!4m15!1m8!3m7!1s0x5d96a34c4e1e89bf:0x60209626f83b5052!2sZuunmod,+T%C3%B6v,+Mongolia!3b1!8m2!3d47.7023117!4d106.9605429!16zL20vMDVnYzdo!3m5!1s0x5d96a30034618cb1:0x8aa7422731dc8ca4!8m2!3d47.7080313!4d106.9461033!16s%2Fg%2F11vr953fq4?entry=ttu" data-en="Open in Google Maps">Google Maps дээр нээх</a>
     </div>
     <ul class="near">
       <li><span class="t" data-en="Police station">Цагдаагийн газар</span><span class="t" data-en="nearby">ойрхон</span></li>
       <li><span class="t" data-en="Bogd Khan Protected Area">Богд хан уулын дархан цаазат газар</span><span>~2 km</span></li>
       <li><span class="t" data-en="Manzushir Monastery">Манзушир хийд</span><span>~5 km</span></li>
-      <li><span class="t" data-en="Chinggis Khaan International Airport">Чингис хаан олон улсын нисэх буудал</span><span>~25 km</span></li>
+      <li><span class="t" data-en="Chinggis Khaan International Airport">Чингис хаан олон улсын нисэх онгоцны буудал</span><span>~25 km</span></li>
       <li><span class="t" data-en="Chinggis Khaan Statue (Tsonjin Boldog)">Чингис хааны хөшөө (Цонжин Болдог)</span><span class="t" data-en="~2 h by car">~2 цаг</span></li>
       <li><span class="t" data-en="Ulaanbaatar city centre">Улаанбаатар хот</span><span>~45 km</span></li>
     </ul>
@@ -536,15 +516,13 @@ footer .credits a{color:inherit}
       <label class="check" for="f-pick"><input type="checkbox" id="f-pick"><span class="t" data-en="I need pick-up / drop-off">Тосох / хүргэх үйлчилгээ хэрэгтэй</span></label>
       <div class="sub" id="pickbox" hidden>
         <div class="f"><label for="f-pickfrom" class="t" data-en="From">Хаанаас</label><select id="f-pickfrom"></select></div>
-        <div class="f"><label for="f-flight" class="t" data-en="Flight no. / time / address">Нислэг, цаг эсвэл хаяг</label><input id="f-flight"></div>
+        <div class="f"><label for="f-flight" class="t" data-en="Flight no. / time / address">Нислэгийн дугаар, цаг эсвэл хаяг</label><input id="f-flight"></div>
       </div>
-      <label class="check" for="f-tour-on"><input type="checkbox" id="f-tour-on"><span class="t" data-en="Add a guided tour (English-speaking guide)">Хөтөчтэй аялал нэмэх (англи хэлтэй)</span></label>
+      <label class="check" for="f-tour-on"><input type="checkbox" id="f-tour-on"><span class="t" data-en="Add a guided tour (English-speaking guide)">Хөтөчтэй аялал нэмэх (англи хэлтэй хөтөч)</span></label>
       <div class="sub" id="tourbox" hidden>
         <div class="f"><label for="f-tour" class="t" data-en="Tour">Аялал</label><select id="f-tour"></select></div>
         <div class="f"><label for="f-tour-date" class="t" data-en="Tour date">Аяллын өдөр</label><input type="date" id="f-tour-date"></div>
       </div>
-      <label class="check" for="f-food-on"><input type="checkbox" id="f-food-on"><span class="t" data-en="Order Mongolian food (1 day ahead)">Монгол хоол захиалах (1 өдрийн өмнө)</span></label>
-      <div class="foodpick" id="foodbox" hidden></div>
       <div class="f full"><label for="f-note" class="t" data-en="Anything else?">Нэмэлт хүсэлт</label><textarea id="f-note" rows="2"></textarea></div>
       <input type="text" id="f-company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">
       <div class="total"><span id="tot-label"></span><b id="tot">$50</b></div>
@@ -559,8 +537,8 @@ footer .credits a{color:inherit}
 
 <footer>
   <div class="wrap">
-    <img src="/logo-180.png" alt="Senden Guest House" width="90" height="90" loading="lazy">
-    <div>© 2026 Senden Guest House · Zuunmod, Töv, Mongolia · +976 9901 2835 · sendenguesthouse@gmail.com</div>
+    <img class="logo" src="/brand/senden-logo.png" alt="Senden Guest House · +976 9901 2835" width="220" height="119" loading="lazy">
+    <div>© 2026 Senden Guest House · sendenguesthouse.com · Zuunmod, Töv, Mongolia · +976 9901 2835 · sendenguesthouse@gmail.com</div>
     <div class="credits"><span class="t" data-en="Photos (Wikimedia Commons):">Зургууд (Wikimedia Commons):</span>
       <a href="https://commons.wikimedia.org/wiki/File:Bogd_Khan_Mountain.jpg" target="_blank" rel="noopener">Bogd Khan Mountain</a> – Chongkian, CC BY-SA 4.0 ·
       <a href="https://commons.wikimedia.org/wiki/File:Mandschir_Chiid2.JPG" target="_blank" rel="noopener">Manzushir</a> – Arabsalam, CC BY-SA 4.0 ·
@@ -570,11 +548,7 @@ footer .credits a{color:inherit}
       <a href="https://commons.wikimedia.org/wiki/File:Mongolian_horses_in_Erdene,_T%C3%B6v,_Mongolia.jpg" target="_blank" rel="noopener">Horses in Erdene</a> – Quintin Soloviev, CC BY 4.0 ·
       <a href="https://commons.wikimedia.org/wiki/File:Je%C5%BAd%C5%BAcy_na_stepie_przed_rozpocz%C4%99ciem_lokalnego_festiwalu_Naadam_(01).jpg" target="_blank" rel="noopener">Naadam riders</a> – Marcin Konsek, CC BY-SA 4.0 ·
       <a href="https://commons.wikimedia.org/wiki/File:Gorkhi_Terelj_Park.jpg" target="_blank" rel="noopener">Gorkhi Terelj</a> – Vidor, public domain ·
-      <a href="https://commons.wikimedia.org/wiki/File:Genghis_Khan_Equestrian_Statue.jpg" target="_blank" rel="noopener">Chinggis Khaan Statue</a> – Martin Vorel, CC0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:Mongolian_buuz.jpg" target="_blank" rel="noopener">Buuz</a> – Mizu basyo, CC BY-SA 3.0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:MongoliaLastDay_153.JPG" target="_blank" rel="noopener">Khuushuur</a> – Sivserver, CC BY-SA 3.0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:Tsuivan.jpg" target="_blank" rel="noopener">Tsuivan</a> – Mizu_Basyo, CC BY-SA 3.0 ·
-      <a href="https://commons.wikimedia.org/wiki/File:Suutei_tsai.jpg" target="_blank" rel="noopener">Suutei tsai</a> – Mizu_Basyo, CC BY-SA 3.0
+      <a href="https://commons.wikimedia.org/wiki/File:Genghis_Khan_Equestrian_Statue.jpg" target="_blank" rel="noopener">Chinggis Khaan Statue</a> – Martin Vorel, CC0
     </div>
   </div>
 </footer>
@@ -586,19 +560,13 @@ const PRICE_USD=50, PRICE_MNT=180000;
 // Booking.com, Trip.com дээрх хуудасны линк. Хоосон бол товч харагдахгүй.
 const OTA=[{name:"Booking.com",url:""},{name:"Trip.com",url:""}];
 const TOURS=[
-  {id:"manz",mn:"Манзушир хийд, нарсан ой",en:"Manzushir Monastery & pine forest",dmn:"Хийдийн туурь, музей үзэж, ойгоор алхана.",den:"Monastery ruins, museum and a forest walk.",dur:["Хагас өдөр","Half day"]},
+  {id:"manz",mn:"Манзушир хийд, шилмүүст ой",en:"Manzushir Monastery & coniferous forest",dmn:"Хийдийн туурь, музейг үзэж, ойгоор алхана.",den:"Monastery ruins, museum and a forest walk.",dur:["Хагас өдөр","Half day"]},
   {id:"bogd",mn:"Богд хан уулын явган аялал",en:"Bogd Khan mountain hike",dmn:"Манзушир хийдээс Цэцээ гүн оргил (2,256 м) хүртэл, 5–6 цаг.",den:"From Manzushir Monastery to Tsetsee Gün peak (2,256 m), 5–6 hours.",dur:["Бүтэн өдөр","Full day"]},
   {id:"chinggis",mn:"Чингис хааны хөшөө ба 13-р зуун",en:"Chinggis Khaan Statue & 13th Century Park",dmn:"Цонжин Болдог дахь 40 м хөшөө, 13-р зууны цогцолбор.",den:"The 40 m statue at Tsonjin Boldog and the 13th Century Park.",dur:["Бүтэн өдөр","Full day"]},
   {id:"terelj",mn:"Горхи-Тэрэлж",en:"Gorkhi-Terelj National Park",dmn:"Мэлхий хад, боржин хадат хөндий, тал нутаг.",den:"Turtle Rock, granite valleys and open steppe.",dur:["Бүтэн өдөр","Full day"]},
-  {id:"town",mn:"Зуунмод хотын аялал",en:"Zuunmod town walk",dmn:"Аймгийн музей, нутгийн зах, монгол хоол.",den:"Provincial museum, local market and Mongolian food.",dur:["Хагас өдөр","Half day"]}
+  {id:"town",mn:"Зуунмод хотын аялал",en:"Zuunmod town walk",dmn:"Аймгийн музей, орон нутгийн захаар зочилно.",den:"Provincial museum and the local market.",dur:["Хагас өдөр","Half day"]}
 ];
-const DISHES=[
-  {id:"buuz",mn:"Бууз",en:"Buuz",dmn:"Махтай уурын банш, монголчуудын хамгийн дуртай хоол.",den:"Steamed meat dumplings, Mongolia's favourite dish.",img:"Mongolian_buuz.jpg"},
-  {id:"khuushuur",mn:"Хуушуур",en:"Khuushuur",dmn:"Тосонд шарсан махтай хавтгай боов.",den:"Crispy fried pastries filled with meat.",img:"MongoliaLastDay_153.JPG"},
-  {id:"tsuivan",mn:"Цуйван",en:"Tsuivan",dmn:"Гар гоймонтой мах, ногоотой шөлгүй хоол.",den:"Hand-made noodles stir-fried with meat and vegetables.",img:"Tsuivan.jpg"},
-  {id:"tsai",mn:"Сүүтэй цай",en:"Mongolian milk tea",dmn:"Давстай, халуун сүүтэй цай. Монгол айлын зочломтгой байдлын бэлгэ тэмдэг.",den:"Hot, lightly salted milk tea, the symbol of Mongolian hospitality.",img:"Suutei_tsai.jpg"}
-];
-const PICK=[{id:"air",mn:"Нисэх буудал",en:"Airport"},{id:"ub",mn:"Улаанбаатар",en:"Ulaanbaatar"},{id:"both",mn:"Тосох ба хүргэх (хоёулаа)",en:"Pick-up and drop-off"}];
+const PICK=[{id:"air",mn:"Нисэх буудал",en:"Airport"},{id:"ub",mn:"Улаанбаатар",en:"Ulaanbaatar"},{id:"both",mn:"Тосох болон хүргэх",en:"Pick-up and drop-off"}];
 let lang="mn";
 const $=id=>document.getElementById(id);
 const T=(mn,en)=>lang==="mn"?mn:en;
@@ -608,9 +576,6 @@ function fill(id,arr){const s=$(id),c=s.value;s.innerHTML=arr.map(x=>`<option va
 function render(){
   $("tour-list").innerHTML=TOURS.map(t=>`<li><span class="dur">${T(t.dur[0],t.dur[1])}</span><div><strong>${t[lang]}</strong><span class="d">${T(t.dmn,t.den)}</span></div></li>`).join("");
   fill("f-tour",TOURS);fill("f-pickfrom",PICK);
-  $("dish-list").innerHTML=DISHES.map(d=>`<article class="dish"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/${d.img}?width=600" alt="${d.en}"><div><b>${d[lang]}</b><span>${T(d.dmn,d.den)}</span></div></article>`).join("");
-  const chk=[...document.querySelectorAll('#foodbox input:checked')].map(i=>i.value);
-  $("foodbox").innerHTML=DISHES.map(d=>`<label><input type="checkbox" value="${d.id}" ${chk.includes(d.id)?"checked":""}>${d[lang]}</label>`).join("");
 }
 const STMT={mn:"Уулын цэвэр агаар. Тайван, аюулгүй орчин. Бүтэн байр *зөвхөн* *танд.*",en:"Fresh mountain air. A calm, safe street. A whole home, *just* *for* *you.*"};
 function splitWords(el,text){el.innerHTML=text.split(" ").map((w,i)=>{const g=w.startsWith("*");w=w.replace(/\*/g,"");return `<span class="w${g?" gold":""}" style="--i:${i}">${w}</span>`}).join(" ")}
@@ -626,7 +591,7 @@ function setLang(l){
 }
 let stmtWords=[];
 function tagReveal(){
-  const groups=[[".head",""],[".rooms > div",""],[".why .item",""],[".gal figure","s"],[".tlist li",""],[".feature .ftext > *",""],[".dish",""],[".card",""],[".loc > *",""],[".contact > *",""],["#bookForm","s"],[".shots > div","s"],[".badges",""]];
+  const groups=[[".head",""],[".rooms > div",""],[".why .item",""],[".gal figure","s"],[".tlist li",""],[".feature .ftext > *",""],[".card",""],[".loc > *",""],[".contact > *",""],["#bookForm","s"],[".shots > div","s"],[".badges",""]];
   groups.forEach(([sel,kind])=>document.querySelectorAll(sel).forEach((el,i)=>{if(el.dataset.r!==undefined)return;el.dataset.r=kind;el.style.setProperty("--d",i%6);io&&io.observe(el)}));
   document.querySelectorAll(".feature .fimg").forEach(el=>{if(el.dataset.r===undefined){el.dataset.r=el.closest(".rev")?"r":"l";io&&io.observe(el)}});
   const pr=document.querySelector(".price");if(pr&&pr.dataset.r===undefined){pr.dataset.r="r";io&&io.observe(pr)}
@@ -687,7 +652,6 @@ function total(){
 ["f-in","f-out"].forEach(id=>$(id).addEventListener("change",()=>{total();showAvail()}));
 $("f-pick").addEventListener("change",e=>$("pickbox").hidden=!e.target.checked);
 $("f-tour-on").addEventListener("change",e=>{$("tourbox").hidden=!e.target.checked;if(e.target.checked&&!$("f-tour-date").value)$("f-tour-date").value=$("f-in").value});
-$("f-food-on").addEventListener("change",e=>$("foodbox").hidden=!e.target.checked);
 $("b-mn").onclick=()=>setLang("mn");$("b-en").onclick=()=>setLang("en");
 
 (function(){const d=new Date();d.setDate(d.getDate()+((6-d.getDay()+7)%7||7));const o=new Date(d);o.setDate(o.getDate()+1);
@@ -704,8 +668,7 @@ $("bookForm").addEventListener("submit",e=>{
   if(msg){$("done").hidden=true;return}
   const pick=$("f-pick").checked?PICK.find(x=>x.id===v("f-pickfrom")):null;
   const tourOn=$("f-tour-on").checked,tour=TOURS.find(x=>x.id===v("f-tour"));
-  const food=$("f-food-on").checked?[...document.querySelectorAll('#foodbox input:checked')].map(i=>DISHES.find(d=>d.id===i.value)):[];
-  const extra=[v("f-email")&&("Email: "+v("f-email")),pick&&("Тосох: "+pick.mn+(v("f-flight")?" ("+v("f-flight")+")":"")),food.length&&("Хоол: "+food.map(d=>d.mn).join(", ")),v("f-note")].filter(Boolean).join(" | ");
+  const extra=[v("f-email")&&("Email: "+v("f-email")),pick&&("Тосох: "+pick.mn+(v("f-flight")?" ("+v("f-flight")+")":"")),v("f-note")].filter(Boolean).join(" | ");
   const lines=[
     T("Senden Guest House — захиалгын хүсэлт","Senden Guest House — booking request"),
     `${T("Нэр","Name")}: ${v("f-name")}`,`${T("Утас","Phone")}: ${v("f-phone")}`,
@@ -715,11 +678,10 @@ $("bookForm").addEventListener("submit",e=>{
     `${T("Нийт","Total")}: $${n*PRICE_USD}`,
     pick&&`${T("Тосох","Transfer")}: ${pick[lang]} ${v("f-flight")}`,
     tourOn&&`${T("Аялал","Tour")}: ${tour[lang]}, ${v("f-tour-date")}`,
-    food.length&&`${T("Хоол","Food")}: ${food.map(d=>d[lang]).join(", ")}`,
     v("f-note")&&`${T("Тэмдэглэл","Notes")}: ${v("f-note")}`
   ].filter(Boolean);
   $("sumText").textContent=lines.join("\n");
-  const showCopy=()=>{$("doneHead").textContent=T("Илгээж чадсангүй. Доорх мэдээллийг хуулж +976 9901 2835 руу илгээнэ үү.","Couldn't send. Copy this and send it to +976 9901 2835 or sendenguesthouse@gmail.com.");$("copyBtn").hidden=false;$("done").hidden=false};
+  const showCopy=()=>{$("doneHead").textContent=T("Илгээж чадсангүй. Доорх мэдээллийг хуулж +976 9901 2835 дугаар руу илгээнэ үү.","Couldn't send. Copy this and send it to +976 9901 2835 or sendenguesthouse@gmail.com.");$("copyBtn").hidden=false;$("done").hidden=false};
   if(!BOOKING_URL||v("f-company")){showCopy();return}
   const btn=$("sendBtn");btn.disabled=true;
   const data={name:v("f-name"),phone:v("f-phone"),room:"Бүтэн байр",checkin:v("f-in"),checkout:v("f-out"),nights:n,guests:v("f-guests"),total:"$"+(n*PRICE_USD),tour:tourOn?tour.mn:"",tourDate:tourOn?v("f-tour-date"):"",note:extra,lang};
@@ -727,12 +689,12 @@ $("bookForm").addEventListener("submit",e=>{
     .then(r=>r.json()).then(j=>{
       if(j.error==="dates_taken"){$("err").textContent=T("Уучлаарай, яг одоо өөр хүн эдгээр өдрийг захиаллаа. Өөр өдөр сонгоно уу.","Sorry, someone just booked these dates. Please choose other dates.");$("err").hidden=false;loadBooked();return}
       if(!j.ok)throw 0;loadBooked();
-      $("doneHead").textContent=T("Баярлалаа! Захиалга илгээгдлээ. Бид удахгүй холбогдоно.","Thank you! Your request was sent. We'll be in touch soon.");
+      $("doneHead").textContent=T("Баярлалаа! Таны захиалгын хүсэлт илгээгдлээ. Бид удахгүй холбогдоно.","Thank you! Your request was sent. We'll be in touch soon.");
       $("copyBtn").hidden=true;$("done").hidden=false;["f-name","f-phone","f-email","f-note","f-flight"].forEach(id=>$(id).value="")})
     .catch(showCopy).finally(()=>{btn.disabled=false});
 });
 $("copyBtn").addEventListener("click",()=>{
-  navigator.clipboard.writeText($("sumText").textContent).then(()=>{$("copyBtn").textContent=T("Хуулагдлаа","Copied")})
+  navigator.clipboard.writeText($("sumText").textContent).then(()=>{$("copyBtn").textContent=T("Хуулсан","Copied")})
   .catch(()=>{const r=document.createRange();r.selectNodeContents($("sumText"));const s=getSelection();s.removeAllRanges();s.addRange(r)});
 });
 (function(){const live=OTA.filter(o=>o.url);if(!live.length)return;
