@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><rect x="0" y="0" width="1000" height="1000" rx="220" fill="#1C3D6E"/>
+<clipPath id="tc"><circle cx="500" cy="190" r="95"/></clipPath>
+<circle cx="500" cy="190" r="95" fill="none" stroke="#C98A1B" stroke-width="22"/>
+<path clip-path="url(#tc)" d="M475.3 95 V285 M524.7 95 V285 M405 165.3 H595 M405 214.7 H595" stroke="#C98A1B" stroke-width="16.5" fill="none"/>
+<path transform="translate(500,798.5714285714286) scale(0.5714285714285714,-0.5714285714285714) translate(-338,0)" d="M174 33 89 -10H67V247H89L175 61Q258 2 365 2Q453 2 510.5 48.5Q568 95 568 179Q568 240 531.0 275.5Q494 311 411 332L245 375Q158 398 114.0 453.5Q70 509 70 585Q70 654 97.5 707.5Q125 761 178.0 790.5Q231 820 304 820Q395 820 467 789L540 820H562V616H540L468 762Q393 798 305 798Q218 798 168.0 753.5Q118 709 118 636Q118 582 153.5 551.0Q189 520 258 502L437 455Q524 433 566.5 379.5Q609 326 609 217Q609 106 540.5 43.0Q472 -20 357 -20Q264 -20 174 33Z" fill="#C98A1B"/>
+<path d="M150 900 C 250 890, 300 830, 390 812 C 450 800, 480 830, 520 822 C 580 808, 640 840, 700 865 C 760 888, 800 896, 850 900" fill="none" stroke="#F3E9D2" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/></svg>
