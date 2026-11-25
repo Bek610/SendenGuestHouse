@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Senden Guest House · Zuunmod</title>
-<meta name="description" content="Senden Guest House – Зуунмод, Төв аймаг. 5 хүртэлх хүнд бүтэн байр шөнөдөө $50. Тосох, хүргэх үйлчилгээтэй, англи хэлтэй хөтөчтэй аялал. Whole apartment for up to 5 guests in Zuunmod near Ulaanbaatar, $50/night.">
+<meta name="description" content="Senden Guest House – Зуунмод, Төв аймаг. 5 хүртэлх хүнд бүтэн байр шөнөдөө $50. Тосох, үдэх үйлчилгээ ($30), англи хэлтэй хөтөчтэй аялал. Whole apartment for up to 5 guests in Zuunmod near Ulaanbaatar, $50/night.">
 <meta property="og:title" content="Senden Guest House · Zuunmod">
 <meta property="og:description" content="Богд хан уулын өвөрт, 5 хүртэлх хүнд бүтэн байр $50/шөнө. Утас: 9901 2835">
 <meta property="og:image" content="https://sendenguesthouse.com/og-image.jpg">
@@ -212,6 +212,13 @@ input,select,textarea{width:100%;padding:11px 13px;border:1px solid var(--line);
 .avail .chips span{border:1px solid var(--line);border-radius:999px;padding:2px 10px}
 .done{grid-column:1/-1;background:var(--surface);border:1.5px solid var(--green);border-radius:14px;padding:16px;display:grid;gap:10px}
 .done pre{margin:0;white-space:pre-wrap;font:inherit;font-size:.9rem;color:var(--muted)}
+.paybox{display:grid;gap:10px;border-top:1px dashed var(--line);padding-top:12px}
+.paybox dl{margin:0;display:grid;gap:0}
+.paybox dl div{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line)}
+.paybox dt{color:var(--muted);font-size:.88rem}.paybox dd{margin:0;font-weight:800;text-align:right;overflow-wrap:anywhere}
+.paybox .ref{background:var(--gold-soft);border-radius:12px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.paybox .ref b{font-family:var(--display);font-size:1.6rem;letter-spacing:.06em;white-space:nowrap}
+.paybox .btn{justify-self:start}
 form .btn{grid-column:1/-1;justify-content:center}
 
 footer{padding-block:40px;border-top:1px solid var(--line);color:var(--muted);font-size:.84rem}
@@ -297,7 +304,7 @@ footer .credits a{color:inherit}
     <div class="strip">
       <div><b>5</b><span class="t" data-en="guests max, whole home">хүн хүртэл, бүтэн байр</span></div>
       <div><b>$50</b><span class="t" data-en="per night, any group size">шөнөдөө, хүний тооноос үл хамаарна</span></div>
-      <div><b>🚗</b><span class="t" data-en="Pick-up & drop-off">Тосох, хүргэх үйлчилгээ</span></div>
+      <div><b>$30</b><span class="t" data-en="Pick-up or drop-off, each way">Тосох эсвэл үдэх, нэг удаа</span></div>
       <div><b>🛡</b><span class="t" data-en="Safe, near the police station">Цагдаагийн газартай ойр, аюулгүй</span></div>
     </div>
   </div>
@@ -336,7 +343,7 @@ footer .credits a{color:inherit}
       <ul>
         <li class="t" data-en="Up to 5 guests">5 хүн хүртэл</li>
         <li class="t" data-en="2 bedrooms, living room, kitchen">2 унтлагын өрөө, зочны өрөө, гал тогоо</li>
-        <li class="t" data-en="Pick-up & drop-off on request">Тосох, хүргэх үйлчилгээ захиалгаар</li>
+        <li class="t" data-en="Pick-up & drop-off: $30 each way">Тосох, үдэх үйлчилгээ: нэг удаа $30</li>
         <li class="t" data-en="English-speaking guide available">Англи хэлтэй хөтөч</li>
         <li class="t" data-en="Alcohol-free and smoke-free home">Архи, тамхигүй орчин</li>
         <li class="t" data-en="Free cancellation up to 5 days before">Ирэхээс 5 хоногийн өмнө хүртэл үнэгүй цуцлах боломжтой</li>
@@ -355,7 +362,7 @@ footer .credits a{color:inherit}
     <div class="whygrid">
       <div class="item"><div class="ic">🛡</div><h3 class="t" data-en="Safe neighbourhood">Аюулгүй орчин</h3><p class="t" data-en="Right by the Zuunmod police station, in the Khugjil complex above Ugooj store.">Хөгжил хотхонд, Өгөөж дэлгүүрийн дээд давхарт, Зуунмодын цагдаагийн газрын ойролцоо байрладаг.</p></div>
       <div class="item"><div class="ic">🌲</div><h3 class="t" data-en="Fresh mountain air">Цэвэр агаар</h3><p class="t" data-en="Zuunmod sits beneath the coniferous forests of Bogd Khan, far from city smog.">Зуунмод нь Богд хан уулын шилмүүст ойн өвөрт, хотын утаанаас хол оршдог.</p></div>
-      <div class="item"><div class="ic">🚗</div><h3 class="t" data-en="Pick-up & drop-off">Тосох, хүргэх</h3><p class="t" data-en="We meet you at Chinggis Khaan Airport or in Ulaanbaatar and drive you back.">Чингис хаан олон улсын нисэх онгоцны буудал эсвэл Улаанбаатараас тосож, буцахад тань хүргэж өгнө.</p></div>
+      <div class="item"><div class="ic">🚗</div><h3 class="t" data-en="Pick-up & drop-off">Тосох, үдэх</h3><p class="t" data-en="We meet you at Chinggis Khaan Airport or in Ulaanbaatar and drive you back. $30 each way.">Чингис хаан олон улсын нисэх онгоцны буудал эсвэл Улаанбаатараас тосож, буцахад тань үдэж өгнө. Нэг удаа $30.</p></div>
       <div class="item"><div class="ic">✈️</div><h3 class="t" data-en="Close to the airport">Нисэх онгоцны буудалд ойр</h3><p class="t" data-en="A short drive from the new international airport, ideal before or after a flight.">Шинэ олон улсын нисэх онгоцны буудлаас ойрхон тул нислэгийн өмнө болон дараа амрахад тохиромжтой.</p></div>
       <div class="item"><div class="ic">🧭</div><h3 class="t" data-en="Local English-speaking guide">Англи хэлтэй хөтөч</h3><p class="t" data-en="Three years of guiding international travellers around Töv Province.">Гадаад жуулчдыг 3 жил хөтөлсөн туршлагатай нутгийн хөтөч.</p></div>
       <div class="item"><div class="ic">🚭</div><h3 class="t" data-en="Alcohol-free, smoke-free">Архи, тамхигүй орчин</h3><p class="t" data-en="A clean, quiet home for families. No alcohol and no smoking anywhere in the apartment.">Гэр бүлд ээлтэй цэвэр, тайван орчин. Байранд архи уух, тамхи татахыг хориглоно.</p></div>
@@ -388,7 +395,15 @@ footer .credits a{color:inherit}
       <div class="eyebrow t" data-en="Guided tours">Хөтөчтэй аялал</div>
       <h2 class="t" data-en="See Zuunmod with a local guide" style="margin-top:10px">Зуунмодыг нутгийн хөтөчтэй хамт танин мэдээрэй</h2>
       <p class="lead t" data-en="Our guide speaks fluent English and has three years of experience with international travellers. Add a tour when you book." style="margin-top:14px">Манай хөтөч англи хэлээр чөлөөтэй ярьдаг бөгөөд гадаад жуулчдыг 3 жил хөтөлсөн туршлагатай. Захиалга өгөхдөө аяллаа давхар сонгох боломжтой.</p>
-      <div class="badges"><span class="t" data-en="Fluent English">Англи хэл</span><span class="t" data-en="3 years' experience">3 жилийн туршлага</span><span class="t" data-en="Price on request">Үнэ тохиролцоно</span></div>
+      <div class="badges"><span class="t" data-en="Fluent English">Англи хэл</span><span class="t" data-en="3 years' experience">3 жилийн туршлага</span><span class="t" data-en="Price agreed with you">Үнэ тохиролцоно</span></div>
+      <div class="card" style="margin-top:20px">
+        <h3 class="t" data-en="How guide and car trips work">Хөтөч, унаатай аялал хэрхэн захиалах вэ</h3>
+        <ol class="steps">
+          <li><b class="t" data-en="Book your stay">Байраа захиалах</b><span class="t" data-en="Tick the tour you want in the booking form.">Захиалгын маягт дээр хүссэн аяллаа сонгоно.</span></li>
+          <li><b class="t" data-en="Payment is confirmed">Төлбөр баталгаажих</b><span class="t" data-en="Once your booking is confirmed, we arrange the guide and car.">Захиалгын төлбөр баталгаажсаны дараа бид хөтөч, унааг бэлдэнэ.</span></li>
+          <li><b class="t" data-en="Agree the price and go">Үнээ тохиролцоод явах</b><span class="t" data-en="We agree the price with you based on the trip and group size, then you set off.">Аялал, хүний тооноос хамааран үнээ тантай тохиролцоод аялалдаа гарна.</span></li>
+        </ol>
+      </div>
     </div>
     <ul class="tlist" id="tour-list"></ul>
   </div>
@@ -407,6 +422,7 @@ footer .credits a{color:inherit}
         <li><b class="t" data-en="Enjoy the view and return">Байгалийн үзэсгэлэнг харж буцах</b><span class="t" data-en="5–6 hours round trip. Ulaanbaatar is visible from the top.">Нийт 5–6 цаг. Оргилоос Улаанбаатар харагдана.</span></li>
       </ol>
       <div class="badges"><span class="t" data-en="Best June–September">6–9 сард хамгийн тохиромжтой</span><span class="t" data-en="Hiking boots, water, warm layer">Явган аяллын гутал, ус, дулаан хувцас</span><span class="t" data-en="Guide recommended">Хөтөчтэй явахыг зөвлөнө</span></div>
+      <p class="note2 t" data-en="Need a guide or a car? Once your booking is paid and confirmed, send us a request and we'll agree the price together.">Хөтөч, унаа хэрэгтэй бол захиалгын төлбөрөө баталгаажуулсны дараа хүсэлт илгээгээрэй. Үнийг тантай тохиролцоно.</p>
     </div>
   </div>
 </section>
@@ -416,14 +432,14 @@ footer .credits a{color:inherit}
     <div class="fimg zoom"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Genghis_Khan_Equestrian_Statue.jpg?width=1200" alt="The Chinggis Khaan Equestrian Statue at Tsonjin Boldog"></div>
     <div class="ftext">
       <div class="eyebrow t" data-en="Day trip">Нэг өдрийн аялал</div>
-      <h2 class="t" data-en="Chinggis Khaan Statue & 13th Century Park">Чингис хааны морьт хөшөө, 13-р зуун цогцолбор</h2>
-      <p class="lead t" data-en="At Tsonjin Boldog, where legend says Chinggis Khaan found a golden whip, stands the world's largest equestrian statue. Nearby, the 13th Century Park recreates life in the Mongol Empire.">Чингис хаан алтан ташуур олсон гэх домогтой Цонжин Болдогт дэлхийн хамгийн том морьт хөшөө сүндэрлэдэг. Ойролцоох 13-р зуун цогцолбор Их Монгол улсын үеийн амьдралыг сэргээн харуулдаг.</p>
+      <h2 class="t" data-en="Chinggis Khaan Statue & 13th Century Park">Чингис хааны морьт хөшөө, 13-⁠р зуун цогцолбор</h2>
+      <p class="lead t" data-en="At Tsonjin Boldog, where legend says Chinggis Khaan found a golden whip, stands the world's largest equestrian statue. Nearby, the 13th Century Park recreates life in the Mongol Empire.">Чингис хаан алтан ташуур олсон гэх домогтой Цонжин Болдогт дэлхийн хамгийн том морьт хөшөө сүндэрлэдэг. Ойролцоох 13-⁠р зуун цогцолбор Их Монгол улсын үеийн амьдралыг сэргээн харуулдаг.</p>
       <ul class="facts2">
         <li><b>40 м</b><span class="t" data-en="stainless steel statue, opened in 2008">зэвэрдэггүй гангаар хийсэн хөшөө, 2008 онд нээгдсэн</span></li>
         <li><b>🐎</b><span class="t" data-en="Walk up inside to a viewing deck on the horse's head">Хөшөөний дотуур өгсөж, морины толгой дээрх тагтаас үзэмж харна</span></li>
-        <li><b>13</b><span class="t" data-en="13th Century Park: herder, craftsmen, shaman camps and the khan's palace">13-р зуун цогцолбор: малчин, дархан, бөөгийн бааз, хааны өргөө</span></li>
+        <li><b>13</b><span class="t" data-en="13th Century Park: herder, craftsmen, shaman camps and the khan's palace">13-⁠р зуун цогцолбор: малчин, дархан, бөөгийн отог, хааны өргөө</span></li>
       </ul>
-      <p class="note2 t" data-en="We arrange the car and guide. Ask when you book.">Машин, хөтчийг бид бэлдэнэ. Захиалга өгөхдөө асуугаарай.</p>
+      <p class="note2 t" data-en="We arrange the car and guide once your booking is paid and confirmed. The price is agreed with you.">Захиалгын төлбөр баталгаажсаны дараа машин, хөтчийг бид бэлдэнэ. Үнийг тантай тохиролцоно.</p>
     </div>
   </div>
 </section>
@@ -436,12 +452,12 @@ footer .credits a{color:inherit}
     </div>
     <div class="info">
       <div class="card">
-        <h3 class="t" data-en="Pick-up & drop-off">🚗 Тосох, хүргэх</h3>
-        <p class="t" data-en="Tick the transfer option in the booking form and tell us your flight or meeting point. We'll confirm the price when we reply.">Захиалгын маягт дээр тосох үйлчилгээг сонгоод нислэгийн дугаар эсвэл уулзах газраа бичээрэй. Үнийг захиалгыг баталгаажуулахдаа мэдэгдэнэ.</p>
+        <h3 class="t" data-en="Pick-up & drop-off: $30 each way">🚗 Тосох, үдэх: нэг удаа $30</h3>
+        <p class="t" data-en="Tick the transfer option in the booking form and tell us your flight or meeting point. Pick-up or drop-off is $30; both ways is $60, added to your total.">Захиалгын маягт дээр тосох эсвэл үдэх үйлчилгээг сонгоод нислэгийн дугаар эсвэл уулзах газраа бичээрэй. Тосох эсвэл үдэх нэг удаа $30, хоёулаа $60 бөгөөд нийт дүнд нэмэгдэнэ.</p>
         <ul>
           <li class="t" data-en="Chinggis Khaan International Airport">Чингис хаан олон улсын нисэх онгоцны буудал</li>
           <li class="t" data-en="Anywhere in Ulaanbaatar">Улаанбаатар хотын аль ч цэг</li>
-          <li class="t" data-en="Drop-off on your way out">Буцахад хүргэж өгөх</li>
+          <li class="t" data-en="Drop-off on your way out">Буцахад үдэж өгөх</li>
         </ul>
       </div>
       <div class="card">
@@ -512,12 +528,12 @@ footer .credits a{color:inherit}
       <div class="f"><label for="f-name" class="t" data-en="Full name">Нэр</label><input id="f-name" required autocomplete="name"></div>
       <div class="f"><label for="f-phone" class="t" data-en="Phone / WhatsApp">Утас</label><input id="f-phone" type="tel" required autocomplete="tel"></div>
       <div class="f"><label for="f-email" class="t" data-en="Email">Имэйл</label><input id="f-email" type="email" autocomplete="email"></div>
-      <label class="check" for="f-pick"><input type="checkbox" id="f-pick"><span class="t" data-en="I need pick-up / drop-off">Тосох / хүргэх үйлчилгээ хэрэгтэй</span></label>
+      <label class="check" for="f-pick"><input type="checkbox" id="f-pick"><span class="t" data-en="I need pick-up / drop-off ($30 each way)">Тосох / үдэх үйлчилгээ хэрэгтэй (нэг удаа $30)</span></label>
       <div class="sub" id="pickbox" hidden>
-        <div class="f"><label for="f-pickfrom" class="t" data-en="From">Хаанаас</label><select id="f-pickfrom"></select></div>
+        <div class="f"><label for="f-pickfrom" class="t" data-en="Service">Үйлчилгээ</label><select id="f-pickfrom"></select></div>
         <div class="f"><label for="f-flight" class="t" data-en="Flight no. / time / address">Нислэгийн дугаар, цаг эсвэл хаяг</label><input id="f-flight"></div>
       </div>
-      <label class="check" for="f-tour-on"><input type="checkbox" id="f-tour-on"><span class="t" data-en="Add a guided tour (English-speaking guide)">Хөтөчтэй аялал нэмэх (англи хэлтэй хөтөч)</span></label>
+      <label class="check" for="f-tour-on"><input type="checkbox" id="f-tour-on"><span class="t" data-en="Request a guided tour (price agreed after your booking is confirmed)">Хөтөчтэй аялал хүсэх (үнийг захиалга баталгаажсаны дараа тохиролцоно)</span></label>
       <div class="sub" id="tourbox" hidden>
         <div class="f"><label for="f-tour" class="t" data-en="Tour">Аялал</label><select id="f-tour"></select></div>
         <div class="f"><label for="f-tour-date" class="t" data-en="Tour date">Аяллын өдөр</label><input type="date" id="f-tour-date"></div>
@@ -528,7 +544,17 @@ footer .credits a{color:inherit}
       <p class="t" style="grid-column:1/-1;margin:0;font-size:.85rem;color:var(--muted)" data-en="By booking you agree to our alcohol-free, smoke-free house rules and the cancellation policy.">Захиалга өгснөөр архи, тамхигүй байрны дүрэм болон цуцлалтын нөхцөлийг зөвшөөрсөнд тооцно.</p>
       <div class="err" id="err" hidden></div>
       <button class="btn t" type="submit" id="sendBtn" data-en="Send booking request">Захиалга илгээх</button>
-      <div class="done" id="done" hidden><strong id="doneHead"></strong><pre id="sumText"></pre><button type="button" class="btn ghost t" id="copyBtn" data-en="Copy" hidden>Хуулах</button></div>
+      <div class="done" id="done" hidden><strong id="doneHead"></strong><pre id="sumText"></pre><button type="button" class="btn ghost t" id="copyBtn" data-en="Copy" hidden>Хуулах</button>
+        <div class="paybox" id="paybox" hidden>
+          <p><b>Урьдчилгаагаа дараах данс руу шилжүүлнэ үү:</b></p>
+          <dl id="bankRows"></dl>
+          <div class="ref"><span>Гүйлгээний утгад заавал бичнэ:</span><b id="payCode"></b></div>
+          <p class="note2">Урьдчилгаа орсны дараа захиалга баталгаажна. Шилжүүлсний дараа доорх товчийг дарна уу.</p>
+          <button type="button" class="btn" id="claimBtn">Шилжүүлсэн</button>
+          <p class="err" id="payErr" hidden></p>
+        </div>
+        <p class="note2" id="payNote" hidden></p>
+      </div>
     </form>
   </div>
 </section>
@@ -561,11 +587,13 @@ const OTA=[{name:"Booking.com",url:""},{name:"Trip.com",url:""}];
 const TOURS=[
   {id:"manz",mn:"Манзушир хийд, шилмүүст ой",en:"Manzushir Monastery & coniferous forest",dmn:"Хийдийн туурь, музейг үзэж, ойгоор алхана.",den:"Monastery ruins, museum and a forest walk.",dur:["Хагас өдөр","Half day"]},
   {id:"bogd",mn:"Богд хан уулын явган аялал",en:"Bogd Khan mountain hike",dmn:"Манзушир хийдээс Цэцээ гүн оргил (2,256 м) хүртэл, 5–6 цаг.",den:"From Manzushir Monastery to Tsetsee Gün peak (2,256 m), 5–6 hours.",dur:["Бүтэн өдөр","Full day"]},
-  {id:"chinggis",mn:"Чингис хааны хөшөө ба 13-р зуун",en:"Chinggis Khaan Statue & 13th Century Park",dmn:"Цонжин Болдог дахь 40 м хөшөө, 13-р зууны цогцолбор.",den:"The 40 m statue at Tsonjin Boldog and the 13th Century Park.",dur:["Бүтэн өдөр","Full day"]},
+  {id:"chinggis",mn:"Чингис хааны хөшөө ба 13-⁠р зуун",en:"Chinggis Khaan Statue & 13th Century Park",dmn:"Цонжин Болдог дахь 40 м хөшөө, 13-⁠р зууны цогцолбор.",den:"The 40 m statue at Tsonjin Boldog and the 13th Century Park.",dur:["Бүтэн өдөр","Full day"]},
   {id:"terelj",mn:"Горхи-Тэрэлж",en:"Gorkhi-Terelj National Park",dmn:"Мэлхий хад, боржин хадат хөндий, тал нутаг.",den:"Turtle Rock, granite valleys and open steppe.",dur:["Бүтэн өдөр","Full day"]},
   {id:"town",mn:"Зуунмод хотын аялал",en:"Zuunmod town walk",dmn:"Аймгийн музей, орон нутгийн захаар зочилно.",den:"Provincial museum and the local market.",dur:["Хагас өдөр","Half day"]}
 ];
-const PICK=[{id:"air",mn:"Нисэх буудал",en:"Airport"},{id:"ub",mn:"Улаанбаатар",en:"Ulaanbaatar"},{id:"both",mn:"Тосох болон хүргэх",en:"Pick-up and drop-off"}];
+const TRANSFER_USD=30;
+const PICK=[{id:"pick",mn:"Тосох ($30)",en:"Pick-up ($30)",n:1},{id:"drop",mn:"Үдэх ($30)",en:"Drop-off ($30)",n:1},{id:"both",mn:"Тосох ба үдэх ($60)",en:"Pick-up and drop-off ($60)",n:2}];
+const trips=()=>$("f-pick").checked?(PICK.find(x=>x.id===$("f-pickfrom").value)||{n:0}).n:0;
 let lang="mn";
 const $=id=>document.getElementById(id);
 const T=(mn,en)=>lang==="mn"?mn:en;
@@ -644,12 +672,13 @@ function showAvail(){
 }
 function loadBooked(){if(!BOOKING_URL)return;fetch(BOOKING_URL+"?action=booked").then(r=>r.json()).then(j=>{if(j.ok&&Array.isArray(j.booked)){BOOKED=j.booked;showAvail()}}).catch(()=>{})}
 function total(){
-  const n=Math.max(nights(),0);
-  $("tot").textContent="$"+(n*PRICE_USD);
-  $("tot-label").textContent=n>0?T(`${n} шөнө × $${PRICE_USD} (≈ ${(n*PRICE_MNT).toLocaleString("en-US")}₮)`,`${n} night(s) × $${PRICE_USD}`):T("Өдрөө сонгоно уу","Choose your dates");
+  const n=Math.max(nights(),0),t=trips(),tr=t?T(` + тосох/үдэх $${t*TRANSFER_USD}`,` + transfer $${t*TRANSFER_USD}`):"";
+  $("tot").textContent="$"+(n*PRICE_USD+t*TRANSFER_USD);
+  $("tot-label").textContent=n>0?T(`${n} шөнө × $${PRICE_USD} (≈ ${(n*PRICE_MNT).toLocaleString("en-US")}₮)`,`${n} night(s) × $${PRICE_USD}`)+tr:T("Өдрөө сонгоно уу","Choose your dates");
 }
 ["f-in","f-out"].forEach(id=>$(id).addEventListener("change",()=>{total();showAvail()}));
-$("f-pick").addEventListener("change",e=>$("pickbox").hidden=!e.target.checked);
+$("f-pick").addEventListener("change",e=>{$("pickbox").hidden=!e.target.checked;total()});
+$("f-pickfrom").addEventListener("change",total);
 $("f-tour-on").addEventListener("change",e=>{$("tourbox").hidden=!e.target.checked;if(e.target.checked&&!$("f-tour-date").value)$("f-tour-date").value=$("f-in").value});
 $("b-mn").onclick=()=>setLang("mn");$("b-en").onclick=()=>setLang("en");
 
@@ -665,17 +694,18 @@ $("bookForm").addEventListener("submit",e=>{
   else if(clash())msg=T("Сонгосон өдрүүдэд захиалга байна. Өөр өдөр сонгоно уу.","Those dates are already booked. Please choose other dates.");
   $("err").hidden=!msg;$("err").textContent=msg;
   if(msg){$("done").hidden=true;return}
+  showPay(null);
   const pick=$("f-pick").checked?PICK.find(x=>x.id===v("f-pickfrom")):null;
   const tourOn=$("f-tour-on").checked,tour=TOURS.find(x=>x.id===v("f-tour"));
-  const extra=[v("f-email")&&("Email: "+v("f-email")),pick&&("Тосох: "+pick.mn+(v("f-flight")?" ("+v("f-flight")+")":"")),v("f-note")].filter(Boolean).join(" | ");
+  const extra=[v("f-email")&&("Email: "+v("f-email")),pick&&("Тосох/үдэх: "+pick.mn+(v("f-flight")?" ("+v("f-flight")+")":"")),v("f-note")].filter(Boolean).join(" | ");
   const lines=[
     T("Senden Guest House — захиалгын хүсэлт","Senden Guest House — booking request"),
     `${T("Нэр","Name")}: ${v("f-name")}`,`${T("Утас","Phone")}: ${v("f-phone")}`,
     v("f-email")&&`Email: ${v("f-email")}`,
     `${T("Ирэх","Check-in")}: ${v("f-in")} · ${T("Гарах","Check-out")}: ${v("f-out")} (${n} ${T("шөнө","nights")})`,
     `${T("Хүний тоо","Guests")}: ${v("f-guests")}`,
-    `${T("Нийт","Total")}: $${n*PRICE_USD}`,
-    pick&&`${T("Тосох","Transfer")}: ${pick[lang]} ${v("f-flight")}`,
+    `${T("Нийт","Total")}: $${n*PRICE_USD+trips()*TRANSFER_USD}`,
+    pick&&`${T("Тосох/үдэх","Transfer")}: ${pick[lang]} ${v("f-flight")}`,
     tourOn&&`${T("Аялал","Tour")}: ${tour[lang]}, ${v("f-tour-date")}`,
     v("f-note")&&`${T("Тэмдэглэл","Notes")}: ${v("f-note")}`
   ].filter(Boolean);
@@ -683,14 +713,38 @@ $("bookForm").addEventListener("submit",e=>{
   const showCopy=()=>{$("doneHead").textContent=T("Илгээж чадсангүй. Доорх мэдээллийг хуулж +976 9901 2835 дугаар руу илгээнэ үү.","Couldn't send. Copy this and send it to +976 9901 2835 or sendenguesthouse@gmail.com.");$("copyBtn").hidden=false;$("done").hidden=false};
   if(!BOOKING_URL||v("f-company")){showCopy();return}
   const btn=$("sendBtn");btn.disabled=true;
-  const data={name:v("f-name"),phone:v("f-phone"),room:"Бүтэн байр",checkin:v("f-in"),checkout:v("f-out"),nights:n,guests:v("f-guests"),total:"$"+(n*PRICE_USD),tour:tourOn?tour.mn:"",tourDate:tourOn?v("f-tour-date"):"",note:extra,lang};
+  const data={action:"book",name:v("f-name"),phone:v("f-phone"),email:v("f-email"),room:"Бүтэн байр",checkin:v("f-in"),checkout:v("f-out"),nights:n,guests:v("f-guests"),total:"$"+(n*PRICE_USD+trips()*TRANSFER_USD),transfer:pick?pick.id:"",flight:pick?v("f-flight"):"",tour:tourOn?tour.mn:"",tourDate:tourOn?v("f-tour-date"):"",note:extra,lang};
   fetch(BOOKING_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)})
     .then(r=>r.json()).then(j=>{
       if(j.error==="dates_taken"){$("err").textContent=T("Уучлаарай, яг одоо өөр хүн эдгээр өдрийг захиаллаа. Өөр өдөр сонгоно уу.","Sorry, someone just booked these dates. Please choose other dates.");$("err").hidden=false;loadBooked();return}
       if(!j.ok)throw 0;loadBooked();
       $("doneHead").textContent=T("Баярлалаа! Таны захиалгын хүсэлт илгээгдлээ. Бид удахгүй холбогдоно.","Thank you! Your request was sent. We'll be in touch soon.");
+      if(j.code)$("sumText").textContent=`${T("Захиалгын код","Booking code")}: ${j.code}\n`+$("sumText").textContent;
+      showPay(j,data.phone);
       $("copyBtn").hidden=true;$("done").hidden=false;["f-name","f-phone","f-email","f-note","f-flight"].forEach(id=>$(id).value="")})
     .catch(showCopy).finally(()=>{btn.disabled=false});
+});
+let payOrder=null;
+function showPay(j,phone){
+  $("payNote").hidden=true;$("paybox").hidden=true;
+  if(!j||!j.code)return;
+  if(j.bank&&j.bank.account){
+    payOrder={code:j.code,phone};
+    const esc=x=>String(x).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+    $("bankRows").innerHTML=[["Банк",j.bank.name],["Данс",j.bank.account],["Хүлээн авагч",j.bank.holder],["Дүн",Number(j.bank.amount).toLocaleString("en-US")+"₮"]]
+      .filter(r=>r[1]).map(r=>`<div><dt>${r[0]}</dt><dd>${esc(r[1])}</dd></div>`).join("");
+    $("payCode").textContent=j.code;$("claimBtn").disabled=false;$("claimBtn").textContent="Шилжүүлсэн";$("payErr").hidden=true;$("paybox").hidden=false;
+  }else{
+    $("payNote").textContent=T(`Таны захиалгын код: ${j.code}. Бид утсаар холбогдож баталгаажуулна.`,`Your booking code is ${j.code}. We'll confirm by email or WhatsApp within 24 hours. You pay in cash when you arrive.`);
+    $("payNote").hidden=false;
+  }
+}
+$("claimBtn").addEventListener("click",()=>{
+  if(!payOrder)return;const b=$("claimBtn");b.disabled=true;b.textContent="Илгээж байна…";
+  fetch(BOOKING_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify({action:"claim",code:payOrder.code,phone:payOrder.phone})})
+    .then(r=>r.json()).then(j=>{if(!j.ok)throw 0;
+      $("paybox").hidden=true;$("payNote").textContent=`Баярлалаа! Бид дансаа шалгаад таны захиалгыг баталгаажуулна (код: ${payOrder.code}).`;$("payNote").hidden=false})
+    .catch(()=>{b.disabled=false;b.textContent="Шилжүүлсэн";$("payErr").textContent="Илгээж чадсангүй. Дахин оролдох эсвэл 9901 2835 руу залгана уу.";$("payErr").hidden=false});
 });
 $("copyBtn").addEventListener("click",()=>{
   navigator.clipboard.writeText($("sumText").textContent).then(()=>{$("copyBtn").textContent=T("Хуулсан","Copied")})

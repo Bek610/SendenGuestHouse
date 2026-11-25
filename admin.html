@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Senden · Админ</title>
+<link rel="icon" type="image/png" href="/favicon.png">
+<style>
+:root{--bg:#f6f4ef;--surface:#fff;--fg:#17202c;--muted:#5a6575;--line:#e2ddd2;--blue:#1c3d6e;--gold:#c98a1b;--gold-soft:#fbf1dc;--green:#2e6b4f;--red:#b23a2e;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#0f141b;--surface:#161d27;--fg:#e8ecf2;--muted:#9aa6b6;--line:#263040;--blue:#8fb3ea;--gold:#efb54a;--gold-soft:#2a2214;--green:#7cc7a2;--red:#ff8a7a;color-scheme:dark}}
+*{box-sizing:border-box;min-width:0}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 "Segoe UI",system-ui,-apple-system,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:24px 16px 60px}
+header{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+h1{font-size:1.5rem;margin:0}
+h2{font-size:1.05rem;margin:28px 0 10px;color:var(--muted)}
+button,input{font:inherit}
+.btn{border:0;border-radius:999px;padding:10px 18px;font-weight:700;cursor:pointer;min-height:44px}
+.btn.ok{background:var(--green);color:#fff}.btn.no{background:transparent;color:var(--red);border:1.5px solid var(--red)}
+.btn.main{background:var(--gold);color:#1b1305}.btn.ghost{background:transparent;border:1.5px solid var(--line);color:var(--fg)}
+.btn:disabled{opacity:.55;cursor:default}
+form{display:flex;gap:10px;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px}
+input{flex:1 1 220px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg);font-size:16px}
+.err{color:var(--red);font-weight:700}
+.list{display:grid;gap:12px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;display:grid;gap:8px}
+.top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:baseline}
+.code{font-weight:800;font-size:1.15rem;letter-spacing:.04em}
+.st{font-size:.8rem;font-weight:800;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.st.check{background:var(--gold-soft);color:var(--gold)}.st.new{background:color-mix(in srgb,var(--blue) 14%,transparent);color:var(--blue)}
+.st.ok{background:color-mix(in srgb,var(--green) 15%,transparent);color:var(--green)}
+.meta{color:var(--muted);font-size:.92rem;display:flex;flex-wrap:wrap;gap:4px 16px}
+.meta b{color:var(--fg)}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.empty{color:var(--muted);padding:14px 0}
+.ical{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:28px;font-size:.9rem;color:var(--muted)}
+.ical code{display:block;margin-top:6px;color:var(--fg);overflow-wrap:anywhere;user-select:all}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Senden · Захиалгын удирдлага</h1>
+    <div><button class="btn ghost" id="reload" hidden>Шинэчлэх</button> <button class="btn ghost" id="logout" hidden>Гарах</button></div>
+  </header>
+
+  <form id="login">
+    <input type="password" id="pw" placeholder="Админ нууц үг" autocomplete="current-password" aria-label="Админ нууц үг">
+    <button class="btn main" type="submit">Нэвтрэх</button>
+    <p class="err" id="loginErr" hidden style="flex-basis:100%;margin:0"></p>
+  </form>
+
+  <div id="app" hidden>
+    <p class="err" id="appErr" hidden></p>
+    <h2>Төлбөр шалгах (зочин "Шилжүүлсэн" гэж мэдэгдсэн)</h2>
+    <div class="list" id="l-check"></div>
+    <h2>Шинэ захиалга (төлбөр хүлээж буй / гадаад зочин)</h2>
+    <div class="list" id="l-new"></div>
+    <h2>Баталгаажсан, удахгүй ирэх</h2>
+    <div class="list" id="l-ok"></div>
+    <div class="ical">Booking.com, Trip.com-ын "Import calendar" хэсэгт өгөх холбоос (манай сайтын захиалгууд тэнд хаагдана):<code id="icalUrl"></code></div>
+  </div>
+</div>
+
+<script>
+{
+const BOOKING_URL="https://script.google.com/macros/s/AKfycbxHxvSDqSDjPcN2o7Zcdz3CqqFRr75ZC1I3EhUKZdZvzUN2H3Ba3wirce4nAGY-o37r/exec";
+const $=id=>document.getElementById(id);
+const esc=x=>String(x??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+let pw="";try{pw=sessionStorage.getItem("sgh-admin")||""}catch(e){}
+
+const call=body=>fetch(BOOKING_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(Object.assign({password:pw},body))}).then(r=>r.json());
+
+function card(it){
+  const cls=it.status==="Төлбөр шалгах"?"check":it.status==="Баталгаажсан"?"ok":"new";
+  const site=!it.source||it.source==="Сайт";
+  const acts=!it.code?`<span class="meta">Код байхгүй (хуучин эсвэл гараар нэмсэн мөр). Sheet дээрээс засна уу.</span>`
+    :`<div class="acts">${it.status!=="Баталгаажсан"?`<button class="btn ok" data-op="confirm" data-code="${esc(it.code)}">${it.lang==="en"?"Баталгаажуулах":"Төлбөр орсон"}</button>`:""}
+      <button class="btn no" data-op="cancel" data-code="${esc(it.code)}">Цуцлах</button></div>`;
+  return `<article class="item">
+    <div class="top"><span class="code">${esc(it.code||"—")} · ${esc(it.name)}</span><span class="st ${cls}">${esc(it.status)}</span></div>
+    <div class="meta"><span><b>${esc(it.checkin)}</b> → <b>${esc(it.checkout)}</b> (${esc(it.nights)} шөнө)</span><span>${esc(it.guests)} хүн</span><span>Нийт <b>${esc(it.total)}</b></span>
+      ${it.phone?`<span>☎ ${esc(it.phone)}</span>`:""}${it.email?`<span>${esc(it.email)}</span>`:""}
+      <span>${site?(it.lang==="en"?"Гадаад зочин · ирэхдээ бэлнээр":"Монгол зочин · урьдчилгаа дансаар"):esc(it.source)}</span>${it.paid?`<span>Төлбөр: ${esc(it.paid)}</span>`:""}</div>
+    ${it.transfer?`<div class="meta">🚗 ${esc(it.transfer)}</div>`:""}${it.tour?`<div class="meta">Аялал: ${esc(it.tour)}</div>`:""}${it.note?`<div class="meta">${esc(it.note)}</div>`:""}
+    ${site?acts:`<div class="meta">${esc(it.source)}-оос автоматаар орсон. Тэндээ удирдана.</div>`}
+  </article>`;
+}
+
+function render(items){
+  const g={check:[],nw:[],ok:[]};
+  items.forEach(it=>(it.status==="Төлбөр шалгах"?g.check:it.status==="Баталгаажсан"?g.ok:g.nw).push(it));
+  [["l-check",g.check],["l-new",g.nw],["l-ok",g.ok]].forEach(([id,arr])=>{$(id).innerHTML=arr.length?arr.map(card).join(""):`<p class="empty">Одоогоор алга.</p>`});
+}
+
+function load(){
+  $("appErr").hidden=true;
+  return call({action:"admin_list"}).then(j=>{
+    if(!j.ok)throw new Error(j.error||"Алдаа");
+    try{sessionStorage.setItem("sgh-admin",pw)}catch(e){}
+    $("login").hidden=true;$("app").hidden=false;$("reload").hidden=false;$("logout").hidden=false;
+    $("icalUrl").textContent=j.ical||"";render(j.items||[]);
+  });
+}
+
+$("login").addEventListener("submit",e=>{
+  e.preventDefault();pw=$("pw").value;$("loginErr").hidden=true;
+  load().catch(err=>{$("loginErr").textContent=err.message==="Failed to fetch"?"Холбогдож чадсангүй.":err.message;$("loginErr").hidden=false});
+});
+$("reload").addEventListener("click",()=>load().catch(err=>{$("appErr").textContent=err.message;$("appErr").hidden=false}));
+$("logout").addEventListener("click",()=>{try{sessionStorage.removeItem("sgh-admin")}catch(e){}location.reload()});
+$("app").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-op]");if(!b)return;
+  const op=b.dataset.op,code=b.dataset.code;
+  if(op==="cancel"&&!confirmBox(b))return;
+  b.disabled=true;b.textContent="Түр хүлээнэ үү…";
+  call({action:"admin_set",op,code}).then(j=>{if(!j.ok)throw new Error(j.error||"Алдаа");return load()})
+    .catch(err=>{$("appErr").textContent=err.message;$("appErr").hidden=false;b.disabled=false;b.textContent=op==="cancel"?"Цуцлах":"Төлбөр орсон"});
+});
+// Цуцлахыг санамсаргүй дарахаас: эхний дарахад асууна, хоёр дахь дарахад цуцална
+function confirmBox(b){if(b.dataset.sure)return true;b.dataset.sure="1";b.textContent="Үнэхээр цуцлах уу? Дахин дар";setTimeout(()=>{delete b.dataset.sure;b.textContent="Цуцлах"},4000);return false}
+
+if(pw)load().catch(()=>{pw="";try{sessionStorage.removeItem("sgh-admin")}catch(e){}});
+}
+</script>
+</body>
+</html>
